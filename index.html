@@ -971,8 +971,81 @@
       transition:none !important;
     }
   }
+
+  /* ---------- Video-format hero (homepage) ---------- */
+  .video-hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:var(--navy-900);
+  }
+  .video-hero-media{position:absolute;inset:0;overflow:hidden;}
+  .video-hero-media img{
+    width:100%;height:100%;object-fit:cover;
+    animation:kenburns 26s ease-in-out infinite alternate;
+    will-change:transform;
+  }
+  .video-hero-scrim{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(0,15,50,.6) 0%, rgba(0,20,60,.32) 42%, rgba(0,10,38,.78) 100%);
+  }
+  @keyframes kenburns{
+    0%{transform:scale(1) translate(0,0);}
+    100%{transform:scale(1.13) translate(-1.5%,-1%);}
+  }
+  .video-hero-content{position:relative;z-index:2;padding:90px 24px 70px;color:#fff;max-width:740px;}
+  .video-hero-clock{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(8,16,41,0.45);
+    border:1px solid rgba(255,255,255,0.25);
+    padding:7px 14px;border-radius:999px;
+    font-size:12.5px;font-weight:700;letter-spacing:.03em;
+    margin-bottom:22px;
+    backdrop-filter:blur(4px);
+    color:#fff;
+  }
+  .video-hero-content .eyebrow{color:var(--gold-400);}
+  .video-hero-title{
+    font-family:'Playfair Display',Georgia,serif;
+    font-size:clamp(30px,5.2vw,54px);
+    line-height:1.15;color:#fff;margin:14px 0 18px;
+  }
+  .video-hero-tagline{
+    font-size:clamp(15.5px,1.8vw,18.5px);line-height:1.65;
+    color:rgba(247,242,229,0.88);max-width:600px;margin:0 0 34px;
+  }
+  .video-hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:46px;}
+  .btn-outline-light{
+    background:transparent;border:1px solid rgba(255,255,255,0.5);color:#fff;
+  }
+  .btn-outline-light:hover{background:rgba(255,255,255,0.1);border-color:#fff;transform:translateY(-2px);}
+  .video-hero-stats{display:flex;gap:36px;flex-wrap:wrap;padding-top:26px;border-top:1px solid rgba(255,255,255,0.22);}
+  .video-hero-stats .num{font-family:'Playfair Display',serif;font-size:25px;color:var(--gold-400);}
+  .video-hero-stats .lbl{font-size:11.5px;color:rgba(247,242,229,0.75);margin-top:2px;line-height:1.35;}
+  .video-hero-scrolldown{
+    position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+    z-index:2;color:#fff;font-size:20px;text-decoration:none;
+    width:42px;height:42px;border-radius:50%;
+    border:1px solid rgba(255,255,255,0.4);
+    display:flex;align-items:center;justify-content:center;
+    animation:bob 2.2s ease-in-out infinite;
+    transition:border-color .18s ease, background-color .18s ease;
+  }
+  .video-hero-scrolldown:hover{background:rgba(255,255,255,0.12);border-color:#fff;}
+  @keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,7px);}}
+  @media (prefers-reduced-motion: reduce){
+    .video-hero-media img{animation:none;}
+    .video-hero-scrolldown{animation:none;}
+  }
+  @media (max-width:768px){
+    .video-hero-content{padding:70px 20px 90px;}
+    .video-hero-stats{gap:24px;}
+  }
 </style>
 </head>
+
 <body>
 <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
@@ -996,10 +1069,10 @@
 
     <nav class="main-nav" aria-label="Navigation principale">
       <a href="#accueil" class="active">Accueil</a>
-      <a href="#actualites">Actualités</a>
-      <a href="#elections">Élections 2026</a>
-      <a href="#culture">Culture</a>
-      <a href="#evenements">Événements</a>
+      <a href="actualites.html#actualites">Actualités</a>
+      <a href="actualites.html#elections">Élections 2026</a>
+      <a href="actualites.html#culture">Culture</a>
+      <a href="actualites.html#evenements">Événements</a>
       <a href="#apropos">À propos</a>
     </nav>
 
@@ -1010,51 +1083,36 @@
           <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </a>
-      <a href="#" class="btn btn-gold">S'abonner</a>
+      <a href="actualites.html" class="btn btn-gold">S'abonner</a>
     </div>
   </div>
   <div class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
     <a href="#accueil">Accueil</a>
-    <a href="#actualites">Actualités</a>
-    <a href="#elections">Élections 2026</a>
-    <a href="#culture">Culture</a>
-    <a href="#evenements">Événements</a>
+    <a href="actualites.html#actualites">Actualités</a>
+    <a href="actualites.html#elections">Élections 2026</a>
+    <a href="actualites.html#culture">Culture</a>
+    <a href="actualites.html#evenements">Événements</a>
     <a href="#apropos">À propos</a>
   </div>
 </header>
 
-<!-- ============ CATEGORY STRIP ============ -->
-<nav class="category-nav" aria-label="Rubriques">
-  <div class="category-nav-inner">
-    <a href="#elections" class="active">Élections 2026</a>
-    <a href="#actualites">Sécurité</a>
-    <span class="sep"></span>
-    <a href="#actualites">International</a>
-    <a href="#actualites">Politique</a>
-    <a href="#actualites">Diaspora</a>
-    <span class="sep"></span>
-    <a href="#culture">Culture</a>
-    <a href="#evenements">Événements</a>
-    <a href="#actualites">Économie</a>
-  </div>
-</nav>
-
 <main id="main-content">
-<!-- ============ HERO FEATURE ============ -->
-<section class="hero-feature" id="accueil">
-  <div class="hero-cover">
+<!-- ============ VIDEO-FORMAT HERO ============ -->
+<section class="video-hero" id="accueil">
+  <div class="video-hero-media">
     <img src="hero-cover.jpg" alt="PORT-AU-PRINCE TIME — L'actualité en temps réel, la culture et la communauté" width="1600" height="609" fetchpriority="high" loading="eager" decoding="async">
-    <div class="hero-cover-clock"><span class="clock-loc">Port-au-Prince • </span><span id="hero-clock">--:--:--</span></div>
+    <div class="video-hero-scrim"></div>
   </div>
-  <div class="hero-below container">
-    <span class="eyebrow">Politique • 12 août 2026 • 6 min de lecture</span>
-    <h2 class="hero-headline"><a href="articles/cep-maintient-cap-30-aout-scrutin.html">À dix-huit jours du scrutin, le Conseil électoral provisoire maintient le cap sur le 30 août</a></h2>
-    <p class="lead">Malgré les défis logistiques et sécuritaires soulevés par plusieurs regroupements politiques, le CEP confirme le calendrier électoral et détaille les dernières étapes avant l'ouverture des bureaux de vote : accréditation des observateurs, formation des agents électoraux et sécurisation du matériel dans les dix départements du pays.</p>
-    <div class="hero-actions">
-      <a href="#actualites" class="btn btn-gold">Lire les dernières actualités</a>
-      <a href="#elections" class="btn btn-outline">Dossier spécial élections</a>
+  <div class="video-hero-content container">
+    <div class="video-hero-clock"><span class="clock-loc">Port-au-Prince • </span><span id="hero-clock">--:--:--</span></div>
+    <span class="eyebrow">Élections générales du 30 août 2026</span>
+    <h2 class="video-hero-title">L'actualité politique d'Haïti,<br>en temps réel.</h2>
+    <p class="video-hero-tagline">Un journal indépendant consacré à l'actualité électorale, à la politique, à la culture et à la communauté haïtienne — en Haïti comme dans la diaspora.</p>
+    <div class="video-hero-actions">
+      <a href="actualites.html" class="btn btn-gold">Voir les actualités</a>
+      <a href="actualites.html#elections" class="btn btn-outline-light">Dossier spécial élections</a>
     </div>
-    <div class="hero-stats-strip">
+    <div class="video-hero-stats">
       <div>
         <div class="num">18</div>
         <div class="lbl">Jours avant<br>le scrutin</div>
@@ -1068,250 +1126,8 @@
         <div class="lbl">Départements<br>couverts</div>
       </div>
     </div>
-    <div class="hero-divider"></div>
   </div>
-</section>
-
-<!-- ============ ACTUALITÉS / À LA UNE ============ -->
-<section class="section" id="actualites" style="padding-top:36px;">
-  <div class="container">
-    <div class="section-header">
-      <h3>À la une</h3>
-      <a href="#" class="section-link">Toute l'actualité →</a>
-    </div>
-
-    <div class="wire-list">
-      <div class="wire-item">
-        <div class="wire-thumb" aria-hidden="true">📋</div>
-        <div class="wire-body">
-          <span class="cat">Élections • Analyse</span>
-          <h5><a href="articles/119-partis-enregistres-elections-2026.html">Plus de 119 partis et regroupements enregistrés : comment s'y retrouver avant le vote</a></h5>
-        </div>
-      </div>
-      <div class="wire-item">
-        <div class="wire-thumb" aria-hidden="true">🛡️</div>
-        <div class="wire-body">
-          <span class="cat">Sécurité</span>
-          <h5><a href="articles/securite-aire-metropolitaine-dispositif-electoral.html">Aire métropolitaine : ce que change le renforcement du dispositif sécuritaire avant le scrutin</a></h5>
-        </div>
-      </div>
-      <div class="wire-item">
-        <div class="wire-thumb" aria-hidden="true">🌍</div>
-        <div class="wire-body">
-          <span class="cat">Diaspora</span>
-          <h5><a href="articles/vote-diaspora-participation-haitiens-etranger.html">Vote de la diaspora : où en sont les discussions sur la participation des Haïtiens de l'étranger</a></h5>
-        </div>
-      </div>
-      <div class="wire-item">
-        <div class="wire-thumb" aria-hidden="true">🏛️</div>
-        <div class="wire-body">
-          <span class="cat">Institutions</span>
-          <h5><a href="articles/fin-mandat-conseil-presidentiel-transition.html">Fin annoncée du mandat du Conseil présidentiel de transition : quelles suites institutionnelles ?</a></h5>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ELECTION SPOTLIGHT / STATS ============ -->
-<section class="spotlight" id="elections">
-  <div class="container">
-    <div class="spotlight-head">
-      <div>
-        <span class="eyebrow" style="color:var(--gold-600)">Dossier spécial</span>
-        <h3>Élections générales du 30 août 2026</h3>
-        <p>Un suivi factuel et actualisé du processus électoral : calendrier, acteurs, enjeux sécuritaires et institutionnels.</p>
-      </div>
-      <a href="#" class="btn btn-gold">Voir le dossier complet</a>
-    </div>
-    <div class="spotlight-grid">
-      <div class="stat-card">
-        <div class="num">30 AOÛT</div>
-        <div class="lbl">Date fixée par le CEP pour les élections présidentielle, législatives et locales</div>
-      </div>
-      <div class="stat-card">
-        <div class="num">119+</div>
-        <div class="lbl">Partis et regroupements politiques inscrits au registre électoral</div>
-      </div>
-      <div class="stat-card">
-        <div class="num">10</div>
-        <div class="lbl">Départements concernés par l'organisation du scrutin sur l'ensemble du territoire</div>
-      </div>
-      <div class="stat-card">
-        <div class="num">1er</div>
-        <div class="lbl">Scrutin général depuis plusieurs années, sur fond de transition et d'enjeux sécuritaires</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ NEWS GRID ============ -->
-<section class="section alt">
-  <div class="container">
-    <div class="section-header">
-      <h3>Politique &amp; Institutions</h3>
-      <a href="#" class="section-link">Voir plus →</a>
-    </div>
-    <div class="news-grid">
-      <div class="card">
-        <div class="card-media small"><span class="tag navy">Analyse</span>Conseil des ministres</div>
-        <div class="card-body">
-          <div class="meta"><span>Politique</span> • <span>11 août 2026</span></div>
-          <h4><a href="articles/decret-electoral-texte-gouvernement-transition.html">Décret électoral : ce que prévoit le texte adopté par le gouvernement de transition</a></h4>
-          <p>Retour sur les principales dispositions du décret encadrant l'organisation du scrutin général, entre encadrement des candidatures et modalités de financement des campagnes.</p>
-          <a class="read-more" href="articles/decret-electoral-texte-gouvernement-transition.html">Lire la suite →</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-media small"><span class="tag navy">Reportage</span>Département de l'Ouest</div>
-        <div class="card-body">
-          <div class="meta"><span>Société</span> • <span>10 août 2026</span></div>
-          <h4><a href="articles/insecurite-inscription-electeurs-defi.html">Dans les zones affectées par l'insécurité, l'inscription des électeurs reste un défi</a></h4>
-          <p>À quelques semaines du vote, plusieurs centres d'inscription peinent encore à fonctionner normalement dans certaines communes de l'aire métropolitaine.</p>
-          <a class="read-more" href="articles/insecurite-inscription-electeurs-defi.html">Lire la suite →</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-media small"><span class="tag navy">International</span>Communauté internationale</div>
-        <div class="card-body">
-          <div class="meta"><span>Diplomatie</span> • <span>9 août 2026</span></div>
-          <h4><a href="articles/partenaires-internationaux-soutien-processus-electoral.html">Les partenaires internationaux réitèrent leur soutien au processus électoral haïtien</a></h4>
-          <p>Plusieurs missions diplomatiques et organisations régionales ont exprimé leur appui à la tenue du scrutin dans un climat sécurisé et transparent.</p>
-          <a class="read-more" href="articles/partenaires-internationaux-soutien-processus-electoral.html">Lire la suite →</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-media small"><span class="tag navy">Économie</span>Marché public</div>
-        <div class="card-body">
-          <div class="meta"><span>Économie</span> • <span>8 août 2026</span></div>
-          <h4><a href="articles/cout-vie-enjeu-campagnes-electorales.html">Le coût de la vie, premier enjeu des campagnes électorales selon les électeurs interrogés</a></h4>
-          <p>Inflation, accès aux produits de première nécessité et relance des activités commerciales figurent parmi les préoccupations exprimées par les Port-au-Princiens.</p>
-          <a class="read-more" href="articles/cout-vie-enjeu-campagnes-electorales.html">Lire la suite →</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-media small"><span class="tag navy">Justice</span>Tribunal électoral</div>
-        <div class="card-body">
-          <div class="meta"><span>Justice</span> • <span>7 août 2026</span></div>
-          <h4><a href="articles/contentieux-electoral-cadre-juridique.html">Contentieux électoral : le cadre juridique mis en place avant le scrutin</a></h4>
-          <p>Présentation des mécanismes prévus pour traiter les recours et contestations liés à l'enregistrement des candidatures.</p>
-          <a class="read-more" href="articles/contentieux-electoral-cadre-juridique.html">Lire la suite →</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-media small"><span class="tag navy">Diaspora</span>Haïtiens de l'étranger</div>
-        <div class="card-body">
-          <div class="meta"><span>Diaspora</span> • <span>6 août 2026</span></div>
-          <h4><a href="articles/vote-etranger-questions-suspens.html">Vote à l'étranger : les grandes questions qui restent en suspens</a></h4>
-          <p>Faisabilité logistique, sécurisation des bureaux et calendrier : le point sur les discussions concernant la participation de la diaspora.</p>
-          <a class="read-more" href="articles/vote-etranger-questions-suspens.html">Lire la suite →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CULTURE ============ -->
-<section class="section" id="culture">
-  <div class="container">
-    <div class="section-header">
-      <h3>Culture &amp; Communauté</h3>
-      <a href="#" class="section-link">Explorer la culture →</a>
-    </div>
-    <div class="culture-grid">
-      <div class="culture-card">
-        <div class="overlay">
-          <div>
-            <span class="cat">Musique</span>
-            <h5><a href="articles/nouvelle-generation-kompa-scene-port-au-princienne.html">La nouvelle génération de kompa réinvente la scène port-au-princienne</a></h5>
-          </div>
-        </div>
-      </div>
-      <div class="culture-card">
-        <div class="overlay">
-          <div>
-            <span class="cat">Patrimoine</span>
-            <h5><a href="articles/sauvegarder-centre-historique-chantier-culturel.html">Sauvegarder le centre historique : un chantier culturel autant que politique</a></h5>
-          </div>
-        </div>
-      </div>
-      <div class="culture-card">
-        <div class="overlay">
-          <div>
-            <span class="cat">Art</span>
-            <h5><a href="articles/exposition-collective-artistes-releve.html">Une exposition collective met à l'honneur les artistes de la relève</a></h5>
-          </div>
-        </div>
-      </div>
-      <div class="culture-card">
-        <div class="overlay">
-          <div>
-            <span class="cat">Gastronomie</span>
-            <h5><a href="articles/marches-quartier-resilience-economie-informelle.html">Marchés de quartier : la résilience de l'économie informelle en période électorale</a></h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ÉVÉNEMENTS ============ -->
-<section class="section alt" id="evenements">
-  <div class="container">
-    <div class="section-header">
-      <h3>Événements à venir</h3>
-      <a href="#" class="section-link">Calendrier complet →</a>
-    </div>
-    <div class="events-list">
-      <div class="event-row">
-        <div class="event-date"><div class="day">15</div><div class="mon">Août</div></div>
-        <div class="event-info">
-          <h5>Débat public — Enjeux économiques du scrutin législatif</h5>
-          <div class="meta">Université d'État d'Haïti • 15h00 • Entrée libre</div>
-        </div>
-        <a href="#" class="event-cta">Détails</a>
-      </div>
-      <div class="event-row">
-        <div class="event-date"><div class="day">20</div><div class="mon">Août</div></div>
-        <div class="event-info">
-          <h5>Clôture officielle de la campagne électorale</h5>
-          <div class="meta">Sur l'ensemble du territoire national</div>
-        </div>
-        <a href="#" class="event-cta">Détails</a>
-      </div>
-      <div class="event-row">
-        <div class="event-date"><div class="day">27</div><div class="mon">Août</div></div>
-        <div class="event-info">
-          <h5>Table ronde PORT-AU-PRINCE TIME — Sécurité et gouvernance après le scrutin</h5>
-          <div class="meta">Diffusion en direct • 18h00</div>
-        </div>
-        <a href="#" class="event-cta">S'inscrire</a>
-      </div>
-      <div class="event-row">
-        <div class="event-date"><div class="day">30</div><div class="mon">Août</div></div>
-        <div class="event-info">
-          <h5>Jour du scrutin — Élections générales 2026</h5>
-          <div class="meta">Bureaux de vote ouverts sur les dix départements</div>
-        </div>
-        <a href="#" class="event-cta">Suivi en direct</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ NEWSLETTER ============ -->
-<section class="newsletter">
-  <div class="container">
-    <div>
-      <h3>Restez informé, à l'heure de Port-au-Prince</h3>
-      <p>Recevez chaque matin l'essentiel de l'actualité politique et électorale d'Haïti, directement dans votre boîte mail.</p>
-    </div>
-    <form class="newsletter-form" onsubmit="return false;">
-      <label for="newsletter-email" class="sr-only">Votre adresse e-mail</label>
-      <input id="newsletter-email" name="email" type="email" placeholder="Votre adresse e-mail" required>
-      <button type="submit" class="btn btn-gold">S'abonner</button>
-    </form>
-  </div>
+  <a href="actualites.html" class="video-hero-scrolldown" aria-label="Voir les actualités">↓</a>
 </section>
 </main>
 
@@ -1334,10 +1150,10 @@
       <div>
         <h6>Rubriques</h6>
         <ul>
-          <li><a href="#actualites">Actualités</a></li>
-          <li><a href="#elections">Élections 2026</a></li>
-          <li><a href="#culture">Culture</a></li>
-          <li><a href="#evenements">Événements</a></li>
+          <li><a href="actualites.html#actualites">Actualités</a></li>
+          <li><a href="actualites.html#elections">Élections 2026</a></li>
+          <li><a href="actualites.html#culture">Culture</a></li>
+          <li><a href="actualites.html#evenements">Événements</a></li>
         </ul>
       </div>
       <div>
@@ -1411,26 +1227,6 @@
     }
     window.addEventListener('scroll', onScroll, {passive:true});
     update();
-  })();
-
-  /* ---------- Micro-interactions: scroll reveal ---------- */
-  (function(){
-    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduceMotion || !('IntersectionObserver' in window)) return;
-    const targets = document.querySelectorAll(
-      '.wire-item, .news-grid .card, .culture-card, .stat-card, .event-row, .section-header, .side-article-list a, .article-tags, .article-share'
-    );
-    if(!targets.length) return;
-    targets.forEach(function(el){ el.classList.add('reveal'); });
-    const io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          entry.target.classList.add('is-visible');
-          io.unobserve(entry.target);
-        }
-      });
-    }, {threshold:0.12, rootMargin:'0px 0px -30px 0px'});
-    targets.forEach(function(el){ io.observe(el); });
   })();
 </script>
 
