@@ -962,7 +962,75 @@
   .side-article-list a:nth-child(3){transition-delay:.12s;}
   .side-article-list a:nth-child(4){transition-delay:.17s;}
 
+  /* ---------- Illustrations thématiques (rubriques) — scènes pleine surface ---------- */
+  .card-media.illus{
+    position:relative;
+    overflow:hidden;
+    padding:0;
+    background:linear-gradient(180deg, var(--navy-900) 0%, var(--navy-800) 32%, var(--gold-600) 78%, var(--red-600) 100%);
+  }
+  .card-media.illus::before{
+    content:"";
+    position:absolute; left:50%; top:20%;
+    width:38%; aspect-ratio:1/1; margin-left:-19%;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(252,230,168,0.95), rgba(252,230,168,0.18) 62%, transparent 74%);
+    pointer-events:none;
+    z-index:1;
+  }
+  .card-media.illus .scene{
+    position:absolute; inset:0;
+    z-index:2;
+    transition:transform .5s cubic-bezier(.4,0,.2,1);
+  }
+  .card-media.illus .scene svg{width:100%;height:100%;display:block;}
+  .news-grid .card:hover .scene{transform:scale(1.045);}
+  .card-media.illus .tag{z-index:3;}
+  .card-media.illus .flag-accent{
+    position:absolute; left:0; right:0; bottom:0; height:5px;
+    background:linear-gradient(90deg,var(--navy-600) 50%, var(--red-600) 50%);
+    opacity:.95; z-index:3;
+  }
+  .card-media .illus-label{
+    position:absolute; z-index:3; right:14px; bottom:12px;
+    font-size:11.5px; letter-spacing:.04em; color:rgba(255,255,255,0.92);
+    text-shadow:0 2px 8px rgba(0,10,40,0.65);
+  }
+
+  .culture-card .scene{
+    position:absolute; inset:0;
+    z-index:0;
+    transition:transform .55s cubic-bezier(.4,0,.2,1);
+  }
+  .culture-card .scene svg{width:100%;height:100%;display:block;}
+  .culture-card .scene::after{
+    content:"";
+    position:absolute; inset:0;
+    background:radial-gradient(circle at 50% 18%, rgba(255,255,255,0.22), transparent 52%);
+  }
+  .culture-grid .culture-card:hover .scene{transform:scale(1.06);}
+  .culture-card .flag-accent{
+    position:absolute; left:0; right:0; top:0; height:5px;
+    background:linear-gradient(90deg,var(--gold-500) 50%, var(--red-600) 50%);
+    opacity:.95; z-index:2;
+  }
+  .culture-card .overlay{z-index:3;}
+
+  .event-icon{
+    width:46px; height:46px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(150deg,var(--navy-700),var(--navy-900));
+    color:var(--gold-400);
+    flex:none;
+    transition:transform .25s cubic-bezier(.4,0,.2,1), box-shadow .25s ease;
+  }
+  .event-icon svg{width:22px;height:22px;}
+  .event-row:hover .event-icon{transform:scale(1.08);box-shadow:0 8px 18px rgba(0,37,105,0.25);}
+  .event-info-row{display:flex;align-items:center;gap:14px;}
+
   @media (prefers-reduced-motion: reduce){
+    .scene, .event-icon{transition:none !important;}
     html{scroll-behavior:auto;}
     .reveal{opacity:1 !important;transform:none !important;transition:none !important;}
     header.site-header, .header-inner, .brand-badge, .brand-badge svg, .brand-text h1, .brand-text .tagline,
@@ -1086,6 +1154,13 @@
 
     <div class="wire-list">
       <div class="wire-item">
+        <div class="wire-thumb" aria-hidden="true">💼</div>
+        <div class="wire-body">
+          <span class="cat">Économie • Enquête</span>
+          <h5><a href="articles/dimitri-vorbe-liberation-incertitude-etats-unis.html">Dimitri Vorbe libéré mais sommé de quitter les États-Unis : le point sur sa situation</a></h5>
+        </div>
+      </div>
+      <div class="wire-item">
         <div class="wire-thumb" aria-hidden="true">🛡️</div>
         <div class="wire-body">
           <span class="cat">Sécurité • Analyse</span>
@@ -1172,7 +1247,12 @@
     </div>
     <div class="news-grid">
       <div class="card">
-        <div class="card-media small"><span class="tag navy">Analyse</span>Conseil des ministres</div>
+        <div class="card-media small illus">
+          <span class="tag navy">Analyse</span>
+          <div class="scene" aria-hidden="true"><svg viewBox="0 0 400 225" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice"><path d="M40 30V195H380" stroke="#e9d7a8" stroke-width="1.5" opacity="0.5"/><path d="M40 75H380M40 120H380M40 165H380" stroke="#e9d7a8" stroke-width="1" opacity="0.2" stroke-dasharray="4 6"/><line x1="60" y1="165" x2="60" y2="185" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="51" y="150" width="18" height="25" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="105" y1="145" x2="105" y2="170" stroke="#d64545" stroke-width="2.2" opacity="0.9"/><rect x="96" y="150" width="18" height="10" fill="#d64545" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="150" y1="120" x2="150" y2="170" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="141" y="130" width="18" height="30" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="195" y1="115" x2="195" y2="148" stroke="#d64545" stroke-width="2.2" opacity="0.9"/><rect x="186" y="130" width="18" height="10" fill="#d64545" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="240" y1="95" x2="240" y2="148" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="231" y="105" width="18" height="35" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="285" y1="90" x2="285" y2="122" stroke="#d64545" stroke-width="2.2" opacity="0.9"/><rect x="276" y="105" width="18" height="10" fill="#d64545" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="330" y1="70" x2="330" y2="122" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="321" y="80" width="18" height="35" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="375" y1="50" x2="375" y2="88" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="366" y="60" width="18" height="20" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><polyline points="60,150 105,160 150,130 195,140 240,105 285,115 330,80 375,60" fill="none" stroke="#d9b96b" stroke-width="2.2" opacity="0.85"/></svg></div>
+          <span class="illus-label">Conseil des ministres</span>
+          <div class="flag-accent"></div>
+        </div>
         <div class="card-body">
           <div class="meta"><span>Politique</span> • <span>11 août 2026</span></div>
           <h4><a href="articles/decret-electoral-texte-gouvernement-transition.html">Décret électoral : ce que prévoit le texte adopté par le gouvernement de transition</a></h4>
@@ -1181,7 +1261,12 @@
         </div>
       </div>
       <div class="card">
-        <div class="card-media small"><span class="tag navy">Reportage</span>Département de l'Ouest</div>
+        <div class="card-media small illus">
+          <span class="tag navy">Reportage</span>
+          <div class="scene" aria-hidden="true"><svg viewBox="0 0 400 225" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice"><path d="M40 30V195H380" stroke="#e9d7a8" stroke-width="1.5" opacity="0.5"/><path d="M40 75H380M40 120H380M40 165H380" stroke="#e9d7a8" stroke-width="1" opacity="0.2" stroke-dasharray="4 6"/><line x1="60" y1="90" x2="60" y2="150" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="51" y="100" width="18" height="40" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="105" y1="90" x2="105" y2="160" stroke="#d64545" stroke-width="2.2" opacity="0.9"/><rect x="96" y="100" width="18" height="50" fill="#d64545" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="150" y1="100" x2="150" y2="160" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="141" y="110" width="18" height="40" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="195" y1="100" x2="195" y2="170" stroke="#d64545" stroke-width="2.2" opacity="0.9"/><rect x="186" y="110" width="18" height="50" fill="#d64545" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="240" y1="85" x2="240" y2="170" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="231" y="95" width="18" height="65" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="285" y1="85" x2="285" y2="155" stroke="#d64545" stroke-width="2.2" opacity="0.9"/><rect x="276" y="95" width="18" height="50" fill="#d64545" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="330" y1="80" x2="330" y2="155" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="321" y="90" width="18" height="55" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="375" y1="80" x2="375" y2="140" stroke="#d64545" stroke-width="2.2" opacity="0.9"/><rect x="366" y="90" width="18" height="40" fill="#d64545" stroke="#002569" stroke-width="0.75" opacity="0.95"/><polyline points="60,100 105,150 150,110 195,160 240,95 285,145 330,90 375,130" fill="none" stroke="#d9b96b" stroke-width="2.2" opacity="0.85"/></svg></div>
+          <span class="illus-label">Département de l'Ouest</span>
+          <div class="flag-accent"></div>
+        </div>
         <div class="card-body">
           <div class="meta"><span>Société</span> • <span>10 août 2026</span></div>
           <h4><a href="articles/insecurite-inscription-electeurs-defi.html">Dans les zones affectées par l'insécurité, l'inscription des électeurs reste un défi</a></h4>
@@ -1190,7 +1275,12 @@
         </div>
       </div>
       <div class="card">
-        <div class="card-media small"><span class="tag navy">International</span>Communauté internationale</div>
+        <div class="card-media small illus">
+          <span class="tag navy">International</span>
+          <div class="scene" aria-hidden="true"><svg viewBox="0 0 400 225" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice"><path d="M40 30V195H380" stroke="#e9d7a8" stroke-width="1.5" opacity="0.5"/><path d="M40 75H380M40 120H380M40 165H380" stroke="#e9d7a8" stroke-width="1" opacity="0.2" stroke-dasharray="4 6"/><line x1="60" y1="145" x2="60" y2="190" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="51" y="155" width="18" height="25" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="105" y1="150" x2="105" y2="175" stroke="#d64545" stroke-width="2.2" opacity="0.9"/><rect x="96" y="155" width="18" height="10" fill="#d64545" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="150" y1="125" x2="150" y2="175" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="141" y="135" width="18" height="30" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="195" y1="125" x2="195" y2="155" stroke="#d64545" stroke-width="2.2" opacity="0.9"/><rect x="186" y="135" width="18" height="10" fill="#d64545" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="240" y1="105" x2="240" y2="155" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="231" y="115" width="18" height="30" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="285" y1="90" x2="285" y2="125" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="276" y="100" width="18" height="15" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="330" y1="90" x2="330" y2="120" stroke="#d64545" stroke-width="2.2" opacity="0.9"/><rect x="321" y="100" width="18" height="10" fill="#d64545" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="375" y1="65" x2="375" y2="120" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="366" y="75" width="18" height="35" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><polyline points="60,155 105,165 150,135 195,145 240,115 285,100 330,110 375,75" fill="none" stroke="#d9b96b" stroke-width="2.2" opacity="0.85"/></svg></div>
+          <span class="illus-label">Communauté internationale</span>
+          <div class="flag-accent"></div>
+        </div>
         <div class="card-body">
           <div class="meta"><span>Diplomatie</span> • <span>9 août 2026</span></div>
           <h4><a href="articles/partenaires-internationaux-soutien-processus-electoral.html">Les partenaires internationaux réitèrent leur soutien au processus électoral haïtien</a></h4>
@@ -1199,7 +1289,12 @@
         </div>
       </div>
       <div class="card">
-        <div class="card-media small"><span class="tag navy">Économie</span>Marché public</div>
+        <div class="card-media small illus">
+          <span class="tag navy">Économie</span>
+          <div class="scene" aria-hidden="true"><svg viewBox="0 0 400 225" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice"><path d="M40 30V195H380" stroke="#e9d7a8" stroke-width="1.5" opacity="0.5"/><path d="M40 75H380M40 120H380M40 165H380" stroke="#e9d7a8" stroke-width="1" opacity="0.2" stroke-dasharray="4 6"/><line x1="60" y1="148" x2="60" y2="178" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="51" y="155" width="18" height="15" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="105" y1="148" x2="105" y2="178" stroke="#d64545" stroke-width="2.2" opacity="0.9"/><rect x="96" y="155" width="18" height="13" fill="#d64545" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="150" y1="130" x2="150" y2="178" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="141" y="140" width="18" height="28" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="195" y1="130" x2="195" y2="160" stroke="#d64545" stroke-width="2.2" opacity="0.9"/><rect x="186" y="140" width="18" height="10" fill="#d64545" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="240" y1="105" x2="240" y2="160" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="231" y="115" width="18" height="35" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="285" y1="105" x2="285" y2="135" stroke="#d64545" stroke-width="2.2" opacity="0.9"/><rect x="276" y="115" width="18" height="10" fill="#d64545" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="330" y1="80" x2="330" y2="135" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="321" y="90" width="18" height="35" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="375" y1="55" x2="375" y2="98" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="366" y="65" width="18" height="25" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><polyline points="60,155 105,168 150,140 195,150 240,115 285,125 330,90 375,65" fill="none" stroke="#d9b96b" stroke-width="2.2" opacity="0.85"/></svg></div>
+          <span class="illus-label">Marché public</span>
+          <div class="flag-accent"></div>
+        </div>
         <div class="card-body">
           <div class="meta"><span>Économie</span> • <span>8 août 2026</span></div>
           <h4><a href="articles/cout-vie-enjeu-campagnes-electorales.html">Le coût de la vie, premier enjeu des campagnes électorales selon les électeurs interrogés</a></h4>
@@ -1208,7 +1303,12 @@
         </div>
       </div>
       <div class="card">
-        <div class="card-media small"><span class="tag navy">Justice</span>Tribunal électoral</div>
+        <div class="card-media small illus">
+          <span class="tag navy">Justice</span>
+          <div class="scene" aria-hidden="true"><svg viewBox="0 0 400 225" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice"><path d="M40 30V195H380" stroke="#e9d7a8" stroke-width="1.5" opacity="0.5"/><path d="M40 75H380M40 120H380M40 165H380" stroke="#e9d7a8" stroke-width="1" opacity="0.2" stroke-dasharray="4 6"/><line x1="58" y1="135" x2="58" y2="170" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="49" y="145" width="18" height="15" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="100" y1="135" x2="100" y2="175" stroke="#d64545" stroke-width="2.2" opacity="0.9"/><rect x="91" y="145" width="18" height="20" fill="#d64545" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="142" y1="140" x2="142" y2="175" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="133" y="150" width="18" height="15" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="184" y1="140" x2="184" y2="180" stroke="#d64545" stroke-width="2.2" opacity="0.9"/><rect x="175" y="150" width="18" height="20" fill="#d64545" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="226" y1="120" x2="226" y2="180" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="217" y="130" width="18" height="40" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="268" y1="118" x2="268" y2="150" stroke="#d64545" stroke-width="2.2" opacity="0.9"/><rect x="259" y="130" width="18" height="10" fill="#d64545" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="310" y1="90" x2="310" y2="150" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="301" y="100" width="18" height="40" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="352" y1="60" x2="352" y2="110" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="343" y="70" width="18" height="30" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><polyline points="58,145 100,165 142,150 184,170 226,130 268,140 310,100 352,70" fill="none" stroke="#d9b96b" stroke-width="2.2" opacity="0.85"/><path d="M330 30H360" stroke="#d9b96b" stroke-width="2.5" stroke-linecap="round"/><path d="M330 30 322 44H338Z" fill="#d9b96b" opacity="0.85"/><path d="M360 30 352 44H368Z" fill="#d9b96b" opacity="0.85"/><rect x="343" y="18" width="4" height="24" fill="#d9b96b"/></svg></div>
+          <span class="illus-label">Tribunal électoral</span>
+          <div class="flag-accent"></div>
+        </div>
         <div class="card-body">
           <div class="meta"><span>Justice</span> • <span>7 août 2026</span></div>
           <h4><a href="articles/contentieux-electoral-cadre-juridique.html">Contentieux électoral : le cadre juridique mis en place avant le scrutin</a></h4>
@@ -1217,7 +1317,12 @@
         </div>
       </div>
       <div class="card">
-        <div class="card-media small"><span class="tag navy">Diaspora</span>Haïtiens de l'étranger</div>
+        <div class="card-media small illus">
+          <span class="tag navy">Diaspora</span>
+          <div class="scene" aria-hidden="true"><svg viewBox="0 0 400 225" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice"><path d="M40 30V195H380" stroke="#e9d7a8" stroke-width="1.5" opacity="0.5"/><path d="M40 75H380M40 120H380M40 165H380" stroke="#e9d7a8" stroke-width="1" opacity="0.2" stroke-dasharray="4 6"/><line x1="55" y1="155" x2="55" y2="193" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="46" y="165" width="18" height="20" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="100" y1="158" x2="100" y2="180" stroke="#d64545" stroke-width="2.2" opacity="0.9"/><rect x="91" y="165" width="18" height="7" fill="#d64545" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="145" y1="135" x2="145" y2="180" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="136" y="145" width="18" height="27" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="190" y1="135" x2="190" y2="160" stroke="#d64545" stroke-width="2.2" opacity="0.9"/><rect x="181" y="145" width="18" height="7" fill="#d64545" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="235" y1="110" x2="235" y2="160" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="226" y="120" width="18" height="32" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="280" y1="108" x2="280" y2="135" stroke="#d64545" stroke-width="2.2" opacity="0.9"/><rect x="271" y="120" width="18" height="8" fill="#d64545" stroke="#002569" stroke-width="0.75" opacity="0.95"/><line x1="325" y1="85" x2="325" y2="135" stroke="#2ea86c" stroke-width="2.2" opacity="0.9"/><rect x="316" y="95" width="18" height="33" fill="#2ea86c" stroke="#002569" stroke-width="0.75" opacity="0.95"/><polyline points="55,165 100,172 145,145 190,152 235,120 280,128 325,95" fill="none" stroke="#d9b96b" stroke-width="2.2" opacity="0.85"/><path d="M325 95 C340 88 358 78 372 62" stroke="#d9b96b" stroke-width="2.5" fill="none" stroke-dasharray="5 6" stroke-linecap="round" opacity="0.75"/><g transform="translate(348,50) rotate(-25)"><path d="M0 6 45 0 68 5 45 10 35 26 26 24 32 11 9 12Z" fill="#d9b96b"/></g></svg></div>
+          <span class="illus-label">Haïtiens de l'étranger</span>
+          <div class="flag-accent"></div>
+        </div>
         <div class="card-body">
           <div class="meta"><span>Diaspora</span> • <span>6 août 2026</span></div>
           <h4><a href="articles/vote-etranger-questions-suspens.html">Vote à l'étranger : les grandes questions qui restent en suspens</a></h4>
@@ -1238,6 +1343,8 @@
     </div>
     <div class="culture-grid">
       <div class="culture-card">
+        <div class="scene" aria-hidden="true"><svg viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice"><circle cx="150" cy="170" r="34" fill="#002569"/><path d="M104 202C104 202 90 260 96 330H204C210 260 196 202 196 202Z" fill="#002569"/><path d="M104 215 60 270" stroke="#002569" stroke-width="16" stroke-linecap="round"/><path d="M196 215 240 270" stroke="#002569" stroke-width="16" stroke-linecap="round"/><path d="M108 330 96 400H204L192 330Z" fill="#002569"/><ellipse cx="150" cy="330" rx="42" ry="11" fill="#d9b96b"/><g fill="#e9d7a8" opacity="0.9"><circle cx="225" cy="90" r="9"/><rect x="231" y="46" width="4" height="46"/><path d="M231 46 260 40V54L231 60Z"/></g><g fill="#e9d7a8" opacity="0.8"><circle cx="70" cy="120" r="7"/><rect x="75" y="86" width="3.5" height="36"/></g></svg></div>
+        <div class="flag-accent"></div>
         <div class="overlay">
           <div>
             <span class="cat">Musique</span>
@@ -1246,6 +1353,8 @@
         </div>
       </div>
       <div class="culture-card">
+        <div class="scene" aria-hidden="true"><svg viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice"><path d="M0 400V300L60 220 110 270 150 190 190 260 230 210 300 290V400Z" fill="#002569" opacity="0.55"/><path d="M90 230H210V400H90Z" fill="#002569"/><path d="M70 260 90 230H210L230 260Z" fill="#002569"/><rect x="100" y="170" width="100" height="70" fill="#002569"/><path d="M100 170 120 150H180L200 170Z" fill="#002569"/><rect x="92" y="150" width="14" height="40" fill="#002569"/><rect x="194" y="150" width="14" height="40" fill="#002569"/><rect x="140" y="120" width="20" height="55" fill="#002569"/><rect x="130" y="190" width="10" height="24" fill="#e9d7a8" opacity="0.5"/><rect x="160" y="190" width="10" height="24" fill="#e9d7a8" opacity="0.5"/></svg></div>
+        <div class="flag-accent"></div>
         <div class="overlay">
           <div>
             <span class="cat">Patrimoine</span>
@@ -1254,6 +1363,8 @@
         </div>
       </div>
       <div class="culture-card">
+        <div class="scene" aria-hidden="true"><svg viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice"><path d="M150 60c-55 0-96 40-96 88 0 34 22 52 48 52 12 0 16-8 16-16 0-10-8-14-8-26 0-16 14-28 40-28 44 0 96-24 96-70 0-46-46-70-96-70Z" fill="#002569"/><circle cx="112" cy="118" r="10" fill="#a3172c"/><circle cx="150" cy="96" r="10" fill="#d9b96b"/><circle cx="192" cy="108" r="10" fill="#e9d7a8"/><path d="M150 200V370" stroke="#002569" stroke-width="10" stroke-linecap="round"/><path d="M100 370H200" stroke="#002569" stroke-width="10" stroke-linecap="round"/><path d="M120 260 90 330" stroke="#002569" stroke-width="8" stroke-linecap="round"/><path d="M180 260 210 330" stroke="#002569" stroke-width="8" stroke-linecap="round"/></svg></div>
+        <div class="flag-accent"></div>
         <div class="overlay">
           <div>
             <span class="cat">Art</span>
@@ -1262,6 +1373,8 @@
         </div>
       </div>
       <div class="culture-card">
+        <div class="scene" aria-hidden="true"><svg viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice"><path d="M70 340C70 340 60 220 150 220C240 220 230 340 230 340Z" fill="#002569"/><rect x="60" y="330" width="180" height="22" rx="8" fill="#002569"/><rect x="30" y="248" width="26" height="12" rx="6" fill="#002569"/><rect x="244" y="248" width="26" height="12" rx="6" fill="#002569"/><path d="M110 200C110 185 100 178 108 160" stroke="#e9d7a8" stroke-width="7" stroke-linecap="round" opacity="0.75"/><path d="M150 190C150 172 138 165 148 142" stroke="#e9d7a8" stroke-width="7" stroke-linecap="round" opacity="0.85"/><path d="M192 200C192 185 180 178 190 160" stroke="#e9d7a8" stroke-width="7" stroke-linecap="round" opacity="0.75"/></svg></div>
+        <div class="flag-accent"></div>
         <div class="overlay">
           <div>
             <span class="cat">Gastronomie</span>
@@ -1284,32 +1397,52 @@
       <div class="event-row">
         <div class="event-date"><div class="day">15</div><div class="mon">Août</div></div>
         <div class="event-info">
-          <h5>Débat public — Enjeux économiques du scrutin législatif</h5>
-          <div class="meta">Université d'État d'Haïti • 15h00 • Entrée libre</div>
+          <div class="event-info-row">
+            <div class="event-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 14v8h6l14 8V6L10 14H4Z" fill="currentColor"/><path d="M24 14a6 6 0 0 1 0 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div>
+              <h5>Débat public — Enjeux économiques du scrutin législatif</h5>
+              <div class="meta">Université d'État d'Haïti • 15h00 • Entrée libre</div>
+            </div>
+          </div>
         </div>
         <a href="#" class="event-cta">Détails</a>
       </div>
       <div class="event-row">
         <div class="event-date"><div class="day">20</div><div class="mon">Août</div></div>
         <div class="event-info">
-          <h5>Clôture officielle de la campagne électorale</h5>
-          <div class="meta">Sur l'ensemble du territoire national</div>
+          <div class="event-info-row">
+            <div class="event-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 4v24" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M8 6h18l-4 6 4 6H8Z" fill="currentColor"/></svg></div>
+            <div>
+              <h5>Clôture officielle de la campagne électorale</h5>
+              <div class="meta">Sur l'ensemble du territoire national</div>
+            </div>
+          </div>
         </div>
         <a href="#" class="event-cta">Détails</a>
       </div>
       <div class="event-row">
         <div class="event-date"><div class="day">27</div><div class="mon">Août</div></div>
         <div class="event-info">
-          <h5>Table ronde PORT-AU-PRINCE TIME — Sécurité et gouvernance après le scrutin</h5>
-          <div class="meta">Diffusion en direct • 18h00</div>
+          <div class="event-info-row">
+            <div class="event-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="3" width="8" height="16" rx="4" fill="currentColor"/><path d="M6 15a8 8 0 0 0 16 0" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M14 25v4M9 29h10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+            <div>
+              <h5>Table ronde PORT-AU-PRINCE TIME — Sécurité et gouvernance après le scrutin</h5>
+              <div class="meta">Diffusion en direct • 18h00</div>
+            </div>
+          </div>
         </div>
         <a href="#" class="event-cta">S'inscrire</a>
       </div>
       <div class="event-row">
         <div class="event-date"><div class="day">30</div><div class="mon">Août</div></div>
         <div class="event-info">
-          <h5>Jour du scrutin — Élections générales 2026</h5>
-          <div class="meta">Bureaux de vote ouverts sur les dix départements</div>
+          <div class="event-info-row">
+            <div class="event-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="12" width="24" height="16" rx="2" fill="currentColor"/><path d="M3 12 15 4l12 8" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M10 19l4 4 8-8" stroke="#002569" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div>
+              <h5>Jour du scrutin — Élections générales 2026</h5>
+              <div class="meta">Bureaux de vote ouverts sur les dix départements</div>
+            </div>
+          </div>
         </div>
         <a href="#" class="event-cta">Suivi en direct</a>
       </div>
