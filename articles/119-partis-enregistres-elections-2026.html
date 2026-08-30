@@ -1032,6 +1032,24 @@
     }
   }
 
+  /* ---------- Article sources / references ---------- */
+  .article-sources{
+    margin:30px 0 8px;
+    padding:18px 20px;
+    background:var(--cream-100);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+  }
+  .article-sources h3{
+    font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--ink-400);margin:0 0 10px;
+  }
+  .article-sources ol{margin:0;padding-left:19px;}
+  .article-sources li{font-size:14px;line-height:1.55;color:var(--ink-600);margin-bottom:5px;}
+  .article-sources li:last-child{margin-bottom:0;}
+  .article-sources a{color:var(--navy-700);text-decoration:underline;text-underline-offset:2px;word-break:break-word;}
+  .article-sources a:hover{color:var(--gold-600);}
+
   /* ---------- Article page ---------- */
   .article-hero{
     background:linear-gradient(165deg,var(--navy-800),var(--navy-900));
@@ -1307,6 +1325,10 @@
       <aside class="article-sidebar">
         <h6>À lire aussi</h6>
         <div class="side-article-list">
+        <a href="forum-armee-silence-kenscoff-boyard-etat.html">
+          <span class="cat">Sécurité</span>
+          Forum sur l'armée, silence sur Kenscoff et sur James Boyard : le double langage sécuritaire de l'État
+        </a>
         <a href="rene-depestre-centenaire-portrait.html">
           <span class="cat">Culture</span>
           René Depestre, cent ans : l'itinéraire d'un géant de la littérature haïtienne
@@ -1318,10 +1340,6 @@
         <a href="dimitri-vorbe-liberation-incertitude-etats-unis.html">
           <span class="cat">Économie</span>
           Dimitri Vorbe libéré mais sommé de quitter les États-Unis : le point sur sa situation
-        </a>
-        <a href="wisner-laguerre-portrait.html">
-          <span class="cat">Portrait</span>
-          Wisner Laguerre : au service de son pays, sans contrepartie
         </a>
         </div>
       </aside>
@@ -1443,7 +1461,7 @@
   /* ---------- Site search ---------- */
   (function(){
     var SEARCH_PREFIX = "";
-    var SEARCH_INDEX = [{"t": "René Depestre, cent ans : l'itinéraire d'un géant de la littérature haïtienne", "s": "rene-depestre-centenaire-portrait", "c": "Culture", "d": "29 août 2026"}, {"t": "Listes de 30 000 membres : une publication virale accuse plusieurs formations politiques de fraude", "s": "controverse-30000-membres-partis-politiques-oni", "c": "Élections", "d": "29 août 2026"}, {"t": "Dimitri Vorbe libéré mais sommé de quitter les États-Unis : le point sur sa situation", "s": "dimitri-vorbe-liberation-incertitude-etats-unis", "c": "Économie", "d": "29 août 2026"}, {"t": "Wisner Laguerre : au service de son pays, sans contrepartie", "s": "wisner-laguerre-portrait", "c": "Portrait", "d": "29 août 2026"}, {"t": "À la veille du scrutin, l'incertitude domine plus que la certitude", "s": "veille-scrutin-incertitude-securite-30-aout", "c": "Élections", "d": "29 août 2026"}, {"t": "Massacre de Kenscoff : ce que révèle l'inaction de l'État face à Viv Ansanm", "s": "massacre-kenscoff-inaction-gouvernement", "c": "Sécurité", "d": "28 août 2026"}, {"t": "À dix-huit jours du scrutin, le Conseil électoral provisoire maintient le cap sur le 30 août", "s": "cep-maintient-cap-30-aout-scrutin", "c": "Politique", "d": "12 août 2026"}, {"t": "Plus de 119 partis et regroupements enregistrés : comment s'y retrouver avant le vote", "s": "119-partis-enregistres-elections-2026", "c": "Élections", "d": "12 août 2026"}, {"t": "Aire métropolitaine : ce que change le renforcement du dispositif sécuritaire avant le scrutin", "s": "securite-aire-metropolitaine-dispositif-electoral", "c": "Sécurité", "d": "11 août 2026"}, {"t": "Vote de la diaspora : où en sont les discussions sur la participation des Haïtiens de l'étranger", "s": "vote-diaspora-participation-haitiens-etranger", "c": "Diaspora", "d": "10 août 2026"}, {"t": "Fin annoncée du mandat du Conseil présidentiel de transition : quelles suites institutionnelles ?", "s": "fin-mandat-conseil-presidentiel-transition", "c": "Institutions", "d": "9 août 2026"}, {"t": "Décret électoral : ce que prévoit le texte adopté par le gouvernement de transition", "s": "decret-electoral-texte-gouvernement-transition", "c": "Politique", "d": "11 août 2026"}, {"t": "Dans les zones affectées par l'insécurité, l'inscription des électeurs reste un défi", "s": "insecurite-inscription-electeurs-defi", "c": "Société", "d": "10 août 2026"}, {"t": "Les partenaires internationaux réitèrent leur soutien au processus électoral haïtien", "s": "partenaires-internationaux-soutien-processus-electoral", "c": "Diplomatie", "d": "9 août 2026"}, {"t": "Le coût de la vie, premier enjeu des campagnes électorales selon les électeurs interrogés", "s": "cout-vie-enjeu-campagnes-electorales", "c": "Économie", "d": "8 août 2026"}, {"t": "Contentieux électoral : le cadre juridique mis en place avant le scrutin", "s": "contentieux-electoral-cadre-juridique", "c": "Justice", "d": "7 août 2026"}, {"t": "Vote à l'étranger : les grandes questions qui restent en suspens", "s": "vote-etranger-questions-suspens", "c": "Diaspora", "d": "6 août 2026"}, {"t": "La nouvelle génération de kompa réinvente la scène port-au-princienne", "s": "nouvelle-generation-kompa-scene-port-au-princienne", "c": "Musique", "d": "5 août 2026"}, {"t": "Sauvegarder le centre historique : un chantier culturel autant que politique", "s": "sauvegarder-centre-historique-chantier-culturel", "c": "Patrimoine", "d": "4 août 2026"}, {"t": "Une exposition collective met à l'honneur les artistes de la relève", "s": "exposition-collective-artistes-releve", "c": "Art", "d": "3 août 2026"}, {"t": "Marchés de quartier : la résilience de l'économie informelle en période électorale", "s": "marches-quartier-resilience-economie-informelle", "c": "Économie", "d": "2 août 2026"}];
+    var SEARCH_INDEX = [{"t": "Forum sur l'armée, silence sur Kenscoff et sur James Boyard : le double langage sécuritaire de l'État", "s": "forum-armee-silence-kenscoff-boyard-etat", "c": "Sécurité", "d": "30 août 2026"}, {"t": "René Depestre, cent ans : l'itinéraire d'un géant de la littérature haïtienne", "s": "rene-depestre-centenaire-portrait", "c": "Culture", "d": "29 août 2026"}, {"t": "Listes de 30 000 membres : une publication virale accuse plusieurs formations politiques de fraude", "s": "controverse-30000-membres-partis-politiques-oni", "c": "Élections", "d": "29 août 2026"}, {"t": "Dimitri Vorbe libéré mais sommé de quitter les États-Unis : le point sur sa situation", "s": "dimitri-vorbe-liberation-incertitude-etats-unis", "c": "Économie", "d": "29 août 2026"}, {"t": "Wisner Laguerre : au service de son pays, sans contrepartie", "s": "wisner-laguerre-portrait", "c": "Portrait", "d": "29 août 2026"}, {"t": "À la veille du scrutin, l'incertitude domine plus que la certitude", "s": "veille-scrutin-incertitude-securite-30-aout", "c": "Élections", "d": "29 août 2026"}, {"t": "Massacre de Kenscoff : ce que révèle l'inaction de l'État face à Viv Ansanm", "s": "massacre-kenscoff-inaction-gouvernement", "c": "Sécurité", "d": "28 août 2026"}, {"t": "À dix-huit jours du scrutin, le Conseil électoral provisoire maintient le cap sur le 30 août", "s": "cep-maintient-cap-30-aout-scrutin", "c": "Politique", "d": "12 août 2026"}, {"t": "Plus de 119 partis et regroupements enregistrés : comment s'y retrouver avant le vote", "s": "119-partis-enregistres-elections-2026", "c": "Élections", "d": "12 août 2026"}, {"t": "Aire métropolitaine : ce que change le renforcement du dispositif sécuritaire avant le scrutin", "s": "securite-aire-metropolitaine-dispositif-electoral", "c": "Sécurité", "d": "11 août 2026"}, {"t": "Vote de la diaspora : où en sont les discussions sur la participation des Haïtiens de l'étranger", "s": "vote-diaspora-participation-haitiens-etranger", "c": "Diaspora", "d": "10 août 2026"}, {"t": "Fin annoncée du mandat du Conseil présidentiel de transition : quelles suites institutionnelles ?", "s": "fin-mandat-conseil-presidentiel-transition", "c": "Institutions", "d": "9 août 2026"}, {"t": "Décret électoral : ce que prévoit le texte adopté par le gouvernement de transition", "s": "decret-electoral-texte-gouvernement-transition", "c": "Politique", "d": "11 août 2026"}, {"t": "Dans les zones affectées par l'insécurité, l'inscription des électeurs reste un défi", "s": "insecurite-inscription-electeurs-defi", "c": "Société", "d": "10 août 2026"}, {"t": "Les partenaires internationaux réitèrent leur soutien au processus électoral haïtien", "s": "partenaires-internationaux-soutien-processus-electoral", "c": "Diplomatie", "d": "9 août 2026"}, {"t": "Le coût de la vie, premier enjeu des campagnes électorales selon les électeurs interrogés", "s": "cout-vie-enjeu-campagnes-electorales", "c": "Économie", "d": "8 août 2026"}, {"t": "Contentieux électoral : le cadre juridique mis en place avant le scrutin", "s": "contentieux-electoral-cadre-juridique", "c": "Justice", "d": "7 août 2026"}, {"t": "Vote à l'étranger : les grandes questions qui restent en suspens", "s": "vote-etranger-questions-suspens", "c": "Diaspora", "d": "6 août 2026"}, {"t": "La nouvelle génération de kompa réinvente la scène port-au-princienne", "s": "nouvelle-generation-kompa-scene-port-au-princienne", "c": "Musique", "d": "5 août 2026"}, {"t": "Sauvegarder le centre historique : un chantier culturel autant que politique", "s": "sauvegarder-centre-historique-chantier-culturel", "c": "Patrimoine", "d": "4 août 2026"}, {"t": "Une exposition collective met à l'honneur les artistes de la relève", "s": "exposition-collective-artistes-releve", "c": "Art", "d": "3 août 2026"}, {"t": "Marchés de quartier : la résilience de l'économie informelle en période électorale", "s": "marches-quartier-resilience-economie-informelle", "c": "Économie", "d": "2 août 2026"}];
     var toggleBtn = document.getElementById('search-toggle-btn');
     var panel = document.getElementById('search-panel');
     var input = document.getElementById('search-input');
