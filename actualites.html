@@ -1048,6 +1048,17 @@
     font-size:11.5px; letter-spacing:.04em; color:rgba(255,255,255,0.92);
     text-shadow:0 2px 8px rgba(0,10,40,0.65);
   }
+  .justice-sound-toggle{
+    position:absolute; z-index:4; left:14px; bottom:12px;
+    width:30px; height:30px; padding:0;
+    display:flex; align-items:center; justify-content:center;
+    border-radius:50%; border:1px solid rgba(201,160,78,0.55);
+    background:rgba(7,16,38,0.6); backdrop-filter:blur(2px);
+    font-size:13px; line-height:1; cursor:pointer;
+    transition:background .2s ease, border-color .2s ease, transform .2s ease;
+  }
+  .justice-sound-toggle:hover{ transform:scale(1.08); border-color:rgba(201,160,78,0.9); }
+  .justice-sound-toggle.is-on{ background:rgba(201,160,78,0.85); border-color:rgba(201,160,78,0.95); }
 
   .culture-card .scene{
     position:absolute; inset:0;
@@ -1399,7 +1410,8 @@
       <div class="card">
         <div class="card-media small illus">
           <span class="tag navy">Justice</span>
-          <div class="scene" aria-hidden="true"><img src="articles/images/reseau-mondial-connexions.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+          <div class="scene" aria-hidden="true"><video class="justice-video" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"><source src="articles/videos/gavel-justice-anim.webm" type="video/webm"><source src="articles/videos/gavel-justice-anim.mp4" type="video/mp4"></video></div>
+          <button type="button" class="justice-sound-toggle" aria-label="Activer le son">🔇</button>
           <span class="illus-label">Tribunal électoral</span>
           <div class="flag-accent"></div>
         </div>
@@ -1747,6 +1759,24 @@
     }
 
     input.addEventListener('input', function(){ renderResults(input.value); });
+  })();
+
+  /* ---------- Carte JUSTICE : bouton son pour la vidéo ---------- */
+  (function(){
+    var btn = document.querySelector('.justice-sound-toggle');
+    if(!btn) return;
+    var vid = document.querySelector('.justice-video');
+    if(!vid) return;
+    btn.addEventListener('click', function(){
+      vid.muted = !vid.muted;
+      if(!vid.muted){
+        vid.currentTime = 0;
+        vid.play().catch(function(){});
+      }
+      btn.classList.toggle('is-on', !vid.muted);
+      btn.setAttribute('aria-label', vid.muted ? 'Activer le son' : 'Couper le son');
+      btn.textContent = vid.muted ? '🔇' : '🔊';
+    });
   })();
 </script>
 
