@@ -218,6 +218,57 @@
   }
   .btn-icon svg{width:16px;height:16px;}
   .btn-icon:hover{border-color:var(--gold-400);color:var(--gold-400);}
+  button.btn-icon{background:transparent;cursor:pointer;-webkit-appearance:none;appearance:none;font-family:inherit;}
+  .search-wrap{position:relative;}
+  .search-panel{
+    position:absolute;
+    top:calc(100% + 12px);
+    right:0;
+    width:340px;
+    max-width:calc(100vw - 32px);
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 18px 40px rgba(0,20,60,0.22);
+    padding:14px;
+    z-index:200;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(-8px);
+    transition:opacity .18s ease, transform .18s ease, visibility .18s;
+  }
+  .search-panel.open{opacity:1;visibility:visible;transform:translateY(0);}
+  .search-panel input[type="search"]{
+    width:100%;
+    padding:10px 14px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    font-size:14px;
+    font-family:inherit;
+    color:var(--ink-900);
+    outline:none;
+    background:#fff;
+  }
+  .search-panel input[type="search"]::-webkit-search-cancel-button{display:none;}
+  .search-panel input[type="search"]:focus{border-color:var(--gold-500);}
+  .search-results{margin-top:10px;max-height:360px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;}
+  .search-results a{
+    display:block;
+    padding:9px 10px;
+    border-radius:8px;
+    text-decoration:none;
+  }
+  .search-results a:hover{background:var(--cream-100);}
+  .search-results .cat{
+    display:block;font-size:11px;font-weight:700;
+    color:var(--navy-700);text-transform:uppercase;letter-spacing:.05em;
+    margin-bottom:2px;
+  }
+  .search-results .title{font-size:13.5px;font-weight:700;color:var(--navy-900);line-height:1.35;}
+  .search-empty, .search-hint{font-size:12.5px;color:var(--ink-400);padding:10px 4px 2px;}
+  .search-panel-backdrop{position:fixed;inset:0;z-index:190;background:transparent;}
+  @media (max-width:520px){
+    .search-panel{position:fixed;top:64px;left:12px;right:12px;width:auto;}
+  }
   .btn{
     display:inline-flex;
     align-items:center;
@@ -1168,13 +1219,20 @@
     </nav>
 
     <div class="header-cta">
-      <a href="#" class="btn-icon" aria-label="Rechercher">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
-          <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </a>
-      <a href="../actualites.html" class="btn btn-gold">S'abonner</a>
+      <div class="search-wrap">
+        <button type="button" class="btn-icon" id="search-toggle-btn" aria-label="Rechercher" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+            <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="search-panel" id="search-panel">
+          <label for="search-input" class="sr-only">Rechercher un article</label>
+          <input type="search" id="search-input" placeholder="Rechercher un article…" autocomplete="off">
+          <div class="search-results" id="search-results"></div>
+        </div>
+      </div>
+      <a href="../actualites.html#newsletter" class="btn btn-gold">S'abonner</a>
     </div>
   </div>
   <div class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
@@ -1385,6 +1443,75 @@
     }, {threshold:0.12, rootMargin:'0px 0px -30px 0px'});
     targets.forEach(function(el){ io.observe(el); });
   })();
+
+  /* ---------- Site search ---------- */
+  (function(){
+    var SEARCH_PREFIX = "";
+    var SEARCH_INDEX = [{"t": "René Depestre, cent ans : l'itinéraire d'un géant de la littérature haïtienne", "s": "rene-depestre-centenaire-portrait", "c": "Culture", "d": "29 août 2026"}, {"t": "Listes de 30 000 membres : une publication virale accuse plusieurs formations politiques de fraude", "s": "controverse-30000-membres-partis-politiques-oni", "c": "Élections", "d": "29 août 2026"}, {"t": "Dimitri Vorbe libéré mais sommé de quitter les États-Unis : le point sur sa situation", "s": "dimitri-vorbe-liberation-incertitude-etats-unis", "c": "Économie", "d": "29 août 2026"}, {"t": "Wisner Laguerre : au service de son pays, sans contrepartie", "s": "wisner-laguerre-portrait", "c": "Portrait", "d": "29 août 2026"}, {"t": "À la veille du scrutin, l'incertitude domine plus que la certitude", "s": "veille-scrutin-incertitude-securite-30-aout", "c": "Élections", "d": "29 août 2026"}, {"t": "Massacre de Kenscoff : ce que révèle l'inaction de l'État face à Viv Ansanm", "s": "massacre-kenscoff-inaction-gouvernement", "c": "Sécurité", "d": "28 août 2026"}, {"t": "À dix-huit jours du scrutin, le Conseil électoral provisoire maintient le cap sur le 30 août", "s": "cep-maintient-cap-30-aout-scrutin", "c": "Politique", "d": "12 août 2026"}, {"t": "Plus de 119 partis et regroupements enregistrés : comment s'y retrouver avant le vote", "s": "119-partis-enregistres-elections-2026", "c": "Élections", "d": "12 août 2026"}, {"t": "Aire métropolitaine : ce que change le renforcement du dispositif sécuritaire avant le scrutin", "s": "securite-aire-metropolitaine-dispositif-electoral", "c": "Sécurité", "d": "11 août 2026"}, {"t": "Vote de la diaspora : où en sont les discussions sur la participation des Haïtiens de l'étranger", "s": "vote-diaspora-participation-haitiens-etranger", "c": "Diaspora", "d": "10 août 2026"}, {"t": "Fin annoncée du mandat du Conseil présidentiel de transition : quelles suites institutionnelles ?", "s": "fin-mandat-conseil-presidentiel-transition", "c": "Institutions", "d": "9 août 2026"}, {"t": "Décret électoral : ce que prévoit le texte adopté par le gouvernement de transition", "s": "decret-electoral-texte-gouvernement-transition", "c": "Politique", "d": "11 août 2026"}, {"t": "Dans les zones affectées par l'insécurité, l'inscription des électeurs reste un défi", "s": "insecurite-inscription-electeurs-defi", "c": "Société", "d": "10 août 2026"}, {"t": "Les partenaires internationaux réitèrent leur soutien au processus électoral haïtien", "s": "partenaires-internationaux-soutien-processus-electoral", "c": "Diplomatie", "d": "9 août 2026"}, {"t": "Le coût de la vie, premier enjeu des campagnes électorales selon les électeurs interrogés", "s": "cout-vie-enjeu-campagnes-electorales", "c": "Économie", "d": "8 août 2026"}, {"t": "Contentieux électoral : le cadre juridique mis en place avant le scrutin", "s": "contentieux-electoral-cadre-juridique", "c": "Justice", "d": "7 août 2026"}, {"t": "Vote à l'étranger : les grandes questions qui restent en suspens", "s": "vote-etranger-questions-suspens", "c": "Diaspora", "d": "6 août 2026"}, {"t": "La nouvelle génération de kompa réinvente la scène port-au-princienne", "s": "nouvelle-generation-kompa-scene-port-au-princienne", "c": "Musique", "d": "5 août 2026"}, {"t": "Sauvegarder le centre historique : un chantier culturel autant que politique", "s": "sauvegarder-centre-historique-chantier-culturel", "c": "Patrimoine", "d": "4 août 2026"}, {"t": "Une exposition collective met à l'honneur les artistes de la relève", "s": "exposition-collective-artistes-releve", "c": "Art", "d": "3 août 2026"}, {"t": "Marchés de quartier : la résilience de l'économie informelle en période électorale", "s": "marches-quartier-resilience-economie-informelle", "c": "Économie", "d": "2 août 2026"}];
+    var toggleBtn = document.getElementById('search-toggle-btn');
+    var panel = document.getElementById('search-panel');
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    if(!toggleBtn || !panel || !input || !results) return;
+
+    function normalize(str){
+      return (str || '').toString().toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+
+    function closePanel(){
+      panel.classList.remove('open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+    function openPanel(){
+      panel.classList.add('open');
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      window.setTimeout(function(){ input.focus(); }, 30);
+    }
+
+    toggleBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      if(panel.classList.contains('open')){ closePanel(); }
+      else { openPanel(); renderResults(''); }
+    });
+
+    document.addEventListener('click', function(e){
+      if(!panel.classList.contains('open')) return;
+      if(panel.contains(e.target) || toggleBtn.contains(e.target)) return;
+      closePanel();
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closePanel();
+    });
+
+    function renderResults(query){
+      var q = normalize(query);
+      var matches;
+      if(!q){
+        matches = SEARCH_INDEX.slice(0, 6);
+      } else {
+        matches = SEARCH_INDEX.filter(function(item){
+          return normalize(item.t + ' ' + item.c).indexOf(q) !== -1;
+        }).slice(0, 8);
+      }
+      if(!matches.length){
+        results.innerHTML = '<div class="search-empty">Aucun article trouvé pour « ' + (query.replace(/</g,'&lt;')) + ' ».</div>';
+        return;
+      }
+      var html = '';
+      if(!q){ html += '<div class="search-hint">Articles récents</div>'; }
+      html += matches.map(function(item){
+        return '<a href="' + SEARCH_PREFIX + item.s + '.html">' +
+          '<span class="cat">' + item.c + ' • ' + item.d + '</span>' +
+          '<span class="title">' + item.t + '</span>' +
+        '</a>';
+      }).join('');
+      results.innerHTML = html;
+    }
+
+    input.addEventListener('input', function(){ renderResults(input.value); });
+  })();
+
 </script>
 
 </body>
