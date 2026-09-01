@@ -41,9 +41,56 @@
   "logo": "https://port-au-princetime.com/hero-cover.jpg",
   "description": "Journal indépendant consacré à l'actualité politique, électorale, culturelle et communautaire d'Haïti.",
   "areaServed": "HT",
-  "inLanguage": "fr"
+  "inLanguage": "fr",
+  "sameAs": [
+    "https://www.facebook.com/share/1LbH6K4X8j/?mibextid=wwXIfr",
+    "https://www.facebook.com/share/1Jek1Kdtj5/?mibextid=wwXIfr",
+    "https://x.com/laguerrewisner?s=11"
+  ]
 }
 </script>
+
+<!-- Flux RSS : permet aux agrégateurs, lecteurs de flux et à Google News de découvrir chaque nouvel article automatiquement -->
+<link rel="alternate" type="application/rss+xml" title="PORT-AU-PRINCE TIME — Derniers articles" href="https://port-au-princetime.com/feed.xml">
+
+<!-- ==========================================================================
+     EMPLACEMENTS PUBLICITAIRES (Google Ads / Meta Ads / X Ads) - INACTIFS.
+     Chaque bloc ci-dessous est a l'interieur d'un commentaire HTML, donc
+     invisible et sans effet tant que rien n'est fait. Pour activer un bloc :
+     1) remplace CHAQUE "REMPLACER_PAR_..." par ton identifiant reel (obtenu
+        dans Google Ads, Meta Events Manager, ou X Ads) ;
+     2) supprime la ligne d'ouverture et la ligne de fermeture du commentaire
+        qui entourent ce bloc precis (indiquees OUVERTURE / FERMETURE).
+     Voir le guide fourni avec cette livraison pour la marche a suivre.
+========================================================================== -->
+<!-- OUVERTURE : Google Ads (balise de suivi des conversions, gtag.js)
+<script async src="https://www.googletagmanager.com/gtag/js?id=REMPLACER_PAR_TON_ID_GOOGLE_ADS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'REMPLACER_PAR_TON_ID_GOOGLE_ADS');
+</script>
+FERMETURE : Google Ads -->
+<!-- OUVERTURE : Meta Pixel (Facebook / Instagram Ads)
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'REMPLACER_PAR_TON_ID_META_PIXEL');
+  fbq('track', 'PageView');
+</script>
+FERMETURE : Meta Pixel -->
+<!-- OUVERTURE : X (Twitter) Pixel
+<script>
+  !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+  },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+  a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+  twq('config','REMPLACER_PAR_TON_ID_X_ADS');
+</script>
+FERMETURE : X Pixel -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1114,6 +1161,109 @@
     .video-hero-content{padding:70px 20px 90px;}
     .video-hero-stats{gap:24px;}
   }
+
+  /* ---------- PAPTIME TV ---------- */
+  .paptime-tv{background:linear-gradient(165deg,var(--navy-900),var(--navy-800));}
+  .paptime-tv .section-header{border-bottom-color:rgba(255,255,255,0.15);}
+  .paptime-tv .section-header h3{color:#fff;}
+  .paptime-tv .section-header .section-link{color:var(--gold-400);}
+
+  .tv-channels{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px;}
+  .tv-channel-btn{
+    padding:8px 18px;border-radius:999px;border:1px solid rgba(255,255,255,0.28);
+    background:transparent;color:rgba(255,255,255,0.85);font-size:13.5px;font-weight:700;
+    cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease;
+  }
+  .tv-channel-btn.active,.tv-channel-btn:hover{background:var(--gold-500);color:var(--navy-900);border-color:var(--gold-500);}
+
+  .tv-layout{display:grid;grid-template-columns:1.6fr 1fr;gap:26px;align-items:start;}
+  .tv-player{position:relative;width:100%;border-radius:var(--radius);overflow:hidden;aspect-ratio:16/9;background:#000;box-shadow:var(--shadow-lg);}
+  .tv-offair{
+    position:absolute;inset:0;overflow:hidden;
+    background:linear-gradient(135deg,#050d22 0%,#0c1a3d 32%,#1d5cc4 78%,#3f7ee0 100%);
+  }
+  .tv-anime-badge{
+    position:absolute;left:14px;top:14px;z-index:5;
+    display:flex;align-items:center;gap:6px;
+    background:var(--red-600);color:#fff;font-weight:800;font-size:11px;
+    letter-spacing:.05em;padding:6px 12px 6px 10px;border-radius:4px;
+    box-shadow:0 4px 10px rgba(0,0,0,.35);
+  }
+  .tv-anime-badge .dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:tvpulse2 1.4s infinite;}
+  @keyframes tvpulse2{0%,100%{opacity:1;}50%{opacity:.2;}}
+  .tv-anime-social{position:absolute;right:12px;top:12px;z-index:5;display:flex;gap:6px;}
+  .tv-anime-social a,.tv-anime-social .tv-social-soon{
+    width:25px;height:25px;border-radius:50%;
+    background:rgba(7,16,38,0.55);border:1px solid rgba(255,255,255,0.35);
+    color:#fff;font-size:10.5px;font-weight:700;
+    display:flex;align-items:center;justify-content:center;text-decoration:none;
+  }
+  .tv-anime-social .tv-social-soon{opacity:.55;border-style:dashed;cursor:default;}
+  .tv-logo-mark{
+    position:absolute;inset:0;z-index:2;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+  }
+  .tv-logo-line1{
+    font-family:'Source Sans 3',Arial,sans-serif;font-weight:900;
+    font-size:clamp(38px,7vw,66px);color:#fff;letter-spacing:-.01em;
+    line-height:.95;text-shadow:0 6px 24px rgba(0,0,0,.35);
+  }
+  .tv-logo-line2{
+    font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:800;
+    font-size:clamp(26px,5vw,48px);color:var(--gold-400);margin-top:-2px;
+    align-self:flex-end;margin-right:16%;
+  }
+  .tv-logo-line2 .dot{color:#fff;}
+  .tv-logo-sub{
+    position:absolute;left:0;right:0;bottom:18px;z-index:2;text-align:center;
+    font-size:11px;letter-spacing:.05em;color:rgba(247,242,229,0.75);
+    padding:0 24px;
+  }
+  @media(max-width:640px){
+    .tv-logo-line1{font-size:32px;}
+    .tv-logo-line2{font-size:22px;}
+    .tv-logo-sub{font-size:10px;bottom:12px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .tv-anime-badge .dot{animation:none;}
+  }
+  .tv-iframe-wrap{position:absolute;inset:0;}
+  .tv-iframe-wrap iframe{width:100%;height:100%;border:0;display:block;}
+
+  .tv-ticker-panel{
+    background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.14);
+    border-radius:var(--radius);display:flex;flex-direction:column;overflow:hidden;
+  }
+  .tv-ticker-head{
+    display:flex;align-items:center;gap:8px;padding:14px 18px;
+    font-size:11.5px;font-weight:700;letter-spacing:.08em;color:#fff;
+    border-bottom:1px solid rgba(255,255,255,0.14);
+  }
+  .tv-live-dot{
+    width:8px;height:8px;border-radius:50%;background:var(--red-600);
+    box-shadow:0 0 0 0 rgba(163,23,44,.6);animation:tvpulse 1.6s infinite;flex-shrink:0;
+  }
+  @keyframes tvpulse{
+    0%{box-shadow:0 0 0 0 rgba(163,23,44,.55);}
+    70%{box-shadow:0 0 0 8px rgba(163,23,44,0);}
+    100%{box-shadow:0 0 0 0 rgba(163,23,44,0);}
+  }
+  .tv-ticker-clock{margin-left:auto;color:rgba(255,255,255,0.62);font-weight:600;font-size:11px;letter-spacing:0;}
+  .tv-ticker-list{flex:1;overflow-y:auto;max-height:400px;}
+  .tv-ticker-item{
+    display:block;padding:13px 18px;border-bottom:1px solid rgba(255,255,255,0.08);
+    color:rgba(247,242,229,0.94);text-decoration:none;
+  }
+  .tv-ticker-item:hover{background:rgba(255,255,255,0.06);}
+  .tv-ticker-item .cat{
+    display:block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--gold-400);margin-bottom:4px;font-weight:700;
+  }
+  .tv-ticker-item .title{font-size:14px;line-height:1.4;font-family:'Playfair Display',Georgia,serif;}
+  @media(max-width:900px){
+    .tv-layout{grid-template-columns:1fr;}
+    .tv-ticker-list{max-height:280px;}
+  }
 </style>
 <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
 <script>Weglot.initialize({ api_key: 'wg_125ef1340b3816f7b5644a45e78b699c1' });</script>
@@ -1211,6 +1361,57 @@
   </div>
   <a href="actualites.html" class="video-hero-scrolldown" aria-label="Voir les actualités">↓</a>
 </section>
+
+<!-- ============ PAPTIME TV ============ -->
+<section class="section paptime-tv" id="paptimetv">
+  <div class="container">
+    <div class="section-header">
+      <h3>PAPTIME TV</h3>
+      <a href="videos.html" class="section-link">Voir tous les reportages →</a>
+    </div>
+
+    <div class="tv-channels" role="tablist" aria-label="Chaînes PAPTIME TV">
+      <button type="button" class="tv-channel-btn active" data-channel="paptime">PAPTIME TV — Fil d'actualité</button>
+    </div>
+
+    <div class="tv-layout">
+      <div class="tv-player" id="tv-player">
+        <div class="tv-offair" id="tv-offair">
+          <div class="tv-anime-badge"><span class="dot" aria-hidden="true"></span> PAPTIME TV</div>
+          <div class="tv-anime-social">
+            <a href="https://www.facebook.com/share/1LbH6K4X8j/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Diffusion simultanée sur Facebook" title="Diffusion simultanée sur Facebook">f</a>
+            <a href="https://www.facebook.com/share/1Jek1Kdtj5/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Diffusion simultanée sur Facebook" title="Diffusion simultanée sur Facebook">f</a>
+            <a href="https://x.com/laguerrewisner?s=11" target="_blank" rel="noopener noreferrer" aria-label="Diffusion simultanée sur X" title="Diffusion simultanée sur X">X</a>
+            <span class="tv-social-soon" aria-label="Chaîne YouTube — bientôt disponible" title="Chaîne YouTube — bientôt disponible">▶</span>
+          </div>
+          <div class="tv-logo-mark" aria-hidden="true">
+            <div class="tv-logo-line1">PAPTIME</div>
+            <div class="tv-logo-line2">TV<span class="dot">.</span></div>
+          </div>
+          <div class="tv-logo-sub">Diffusion en direct à venir — multidiffusion prévue sur Facebook, X et notre chaîne YouTube</div>
+        </div>
+        <div class="tv-iframe-wrap" id="tv-iframe-wrap" hidden></div>
+      </div>
+
+      <div class="tv-ticker-panel">
+        <div class="tv-ticker-head">
+          <span class="tv-live-dot" aria-hidden="true"></span> EN CONTINU
+          <span class="tv-ticker-clock"><span class="clock-loc">Port-au-Prince • </span><span id="tv-clock">--:--:--</span></span>
+        </div>
+        <div class="tv-ticker-list" id="tv-ticker-list">
+          <a class="tv-ticker-item" href="articles/mise-au-point-scrutin-reporte-13-decembre.html"><span class="cat">Élections • 30 août 2026</span><span class="title">Mise au point : le scrutin n'a pas eu lieu le 30 août, le calendrier électoral a été révisé au 13 décembre</span></a>
+          <a class="tv-ticker-item" href="articles/economie-rentree-classes-deplaces-mesures.html"><span class="cat">Économie • 30 août 2026</span><span class="title">Croissance en trompe-l'œil, rentrée sous tension : ce que l'économie haïtienne doit encore aux familles déplacées</span></a>
+          <a class="tv-ticker-item" href="articles/forum-armee-silence-kenscoff-boyard-etat.html"><span class="cat">Sécurité • 30 août 2026</span><span class="title">Forum sur l'armée, silence sur Kenscoff et sur James Boyard : le double langage sécuritaire de l'État</span></a>
+          <a class="tv-ticker-item" href="articles/rene-depestre-centenaire-portrait.html"><span class="cat">Culture • 29 août 2026</span><span class="title">René Depestre, cent ans : l'itinéraire d'un géant de la littérature haïtienne</span></a>
+          <a class="tv-ticker-item" href="articles/controverse-30000-membres-partis-politiques-oni.html"><span class="cat">Élections • 29 août 2026</span><span class="title">Listes de 30 000 membres : une publication virale accuse plusieurs formations politiques de fraude</span></a>
+          <a class="tv-ticker-item" href="articles/dimitri-vorbe-liberation-incertitude-etats-unis.html"><span class="cat">Économie • 29 août 2026</span><span class="title">Dimitri Vorbe libéré mais sommé de quitter les États-Unis : le point sur sa situation</span></a>
+          <a class="tv-ticker-item" href="articles/wisner-laguerre-portrait.html"><span class="cat">Portrait • 29 août 2026</span><span class="title">Wisner Laguerre : au service de son pays, sans contrepartie</span></a>
+          <a class="tv-ticker-item" href="articles/veille-scrutin-incertitude-securite-30-aout.html"><span class="cat">Élections • 29 août 2026</span><span class="title">À la veille du scrutin, l'incertitude domine plus que la certitude</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
 <!-- ============ FOOTER ============ -->
@@ -1273,9 +1474,37 @@
     const timeStr = pad(paptime.getHours())+':'+pad(paptime.getMinutes())+':'+pad(paptime.getSeconds());
     const heroClockEl = document.getElementById('hero-clock');
     if(heroClockEl) heroClockEl.textContent = timeStr;
+    const tvClockEl = document.getElementById('tv-clock');
+    if(tvClockEl) tvClockEl.textContent = timeStr;
   }
   updateClock();
   setInterval(updateClock, 1000);
+
+  /* ---------- PAPTIME TV : sélecteur de chaînes ---------- */
+  (function(){
+    const buttons = document.querySelectorAll('.tv-channel-btn');
+    const offair = document.getElementById('tv-offair');
+    const iframeWrap = document.getElementById('tv-iframe-wrap');
+    if(!buttons.length || !offair || !iframeWrap) return;
+    const CHANNEL_EMBEDS = {"paptime": ""};
+    buttons.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        buttons.forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        const id = btn.getAttribute('data-channel');
+        const src = CHANNEL_EMBEDS[id];
+        if(src){
+          iframeWrap.innerHTML = '<iframe src="' + src + '" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+          iframeWrap.hidden = false;
+          offair.hidden = true;
+        } else {
+          iframeWrap.innerHTML = '';
+          iframeWrap.hidden = true;
+          offair.hidden = false;
+        }
+      });
+    });
+  })();
 
   const menuToggleBtn = document.getElementById('menu-toggle-btn');
   const mobileNav = document.getElementById('mobile-nav');
