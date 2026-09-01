@@ -6,7 +6,16 @@
   <atom:link href="https://port-au-princetime.com/feed.xml" rel="self" type="application/rss+xml" />
   <description>L'actualité politique, électorale, culturelle et communautaire d'Haïti, en temps réel.</description>
   <language>fr-ht</language>
-  <lastBuildDate>Tue, 01 Sep 2026 17:30:51 +0000</lastBuildDate>
+  <lastBuildDate>Tue, 01 Sep 2026 23:37:29 +0000</lastBuildDate>
+  <item>
+    <title>Fraude aux listes de 30 000 membres : l'ONI met en garde ses employés et durcit ses règles de protection des données</title>
+    <link>https://port-au-princetime.com/articles/oni-mise-en-garde-employes-fraude-listes-partis.html</link>
+    <guid isPermaLink="true">https://port-au-princetime.com/articles/oni-mise-en-garde-employes-fraude-listes-partis.html</guid>
+    <pubDate>Tue, 01 Sep 2026 08:00:00 +0000</pubDate>
+    <category>Élections</category>
+    <author>PORT-AU-PRINCE TIME</author>
+    <description>Dans une note circulaire, l'Office national d'identification interdit à son personnel toute utilisation irrégulière des données qu'il détient, après le signalement d'anomalies dans les NINU utilisés pour constituer les listes de 30 000 membres exigées des partis politiques.</description>
+  </item>
   <item>
     <title>Mise au point : le scrutin n'a pas eu lieu le 30 août, le calendrier électoral a été révisé au 13 décembre</title>
     <link>https://port-au-princetime.com/articles/mise-au-point-scrutin-reporte-13-decembre.html</link>
@@ -177,15 +186,6 @@
     <category>Justice</category>
     <author>PORT-AU-PRINCE TIME</author>
     <description>Présentation des mécanismes prévus pour traiter les recours et contestations liés à l'enregistrement des candidatures avant le scrutin général du 30 août 2026.</description>
-  </item>
-  <item>
-    <title>Vote à l'étranger : les grandes questions qui restent en suspens</title>
-    <link>https://port-au-princetime.com/articles/vote-etranger-questions-suspens.html</link>
-    <guid isPermaLink="true">https://port-au-princetime.com/articles/vote-etranger-questions-suspens.html</guid>
-    <pubDate>Thu, 06 Aug 2026 08:00:00 +0000</pubDate>
-    <category>Diaspora</category>
-    <author>PORT-AU-PRINCE TIME</author>
-    <description>Faisabilité logistique, sécurisation des bureaux et calendrier : le point sur les discussions concernant la participation de la diaspora au scrutin du 30 août 2026.</description>
   </item>
 </channel>
 </rss>
