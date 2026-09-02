@@ -6,7 +6,16 @@
   <atom:link href="https://port-au-princetime.com/feed.xml" rel="self" type="application/rss+xml" />
   <description>L'actualité politique, électorale, culturelle et communautaire d'Haïti, en temps réel.</description>
   <language>fr-ht</language>
-  <lastBuildDate>Tue, 01 Sep 2026 23:37:29 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 02 Sep 2026 00:43:01 +0000</lastBuildDate>
+  <item>
+    <title>Pierre Damas Bel, 20 ans : la mort d'un espoir haïtien de Springfield bouleverse la diaspora aux États-Unis</title>
+    <link>https://port-au-princetime.com/articles/pierre-damas-bel-mort-springfield-bracelet-ice.html</link>
+    <guid isPermaLink="true">https://port-au-princetime.com/articles/pierre-damas-bel-mort-springfield-bracelet-ice.html</guid>
+    <pubDate>Wed, 02 Sep 2026 08:00:00 +0000</pubDate>
+    <category>Diaspora</category>
+    <author>PORT-AU-PRINCE TIME</author>
+    <description>Il voulait devenir médecin. Diplômé avec mention, tout juste admis à l'université Wright State, Pierre Damas Bel, 20 ans, est mort le 1er septembre 2026, quelques semaines après avoir reçu un bracelet électronique de l'ICE. Le récit d'une vie brisée, entre l'échec d'un État haïtien incapable de retenir sa jeunesse et l'hostilité d'une Amérique qui n'a pas su la protéger.</description>
+  </item>
   <item>
     <title>Fraude aux listes de 30 000 membres : l'ONI met en garde ses employés et durcit ses règles de protection des données</title>
     <link>https://port-au-princetime.com/articles/oni-mise-en-garde-employes-fraude-listes-partis.html</link>
@@ -177,15 +186,6 @@
     <category>Économie</category>
     <author>PORT-AU-PRINCE TIME</author>
     <description>Inflation, accès aux produits de première nécessité et relance des activités commerciales figurent parmi les préoccupations exprimées par les électeurs de Port-au-Prince à l'approche du scrutin.</description>
-  </item>
-  <item>
-    <title>Contentieux électoral : le cadre juridique mis en place avant le scrutin</title>
-    <link>https://port-au-princetime.com/articles/contentieux-electoral-cadre-juridique.html</link>
-    <guid isPermaLink="true">https://port-au-princetime.com/articles/contentieux-electoral-cadre-juridique.html</guid>
-    <pubDate>Fri, 07 Aug 2026 08:00:00 +0000</pubDate>
-    <category>Justice</category>
-    <author>PORT-AU-PRINCE TIME</author>
-    <description>Présentation des mécanismes prévus pour traiter les recours et contestations liés à l'enregistrement des candidatures avant le scrutin général du 30 août 2026.</description>
   </item>
 </channel>
 </rss>
