@@ -192,6 +192,32 @@ FERMETURE : X Pixel -->
     padding:11px 24px;
     gap:24px;
   }
+  .lang-switcher{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    flex-shrink:0;
+  }
+  .lang-switcher button{
+    background:rgba(255,255,255,0.08);
+    border:1px solid transparent;
+    width:32px;height:32px;
+    display:flex;align-items:center;justify-content:center;
+    padding:0;
+    cursor:pointer;
+    font-size:18px;
+    line-height:1;
+    border-radius:7px;
+    opacity:.62;
+    transition:opacity .2s, background .2s, border-color .2s, transform .15s;
+  }
+  .lang-switcher button:hover{opacity:.92; transform:translateY(-1px);}
+  .lang-switcher button.active{
+    opacity:1;
+    background:rgba(201,160,78,0.18);
+    border-color:var(--gold-500);
+  }
+  .lang-switcher button:focus-visible{outline:2px solid var(--gold-400); outline-offset:2px;}
   .brand{
     display:flex;
     align-items:center;
@@ -958,6 +984,8 @@ FERMETURE : X Pixel -->
     .brand{gap:8px;min-width:0;}
     .brand-badge{width:34px;height:34px;}
     .brand-badge svg{width:18px;height:18px;}
+    .lang-switcher{gap:4px;}
+    .lang-switcher button{width:26px;height:26px;font-size:14px;border-radius:6px;}
     .header-cta{gap:8px;}
     .btn-icon{width:32px;height:32px;}
     .btn-gold{padding:8px 14px;font-size:12.5px;}
@@ -1315,6 +1343,10 @@ FERMETURE : X Pixel -->
 <!-- ============ HEADER ============ -->
 <header class="site-header">
   <div class="header-inner container">
+    <div class="lang-switcher" role="group" aria-label="Choisir la langue du site">
+      <button type="button" data-lang="fr" class="active" aria-label="Français" aria-pressed="true">🇫🇷</button>
+      <button type="button" data-lang="en" aria-label="English" aria-pressed="false">🇬🇧</button>
+    </div>
     <button class="menu-toggle" id="menu-toggle-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-nav">☰</button>
 
     <div class="brand">
@@ -1561,6 +1593,31 @@ FERMETURE : X Pixel -->
       menuToggleBtn.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
     });
   }
+
+  /* ---------- Sélecteur de langue (FR / EN via Weglot) ---------- */
+  (function(){
+    var langBtns = document.querySelectorAll('.lang-switcher button[data-lang]');
+    if(!langBtns.length) return;
+    function setActive(lang){
+      langBtns.forEach(function(b){
+        var isActive = b.getAttribute('data-lang') === lang;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+    }
+    langBtns.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var lang = btn.getAttribute('data-lang');
+        setActive(lang);
+        if(window.Weglot && typeof Weglot.switchTo === 'function'){
+          Weglot.switchTo(lang);
+        }
+      });
+    });
+    if(window.Weglot && typeof Weglot.on === 'function'){
+      Weglot.on('languageChanged', function(newLang){ setActive(newLang); });
+    }
+  })();
 
   /* ---------- Micro-interactions: header shrink on scroll ---------- */
   (function(){
