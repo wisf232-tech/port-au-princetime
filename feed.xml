@@ -6,7 +6,16 @@
   <atom:link href="https://port-au-princetime.com/feed.xml" rel="self" type="application/rss+xml" />
   <description>L'actualité politique, électorale, culturelle et communautaire d'Haïti, en temps réel.</description>
   <language>fr-ht</language>
-  <lastBuildDate>Wed, 02 Sep 2026 01:24:13 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 02 Sep 2026 02:13:57 +0000</lastBuildDate>
+  <item>
+    <title>Merci, Leo : Lionel Messi tire sa révérence avec l'Argentine, celui qui a tout gagné laisse un vide immense</title>
+    <link>https://port-au-princetime.com/articles/leo-messi-retraite-internationale-argentine-hommage.html</link>
+    <guid isPermaLink="true">https://port-au-princetime.com/articles/leo-messi-retraite-internationale-argentine-hommage.html</guid>
+    <pubDate>Wed, 02 Sep 2026 08:00:00 +0000</pubDate>
+    <category>Sport</category>
+    <author>PORT-AU-PRINCE TIME</author>
+    <description>Lionel Messi a annoncé le 31 août 2026 la fin de sa carrière internationale avec l'Argentine, un mois après la défaite en finale du Mondial 2026 face à l'Espagne et la mort de son père. Retour sur la carrière de celui que beaucoup considèrent comme le plus grand joueur de tous les temps, et sur ce que son absence représentera désormais pour son pays.</description>
+  </item>
   <item>
     <title>Élections du 13 décembre : à peine 250 000 électeurs inscrits, Michel Martelly s'enregistre sur la liste électorale</title>
     <link>https://port-au-princetime.com/articles/cep-avancement-inscription-martelly-liste-electorale.html</link>
@@ -177,15 +186,6 @@
     <category>Société</category>
     <author>PORT-AU-PRINCE TIME</author>
     <description>À quelques semaines du vote, plusieurs centres d'inscription peinent encore à fonctionner normalement dans certaines communes de l'aire métropolitaine touchées par l'insécurité.</description>
-  </item>
-  <item>
-    <title>Les partenaires internationaux réitèrent leur soutien au processus électoral haïtien</title>
-    <link>https://port-au-princetime.com/articles/partenaires-internationaux-soutien-processus-electoral.html</link>
-    <guid isPermaLink="true">https://port-au-princetime.com/articles/partenaires-internationaux-soutien-processus-electoral.html</guid>
-    <pubDate>Sun, 09 Aug 2026 08:00:00 +0000</pubDate>
-    <category>Diplomatie</category>
-    <author>PORT-AU-PRINCE TIME</author>
-    <description>Plusieurs missions diplomatiques et organisations régionales ont exprimé leur appui à la tenue du scrutin général du 30 août 2026 dans un climat sécurisé et transparent.</description>
   </item>
 </channel>
 </rss>
