@@ -6,7 +6,16 @@
   <atom:link href="https://port-au-princetime.com/feed.xml" rel="self" type="application/rss+xml" />
   <description>L'actualité politique, électorale, culturelle et communautaire d'Haïti, en temps réel.</description>
   <language>fr-ht</language>
-  <lastBuildDate>Wed, 02 Sep 2026 00:43:01 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 02 Sep 2026 01:07:24 +0000</lastBuildDate>
+  <item>
+    <title>Élections du 13 décembre : à peine 250 000 électeurs inscrits, Michel Martelly s'enregistre sur la liste électorale</title>
+    <link>https://port-au-princetime.com/articles/cep-avancement-inscription-martelly-liste-electorale.html</link>
+    <guid isPermaLink="true">https://port-au-princetime.com/articles/cep-avancement-inscription-martelly-liste-electorale.html</guid>
+    <pubDate>Wed, 02 Sep 2026 08:00:00 +0000</pubDate>
+    <category>Élections</category>
+    <author>PORT-AU-PRINCE TIME</author>
+    <description>À un peu plus de trois mois du premier tour du 13 décembre, le CEP ne recense qu'environ 250 000 électeurs inscrits après un mois de registre. Dans ce contexte, l'ancien président Michel Martelly s'est inscrit comme électeur — sans annonce de candidature, et toujours sous sanctions américaines et canadiennes.</description>
+  </item>
   <item>
     <title>Pierre Damas Bel, 20 ans : la mort d'un espoir haïtien de Springfield bouleverse la diaspora aux États-Unis</title>
     <link>https://port-au-princetime.com/articles/pierre-damas-bel-mort-springfield-bracelet-ice.html</link>
@@ -177,15 +186,6 @@
     <category>Diplomatie</category>
     <author>PORT-AU-PRINCE TIME</author>
     <description>Plusieurs missions diplomatiques et organisations régionales ont exprimé leur appui à la tenue du scrutin général du 30 août 2026 dans un climat sécurisé et transparent.</description>
-  </item>
-  <item>
-    <title>Le coût de la vie, premier enjeu des campagnes électorales selon les électeurs interrogés</title>
-    <link>https://port-au-princetime.com/articles/cout-vie-enjeu-campagnes-electorales.html</link>
-    <guid isPermaLink="true">https://port-au-princetime.com/articles/cout-vie-enjeu-campagnes-electorales.html</guid>
-    <pubDate>Sat, 08 Aug 2026 08:00:00 +0000</pubDate>
-    <category>Économie</category>
-    <author>PORT-AU-PRINCE TIME</author>
-    <description>Inflation, accès aux produits de première nécessité et relance des activités commerciales figurent parmi les préoccupations exprimées par les électeurs de Port-au-Prince à l'approche du scrutin.</description>
   </item>
 </channel>
 </rss>

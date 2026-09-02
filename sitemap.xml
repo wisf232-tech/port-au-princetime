@@ -23,6 +23,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://port-au-princetime.com/articles/cep-avancement-inscription-martelly-liste-electorale.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://port-au-princetime.com/articles/pierre-damas-bel-mort-springfield-bracelet-ice.html</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>daily</changefreq>
@@ -55,8 +61,8 @@
   <url>
     <loc>https://port-au-princetime.com/articles/rene-depestre-centenaire-portrait.html</loc>
     <lastmod>2026-08-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://port-au-princetime.com/articles/controverse-30000-membres-partis-politiques-oni.html</loc>
