@@ -1250,6 +1250,15 @@ FERMETURE : X Pixel -->
     position:absolute;inset:0;overflow:hidden;
     background:linear-gradient(135deg,#050d22 0%,#0c1a3d 32%,#1d5cc4 78%,#3f7ee0 100%);
   }
+  .tv-promo-video{
+    position:absolute;inset:0;z-index:1;
+    width:100%;height:100%;object-fit:cover;display:block;
+  }
+  .tv-offair::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:46%;z-index:2;
+    background:linear-gradient(to top,rgba(4,9,26,0.82) 0%,rgba(4,9,26,0.35) 55%,rgba(4,9,26,0) 100%);
+    pointer-events:none;
+  }
   .tv-anime-badge{
     position:absolute;left:14px;top:14px;z-index:5;
     display:flex;align-items:center;gap:6px;
@@ -1283,7 +1292,7 @@ FERMETURE : X Pixel -->
   }
   .tv-logo-line2 .dot{color:#fff;}
   .tv-logo-sub{
-    position:absolute;left:0;right:0;bottom:18px;z-index:2;text-align:center;
+    position:absolute;left:0;right:0;bottom:18px;z-index:3;text-align:center;
     font-size:11px;letter-spacing:.05em;color:rgba(247,242,229,0.75);
     padding:0 24px;
   }
@@ -1455,6 +1464,10 @@ FERMETURE : X Pixel -->
     <div class="tv-layout">
       <div class="tv-player" id="tv-player">
         <div class="tv-offair" id="tv-offair">
+          <video class="tv-promo-video" autoplay muted loop playsinline aria-hidden="true">
+            <source src="articles/videos/paptime-tv-promo.webm" type="video/webm">
+            <source src="articles/videos/paptime-tv-promo.mp4" type="video/mp4">
+          </video>
           <div class="tv-anime-badge"><span class="dot" aria-hidden="true"></span> PAPTIME TV</div>
           <div class="tv-anime-social">
             <a href="https://www.facebook.com/share/1LbH6K4X8j/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Diffusion simultanée sur Facebook" title="Diffusion simultanée sur Facebook">f</a>
@@ -1462,11 +1475,7 @@ FERMETURE : X Pixel -->
             <a href="https://x.com/laguerrewisner?s=11" target="_blank" rel="noopener noreferrer" aria-label="Diffusion simultanée sur X" title="Diffusion simultanée sur X">X</a>
             <span class="tv-social-soon" aria-label="Chaîne YouTube — bientôt disponible" title="Chaîne YouTube — bientôt disponible">▶</span>
           </div>
-          <div class="tv-logo-mark" aria-hidden="true">
-            <div class="tv-logo-line1">PAPTIME</div>
-            <div class="tv-logo-line2">TV<span class="dot">.</span></div>
-          </div>
-          <div class="tv-logo-sub">Diffusion en direct à venir — multidiffusion prévue sur Facebook, X et notre chaîne YouTube</div>
+          <div class="tv-logo-sub">Bande-annonce PAPTIME TV — diffusion en direct à venir, multidiffusion prévue sur Facebook, X et notre chaîne YouTube</div>
         </div>
         <div class="tv-iframe-wrap" id="tv-iframe-wrap" hidden></div>
       </div>
