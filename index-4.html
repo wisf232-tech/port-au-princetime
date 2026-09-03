@@ -41,9 +41,56 @@
   "logo": "https://port-au-princetime.com/hero-cover.jpg",
   "description": "Journal indépendant consacré à l'actualité politique, électorale, culturelle et communautaire d'Haïti.",
   "areaServed": "HT",
-  "inLanguage": "fr"
+  "inLanguage": "fr",
+  "sameAs": [
+    "https://www.facebook.com/share/1LbH6K4X8j/?mibextid=wwXIfr",
+    "https://www.facebook.com/share/1Jek1Kdtj5/?mibextid=wwXIfr",
+    "https://x.com/laguerrewisner?s=11"
+  ]
 }
 </script>
+
+<!-- Flux RSS : permet aux agrégateurs, lecteurs de flux et à Google News de découvrir chaque nouvel article automatiquement -->
+<link rel="alternate" type="application/rss+xml" title="PORT-AU-PRINCE TIME — Derniers articles" href="https://port-au-princetime.com/feed.xml">
+
+<!-- ==========================================================================
+     EMPLACEMENTS PUBLICITAIRES (Google Ads / Meta Ads / X Ads) - INACTIFS.
+     Chaque bloc ci-dessous est a l'interieur d'un commentaire HTML, donc
+     invisible et sans effet tant que rien n'est fait. Pour activer un bloc :
+     1) remplace CHAQUE "REMPLACER_PAR_..." par ton identifiant reel (obtenu
+        dans Google Ads, Meta Events Manager, ou X Ads) ;
+     2) supprime la ligne d'ouverture et la ligne de fermeture du commentaire
+        qui entourent ce bloc precis (indiquees OUVERTURE / FERMETURE).
+     Voir le guide fourni avec cette livraison pour la marche a suivre.
+========================================================================== -->
+<!-- OUVERTURE : Google Ads (balise de suivi des conversions, gtag.js)
+<script async src="https://www.googletagmanager.com/gtag/js?id=REMPLACER_PAR_TON_ID_GOOGLE_ADS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'REMPLACER_PAR_TON_ID_GOOGLE_ADS');
+</script>
+FERMETURE : Google Ads -->
+<!-- OUVERTURE : Meta Pixel (Facebook / Instagram Ads)
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'REMPLACER_PAR_TON_ID_META_PIXEL');
+  fbq('track', 'PageView');
+</script>
+FERMETURE : Meta Pixel -->
+<!-- OUVERTURE : X (Twitter) Pixel
+<script>
+  !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+  },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+  a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+  twq('config','REMPLACER_PAR_TON_ID_X_ADS');
+</script>
+FERMETURE : X Pixel -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -145,6 +192,32 @@
     padding:11px 24px;
     gap:24px;
   }
+  .lang-switcher{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    flex-shrink:0;
+  }
+  .lang-switcher button{
+    background:rgba(255,255,255,0.08);
+    border:1px solid transparent;
+    width:32px;height:32px;
+    display:flex;align-items:center;justify-content:center;
+    padding:0;
+    cursor:pointer;
+    font-size:18px;
+    line-height:1;
+    border-radius:7px;
+    opacity:.62;
+    transition:opacity .2s, background .2s, border-color .2s, transform .15s;
+  }
+  .lang-switcher button:hover{opacity:.92; transform:translateY(-1px);}
+  .lang-switcher button.active{
+    opacity:1;
+    background:rgba(201,160,78,0.18);
+    border-color:var(--gold-500);
+  }
+  .lang-switcher button:focus-visible{outline:2px solid var(--gold-400); outline-offset:2px;}
   .brand{
     display:flex;
     align-items:center;
@@ -911,6 +984,8 @@
     .brand{gap:8px;min-width:0;}
     .brand-badge{width:34px;height:34px;}
     .brand-badge svg{width:18px;height:18px;}
+    .lang-switcher{gap:4px;}
+    .lang-switcher button{width:26px;height:26px;font-size:14px;border-radius:6px;}
     .header-cta{gap:8px;}
     .btn-icon{width:32px;height:32px;}
     .btn-gold{padding:8px 14px;font-size:12.5px;}
@@ -1043,60 +1118,102 @@
   .article-sources a{color:var(--navy-700);text-decoration:underline;text-underline-offset:2px;word-break:break-word;}
   .article-sources a:hover{color:var(--gold-600);}
 
-  /* ---------- Video-format hero (homepage) ---------- */
+  /* ---------- Hero (homepage) : wordmark plein cadre, sans illustration ---------- */
   .video-hero{
     position:relative;
-    min-height:100vh;
+    min-height:60vh;
     display:flex;
     align-items:center;
     overflow:hidden;
-    background:var(--navy-900);
+    background:linear-gradient(135deg,#050d22 0%,#0c1a3d 30%,#123f9e 62%,#2f6fd6 100%);
   }
-  .video-hero-media{position:absolute;inset:0;overflow:hidden;}
-  .video-hero-media img{
-    width:100%;height:100%;object-fit:cover;
-    animation:kenburns 26s ease-in-out infinite alternate;
+  .hero-glow{
+    position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:
+      radial-gradient(ellipse 900px 680px at 82% 12%, rgba(130,178,255,0.38), transparent 60%),
+      radial-gradient(ellipse 640px 560px at 10% 92%, rgba(201,160,78,0.16), transparent 65%);
+  }
+  /* Défilement horizontal continu du nom du journal, bandeau en bas du hero */
+  .hero-ticker{
+    position:absolute; left:0; right:0; bottom:0; z-index:2; height:46px;
+    overflow:hidden;
+    background:rgba(5,13,34,0.4);
+    border-top:1px solid rgba(255,255,255,0.18);
+  }
+  .hero-ticker-track{
+    display:flex; align-items:center; height:100%; width:max-content;
+    animation:hero-ticker-scroll 32s linear infinite;
     will-change:transform;
   }
-  .video-hero-scrim{
-    position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(0,15,50,.6) 0%, rgba(0,20,60,.32) 42%, rgba(0,10,38,.78) 100%);
+  .hero-ticker-track span{
+    display:inline-flex; align-items:center; white-space:nowrap;
+    font-family:'Source Sans 3',Arial,sans-serif;
+    font-weight:700; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:rgba(247,242,229,0.55);
+    padding:0 14px;
   }
-  @keyframes kenburns{
-    0%{transform:scale(1) translate(0,0);}
-    100%{transform:scale(1.13) translate(-1.5%,-1%);}
+  .hero-ticker-track span em{color:var(--gold-400); font-style:normal; margin-left:.35em;}
+  .hero-ticker-dot{color:rgba(201,160,78,0.55); padding:0 14px;}
+  @keyframes hero-ticker-scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
   }
-  .video-hero-content{position:relative;z-index:2;padding:90px 24px 70px;color:#fff;max-width:740px;}
+  @media (prefers-reduced-motion:reduce){
+    .hero-ticker-track{animation:none;}
+  }
+  .video-hero-content{position:relative;z-index:2;padding:52px 24px 36px;color:#fff;max-width:840px;}
   .video-hero-clock{
     display:inline-flex;align-items:center;gap:6px;
-    background:rgba(8,16,41,0.45);
+    background:rgba(8,16,41,0.4);
     border:1px solid rgba(255,255,255,0.25);
     padding:7px 14px;border-radius:999px;
     font-size:12.5px;font-weight:700;letter-spacing:.03em;
-    margin-bottom:22px;
+    margin-bottom:28px;
     backdrop-filter:blur(4px);
     color:#fff;
   }
-  .video-hero-content .eyebrow{color:var(--gold-400);}
-  .video-hero-title{
+  .hero-wordmark{margin:0 0 6px;}
+  .hero-wordmark-line1{
+    font-family:'Source Sans 3',Arial,sans-serif;
+    font-weight:900;
+    font-size:clamp(46px,9vw,110px);
+    line-height:0.96;
+    letter-spacing:-0.01em;
+    color:#fff;
+    text-shadow:0 10px 40px rgba(0,0,0,0.35);
+  }
+  .hero-wordmark-line2{
     font-family:'Playfair Display',Georgia,serif;
-    font-size:clamp(30px,5.2vw,54px);
-    line-height:1.15;color:#fff;margin:14px 0 18px;
+    font-style:italic;
+    font-weight:800;
+    font-size:clamp(36px,7.2vw,82px);
+    line-height:1;
+    color:var(--gold-400);
+    margin-top:-2px;
+  }
+  .hero-wordmark-line2 .dot{color:#fff;}
+  .hero-motto{
+    font-family:'Playfair Display',Georgia,serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:clamp(17px,2.1vw,22px);
+    color:var(--gold-300);
+    margin:14px 0 14px;
+    padding-top:14px;
+    border-top:1px solid rgba(255,255,255,0.22);
+    max-width:440px;
   }
   .video-hero-tagline{
-    font-size:clamp(15.5px,1.8vw,18.5px);line-height:1.65;
-    color:rgba(247,242,229,0.88);max-width:600px;margin:0 0 34px;
+    font-size:clamp(15px,1.7vw,17.5px);line-height:1.6;
+    color:rgba(247,242,229,0.85);max-width:560px;margin:0 0 22px;
   }
-  .video-hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:46px;}
+  .video-hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
   .btn-outline-light{
     background:transparent;border:1px solid rgba(255,255,255,0.5);color:#fff;
   }
   .btn-outline-light:hover{background:rgba(255,255,255,0.1);border-color:#fff;transform:translateY(-2px);}
-  .video-hero-stats{display:flex;gap:36px;flex-wrap:wrap;padding-top:26px;border-top:1px solid rgba(255,255,255,0.22);}
-  .video-hero-stats .num{font-family:'Playfair Display',serif;font-size:25px;color:var(--gold-400);}
-  .video-hero-stats .lbl{font-size:11.5px;color:rgba(247,242,229,0.75);margin-top:2px;line-height:1.35;}
   .video-hero-scrolldown{
-    position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+    position:absolute;bottom:64px;right:32px;
     z-index:2;color:#fff;font-size:20px;text-decoration:none;
     width:42px;height:42px;border-radius:50%;
     border:1px solid rgba(255,255,255,0.4);
@@ -1105,14 +1222,16 @@
     transition:border-color .18s ease, background-color .18s ease;
   }
   .video-hero-scrolldown:hover{background:rgba(255,255,255,0.12);border-color:#fff;}
-  @keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,7px);}}
+  @keyframes bob{0%,100%{transform:translate(0,0);}50%{transform:translate(0,7px);}}
+  @media (max-width:768px){
+    .video-hero-scrolldown{display:none;}
+  }
   @media (prefers-reduced-motion: reduce){
-    .video-hero-media img{animation:none;}
     .video-hero-scrolldown{animation:none;}
   }
   @media (max-width:768px){
-    .video-hero-content{padding:70px 20px 90px;}
-    .video-hero-stats{gap:24px;}
+    .video-hero{min-height:auto;}
+    .video-hero-content{padding:84px 20px 64px;}
   }
 
   /* ---------- PAPTIME TV ---------- */
@@ -1134,6 +1253,10 @@
   .tv-offair{
     position:absolute;inset:0;overflow:hidden;
     background:linear-gradient(135deg,#050d22 0%,#0c1a3d 32%,#1d5cc4 78%,#3f7ee0 100%);
+  }
+  .tv-promo-video{
+    position:absolute;inset:0;z-index:1;
+    width:100%;height:100%;object-fit:cover;display:block;
   }
   .tv-anime-badge{
     position:absolute;left:14px;top:14px;z-index:5;
@@ -1168,7 +1291,7 @@
   }
   .tv-logo-line2 .dot{color:#fff;}
   .tv-logo-sub{
-    position:absolute;left:0;right:0;bottom:18px;z-index:2;text-align:center;
+    position:absolute;left:0;right:0;bottom:18px;z-index:3;text-align:center;
     font-size:11px;letter-spacing:.05em;color:rgba(247,242,229,0.75);
     padding:0 24px;
   }
@@ -1228,6 +1351,10 @@
 <!-- ============ HEADER ============ -->
 <header class="site-header">
   <div class="header-inner container">
+    <div class="lang-switcher" role="group" aria-label="Choisir la langue du site">
+      <button type="button" data-lang="fr" class="active" aria-label="Français" aria-pressed="true">🇫🇷</button>
+      <button type="button" data-lang="en" aria-label="English" aria-pressed="false">🇬🇧</button>
+    </div>
     <button class="menu-toggle" id="menu-toggle-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-nav">☰</button>
 
     <div class="brand">
@@ -1284,32 +1411,38 @@
 <main id="main-content">
 <!-- ============ VIDEO-FORMAT HERO ============ -->
 <section class="video-hero" id="accueil">
-  <div class="video-hero-media">
-    <img src="hero-cover.jpg" alt="PORT-AU-PRINCE TIME — L'actualité en temps réel, la culture et la communauté" width="1600" height="609" fetchpriority="high" loading="eager" decoding="async">
-    <div class="video-hero-scrim"></div>
-  </div>
+  <div class="hero-glow" aria-hidden="true"></div>
   <div class="video-hero-content container">
     <div class="video-hero-clock"><span class="clock-loc">Port-au-Prince • </span><span id="hero-clock">--:--:--</span></div>
-    <span class="eyebrow">Élections générales du 30 août 2026</span>
-    <h2 class="video-hero-title">L'actualité politique d'Haïti,<br>en temps réel.</h2>
+    <div class="hero-wordmark">
+      <div class="hero-wordmark-line1">PORT-AU-PRINCE</div>
+      <div class="hero-wordmark-line2">TIME<span class="dot">.</span></div>
+    </div>
+    <p class="hero-motto">Le temps de la vérité.</p>
     <p class="video-hero-tagline">Un journal indépendant consacré à l'actualité électorale, à la politique, à la culture et à la communauté haïtienne — en Haïti comme dans la diaspora.</p>
     <div class="video-hero-actions">
       <a href="actualites.html" class="btn btn-gold">Voir les actualités</a>
       <a href="actualites.html#elections" class="btn btn-outline-light">Dossier spécial élections</a>
     </div>
-    <div class="video-hero-stats">
-      <div>
-        <div class="num">18</div>
-        <div class="lbl">Jours avant<br>le scrutin</div>
-      </div>
-      <div>
-        <div class="num">119+</div>
-        <div class="lbl">Partis politiques<br>enregistrés</div>
-      </div>
-      <div>
-        <div class="num">10</div>
-        <div class="lbl">Départements<br>couverts</div>
-      </div>
+  </div>
+  <div class="hero-ticker" aria-hidden="true">
+    <div class="hero-ticker-track">
+      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
+      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
+      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
+      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
+      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
+      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
+      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
+      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
+      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
+      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
+      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
+      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
+      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
+      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
+      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
+      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
     </div>
   </div>
   <a href="actualites.html" class="video-hero-scrolldown" aria-label="Voir les actualités">↓</a>
@@ -1330,6 +1463,10 @@
     <div class="tv-layout">
       <div class="tv-player" id="tv-player">
         <div class="tv-offair" id="tv-offair">
+          <video class="tv-promo-video" autoplay muted loop playsinline aria-hidden="true">
+            <source src="articles/videos/paptime-tv-promo.webm" type="video/webm">
+            <source src="articles/videos/paptime-tv-promo.mp4" type="video/mp4">
+          </video>
           <div class="tv-anime-badge"><span class="dot" aria-hidden="true"></span> PAPTIME TV</div>
           <div class="tv-anime-social">
             <a href="https://www.facebook.com/share/1LbH6K4X8j/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Diffusion simultanée sur Facebook" title="Diffusion simultanée sur Facebook">f</a>
@@ -1337,11 +1474,6 @@
             <a href="https://x.com/laguerrewisner?s=11" target="_blank" rel="noopener noreferrer" aria-label="Diffusion simultanée sur X" title="Diffusion simultanée sur X">X</a>
             <span class="tv-social-soon" aria-label="Chaîne YouTube — bientôt disponible" title="Chaîne YouTube — bientôt disponible">▶</span>
           </div>
-          <div class="tv-logo-mark" aria-hidden="true">
-            <div class="tv-logo-line1">PAPTIME</div>
-            <div class="tv-logo-line2">TV<span class="dot">.</span></div>
-          </div>
-          <div class="tv-logo-sub">Diffusion en direct à venir — multidiffusion prévue sur Facebook, X et notre chaîne YouTube</div>
         </div>
         <div class="tv-iframe-wrap" id="tv-iframe-wrap" hidden></div>
       </div>
@@ -1352,14 +1484,14 @@
           <span class="tv-ticker-clock"><span class="clock-loc">Port-au-Prince • </span><span id="tv-clock">--:--:--</span></span>
         </div>
         <div class="tv-ticker-list" id="tv-ticker-list">
+          <a class="tv-ticker-item" href="articles/leo-messi-retraite-internationale-argentine-hommage.html"><span class="cat">Sport • 2 septembre 2026</span><span class="title">Merci, Leo : Lionel Messi tire sa révérence avec l'Argentine, celui qui a tout gagné laisse un vide immense</span></a>
+          <a class="tv-ticker-item" href="articles/cep-avancement-inscription-martelly-liste-electorale.html"><span class="cat">Élections • 2 septembre 2026</span><span class="title">Élections du 13 décembre : à peine 250 000 électeurs inscrits, Michel Martelly s'enregistre sur la liste électorale</span></a>
+          <a class="tv-ticker-item" href="articles/pierre-damas-bel-mort-springfield-bracelet-ice.html"><span class="cat">Diaspora • 2 septembre 2026</span><span class="title">Pierre Damas Bel, 20 ans : la mort d'un espoir haïtien de Springfield bouleverse la diaspora aux États-Unis</span></a>
+          <a class="tv-ticker-item" href="articles/oni-mise-en-garde-employes-fraude-listes-partis.html"><span class="cat">Élections • 1er septembre 2026</span><span class="title">Fraude aux listes de 30 000 membres : l'ONI met en garde ses employés et durcit ses règles de protection des données</span></a>
           <a class="tv-ticker-item" href="articles/mise-au-point-scrutin-reporte-13-decembre.html"><span class="cat">Élections • 30 août 2026</span><span class="title">Mise au point : le scrutin n'a pas eu lieu le 30 août, le calendrier électoral a été révisé au 13 décembre</span></a>
           <a class="tv-ticker-item" href="articles/economie-rentree-classes-deplaces-mesures.html"><span class="cat">Économie • 30 août 2026</span><span class="title">Croissance en trompe-l'œil, rentrée sous tension : ce que l'économie haïtienne doit encore aux familles déplacées</span></a>
           <a class="tv-ticker-item" href="articles/forum-armee-silence-kenscoff-boyard-etat.html"><span class="cat">Sécurité • 30 août 2026</span><span class="title">Forum sur l'armée, silence sur Kenscoff et sur James Boyard : le double langage sécuritaire de l'État</span></a>
           <a class="tv-ticker-item" href="articles/rene-depestre-centenaire-portrait.html"><span class="cat">Culture • 29 août 2026</span><span class="title">René Depestre, cent ans : l'itinéraire d'un géant de la littérature haïtienne</span></a>
-          <a class="tv-ticker-item" href="articles/controverse-30000-membres-partis-politiques-oni.html"><span class="cat">Élections • 29 août 2026</span><span class="title">Listes de 30 000 membres : une publication virale accuse plusieurs formations politiques de fraude</span></a>
-          <a class="tv-ticker-item" href="articles/dimitri-vorbe-liberation-incertitude-etats-unis.html"><span class="cat">Économie • 29 août 2026</span><span class="title">Dimitri Vorbe libéré mais sommé de quitter les États-Unis : le point sur sa situation</span></a>
-          <a class="tv-ticker-item" href="articles/wisner-laguerre-portrait.html"><span class="cat">Portrait • 29 août 2026</span><span class="title">Wisner Laguerre : au service de son pays, sans contrepartie</span></a>
-          <a class="tv-ticker-item" href="articles/veille-scrutin-incertitude-securite-30-aout.html"><span class="cat">Élections • 29 août 2026</span><span class="title">À la veille du scrutin, l'incertitude domine plus que la certitude</span></a>
         </div>
       </div>
     </div>
@@ -1469,6 +1601,31 @@
     });
   }
 
+  /* ---------- Sélecteur de langue (FR / EN via Weglot) ---------- */
+  (function(){
+    var langBtns = document.querySelectorAll('.lang-switcher button[data-lang]');
+    if(!langBtns.length) return;
+    function setActive(lang){
+      langBtns.forEach(function(b){
+        var isActive = b.getAttribute('data-lang') === lang;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+    }
+    langBtns.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var lang = btn.getAttribute('data-lang');
+        setActive(lang);
+        if(window.Weglot && typeof Weglot.switchTo === 'function'){
+          Weglot.switchTo(lang);
+        }
+      });
+    });
+    if(window.Weglot && typeof Weglot.on === 'function'){
+      Weglot.on('languageChanged', function(newLang){ setActive(newLang); });
+    }
+  })();
+
   /* ---------- Micro-interactions: header shrink on scroll ---------- */
   (function(){
     const header = document.querySelector('.site-header');
@@ -1496,7 +1653,7 @@
   /* ---------- Site search ---------- */
   (function(){
     var SEARCH_PREFIX = "articles/";
-    var SEARCH_INDEX = [{"t": "Mise au point : le scrutin n'a pas eu lieu le 30 août, le calendrier électoral a été révisé au 13 décembre", "s": "mise-au-point-scrutin-reporte-13-decembre", "c": "Élections", "d": "30 août 2026"}, {"t": "Croissance en trompe-l'œil, rentrée sous tension : ce que l'économie haïtienne doit encore aux familles déplacées", "s": "economie-rentree-classes-deplaces-mesures", "c": "Économie", "d": "30 août 2026"}, {"t": "Forum sur l'armée, silence sur Kenscoff et sur James Boyard : le double langage sécuritaire de l'État", "s": "forum-armee-silence-kenscoff-boyard-etat", "c": "Sécurité", "d": "30 août 2026"}, {"t": "René Depestre, cent ans : l'itinéraire d'un géant de la littérature haïtienne", "s": "rene-depestre-centenaire-portrait", "c": "Culture", "d": "29 août 2026"}, {"t": "Listes de 30 000 membres : une publication virale accuse plusieurs formations politiques de fraude", "s": "controverse-30000-membres-partis-politiques-oni", "c": "Élections", "d": "29 août 2026"}, {"t": "Dimitri Vorbe libéré mais sommé de quitter les États-Unis : le point sur sa situation", "s": "dimitri-vorbe-liberation-incertitude-etats-unis", "c": "Économie", "d": "29 août 2026"}, {"t": "Wisner Laguerre : au service de son pays, sans contrepartie", "s": "wisner-laguerre-portrait", "c": "Portrait", "d": "29 août 2026"}, {"t": "À la veille du scrutin, l'incertitude domine plus que la certitude", "s": "veille-scrutin-incertitude-securite-30-aout", "c": "Élections", "d": "29 août 2026"}, {"t": "Massacre de Kenscoff : ce que révèle l'inaction de l'État face à Viv Ansanm", "s": "massacre-kenscoff-inaction-gouvernement", "c": "Sécurité", "d": "28 août 2026"}, {"t": "À dix-huit jours du scrutin, le Conseil électoral provisoire maintient le cap sur le 30 août", "s": "cep-maintient-cap-30-aout-scrutin", "c": "Politique", "d": "12 août 2026"}, {"t": "Plus de 119 partis et regroupements enregistrés : comment s'y retrouver avant le vote", "s": "119-partis-enregistres-elections-2026", "c": "Élections", "d": "12 août 2026"}, {"t": "Aire métropolitaine : ce que change le renforcement du dispositif sécuritaire avant le scrutin", "s": "securite-aire-metropolitaine-dispositif-electoral", "c": "Sécurité", "d": "11 août 2026"}, {"t": "Vote de la diaspora : où en sont les discussions sur la participation des Haïtiens de l'étranger", "s": "vote-diaspora-participation-haitiens-etranger", "c": "Diaspora", "d": "10 août 2026"}, {"t": "Fin annoncée du mandat du Conseil présidentiel de transition : quelles suites institutionnelles ?", "s": "fin-mandat-conseil-presidentiel-transition", "c": "Institutions", "d": "9 août 2026"}, {"t": "Décret électoral : ce que prévoit le texte adopté par le gouvernement de transition", "s": "decret-electoral-texte-gouvernement-transition", "c": "Politique", "d": "11 août 2026"}, {"t": "Dans les zones affectées par l'insécurité, l'inscription des électeurs reste un défi", "s": "insecurite-inscription-electeurs-defi", "c": "Société", "d": "10 août 2026"}, {"t": "Les partenaires internationaux réitèrent leur soutien au processus électoral haïtien", "s": "partenaires-internationaux-soutien-processus-electoral", "c": "Diplomatie", "d": "9 août 2026"}, {"t": "Le coût de la vie, premier enjeu des campagnes électorales selon les électeurs interrogés", "s": "cout-vie-enjeu-campagnes-electorales", "c": "Économie", "d": "8 août 2026"}, {"t": "Contentieux électoral : le cadre juridique mis en place avant le scrutin", "s": "contentieux-electoral-cadre-juridique", "c": "Justice", "d": "7 août 2026"}, {"t": "Vote à l'étranger : les grandes questions qui restent en suspens", "s": "vote-etranger-questions-suspens", "c": "Diaspora", "d": "6 août 2026"}, {"t": "La nouvelle génération de kompa réinvente la scène port-au-princienne", "s": "nouvelle-generation-kompa-scene-port-au-princienne", "c": "Musique", "d": "5 août 2026"}, {"t": "Sauvegarder le centre historique : un chantier culturel autant que politique", "s": "sauvegarder-centre-historique-chantier-culturel", "c": "Patrimoine", "d": "4 août 2026"}, {"t": "Une exposition collective met à l'honneur les artistes de la relève", "s": "exposition-collective-artistes-releve", "c": "Art", "d": "3 août 2026"}, {"t": "Marchés de quartier : la résilience de l'économie informelle en période électorale", "s": "marches-quartier-resilience-economie-informelle", "c": "Économie", "d": "2 août 2026"}];
+    var SEARCH_INDEX = [{"t": "Merci, Leo : Lionel Messi tire sa révérence avec l'Argentine, celui qui a tout gagné laisse un vide immense", "s": "leo-messi-retraite-internationale-argentine-hommage", "c": "Sport", "d": "2 septembre 2026"}, {"t": "Élections du 13 décembre : à peine 250 000 électeurs inscrits, Michel Martelly s'enregistre sur la liste électorale", "s": "cep-avancement-inscription-martelly-liste-electorale", "c": "Élections", "d": "2 septembre 2026"}, {"t": "Pierre Damas Bel, 20 ans : la mort d'un espoir haïtien de Springfield bouleverse la diaspora aux États-Unis", "s": "pierre-damas-bel-mort-springfield-bracelet-ice", "c": "Diaspora", "d": "2 septembre 2026"}, {"t": "Fraude aux listes de 30 000 membres : l'ONI met en garde ses employés et durcit ses règles de protection des données", "s": "oni-mise-en-garde-employes-fraude-listes-partis", "c": "Élections", "d": "1er septembre 2026"}, {"t": "Mise au point : le scrutin n'a pas eu lieu le 30 août, le calendrier électoral a été révisé au 13 décembre", "s": "mise-au-point-scrutin-reporte-13-decembre", "c": "Élections", "d": "30 août 2026"}, {"t": "Croissance en trompe-l'œil, rentrée sous tension : ce que l'économie haïtienne doit encore aux familles déplacées", "s": "economie-rentree-classes-deplaces-mesures", "c": "Économie", "d": "30 août 2026"}, {"t": "Forum sur l'armée, silence sur Kenscoff et sur James Boyard : le double langage sécuritaire de l'État", "s": "forum-armee-silence-kenscoff-boyard-etat", "c": "Sécurité", "d": "30 août 2026"}, {"t": "René Depestre, cent ans : l'itinéraire d'un géant de la littérature haïtienne", "s": "rene-depestre-centenaire-portrait", "c": "Culture", "d": "29 août 2026"}, {"t": "Listes de 30 000 membres : une publication virale accuse plusieurs formations politiques de fraude", "s": "controverse-30000-membres-partis-politiques-oni", "c": "Élections", "d": "29 août 2026"}, {"t": "Dimitri Vorbe libéré mais sommé de quitter les États-Unis : le point sur sa situation", "s": "dimitri-vorbe-liberation-incertitude-etats-unis", "c": "Économie", "d": "29 août 2026"}, {"t": "Wisner Laguerre : au service de son pays, sans contrepartie", "s": "wisner-laguerre-portrait", "c": "Portrait", "d": "29 août 2026"}, {"t": "À la veille du scrutin, l'incertitude domine plus que la certitude", "s": "veille-scrutin-incertitude-securite-30-aout", "c": "Élections", "d": "29 août 2026"}, {"t": "Massacre de Kenscoff : ce que révèle l'inaction de l'État face à Viv Ansanm", "s": "massacre-kenscoff-inaction-gouvernement", "c": "Sécurité", "d": "28 août 2026"}, {"t": "À dix-huit jours du scrutin, le Conseil électoral provisoire maintient le cap sur le 30 août", "s": "cep-maintient-cap-30-aout-scrutin", "c": "Politique", "d": "12 août 2026"}, {"t": "Plus de 119 partis et regroupements enregistrés : comment s'y retrouver avant le vote", "s": "119-partis-enregistres-elections-2026", "c": "Élections", "d": "12 août 2026"}, {"t": "Aire métropolitaine : ce que change le renforcement du dispositif sécuritaire avant le scrutin", "s": "securite-aire-metropolitaine-dispositif-electoral", "c": "Sécurité", "d": "11 août 2026"}, {"t": "Vote de la diaspora : où en sont les discussions sur la participation des Haïtiens de l'étranger", "s": "vote-diaspora-participation-haitiens-etranger", "c": "Diaspora", "d": "10 août 2026"}, {"t": "Fin annoncée du mandat du Conseil présidentiel de transition : quelles suites institutionnelles ?", "s": "fin-mandat-conseil-presidentiel-transition", "c": "Institutions", "d": "9 août 2026"}, {"t": "Décret électoral : ce que prévoit le texte adopté par le gouvernement de transition", "s": "decret-electoral-texte-gouvernement-transition", "c": "Politique", "d": "11 août 2026"}, {"t": "Dans les zones affectées par l'insécurité, l'inscription des électeurs reste un défi", "s": "insecurite-inscription-electeurs-defi", "c": "Société", "d": "10 août 2026"}, {"t": "Les partenaires internationaux réitèrent leur soutien au processus électoral haïtien", "s": "partenaires-internationaux-soutien-processus-electoral", "c": "Diplomatie", "d": "9 août 2026"}, {"t": "Le coût de la vie, premier enjeu des campagnes électorales selon les électeurs interrogés", "s": "cout-vie-enjeu-campagnes-electorales", "c": "Économie", "d": "8 août 2026"}, {"t": "Contentieux électoral : le cadre juridique mis en place avant le scrutin", "s": "contentieux-electoral-cadre-juridique", "c": "Justice", "d": "7 août 2026"}, {"t": "Vote à l'étranger : les grandes questions qui restent en suspens", "s": "vote-etranger-questions-suspens", "c": "Diaspora", "d": "6 août 2026"}, {"t": "La nouvelle génération de kompa réinvente la scène port-au-princienne", "s": "nouvelle-generation-kompa-scene-port-au-princienne", "c": "Musique", "d": "5 août 2026"}, {"t": "Sauvegarder le centre historique : un chantier culturel autant que politique", "s": "sauvegarder-centre-historique-chantier-culturel", "c": "Patrimoine", "d": "4 août 2026"}, {"t": "Une exposition collective met à l'honneur les artistes de la relève", "s": "exposition-collective-artistes-releve", "c": "Art", "d": "3 août 2026"}, {"t": "Marchés de quartier : la résilience de l'économie informelle en période électorale", "s": "marches-quartier-resilience-economie-informelle", "c": "Économie", "d": "2 août 2026"}];
     var toggleBtn = document.getElementById('search-toggle-btn');
     var panel = document.getElementById('search-panel');
     var input = document.getElementById('search-input');
