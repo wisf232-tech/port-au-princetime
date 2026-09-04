@@ -6,7 +6,16 @@
   <atom:link href="https://port-au-princetime.com/feed.xml" rel="self" type="application/rss+xml" />
   <description>L'actualité politique, électorale, culturelle et communautaire d'Haïti, en temps réel.</description>
   <language>fr-ht</language>
-  <lastBuildDate>Fri, 04 Sep 2026 20:24:23 +0000</lastBuildDate>
+  <lastBuildDate>Fri, 04 Sep 2026 21:32:59 +0000</lastBuildDate>
+  <item>
+    <title>À l'OEA, Haïti réclame l'aide promise : le temps des pirouettes diplomatiques est-il révolu ?</title>
+    <link>https://port-au-princetime.com/articles/haiti-oea-forbin-renouvellement-force-suppression-gangs.html</link>
+    <guid isPermaLink="true">https://port-au-princetime.com/articles/haiti-oea-forbin-renouvellement-force-suppression-gangs.html</guid>
+    <pubDate>Fri, 04 Sep 2026 08:00:00 +0000</pubDate>
+    <category>Diplomatie</category>
+    <author>PORT-AU-PRINCE TIME</author>
+    <description>Devant l'Organisation des États américains, la ministre haïtienne des Affaires étrangères Raina Forbin a plaidé le 4 septembre 2026 pour le renouvellement de la Force de suppression des gangs, avant l'expiration de son mandat le 30 septembre. Entre promesses répétées de la communauté internationale et résultats jugés insuffisants sur le terrain, PORT-AU-PRINCE TIME interroge le temps venu, pour Haïti, d'une diplomatie plus offensive et plus souveraine.</description>
+  </item>
   <item>
     <title>Kyiv frappée en plein jour : la Russie vise le siège du renseignement ukrainien, la spirale d'escalade s'accélère</title>
     <link>https://port-au-princetime.com/articles/russie-frappe-siege-sbu-kyiv-escalade-ukraine.html</link>
@@ -177,15 +186,6 @@
     <category>Diaspora</category>
     <author>PORT-AU-PRINCE TIME</author>
     <description>Faisabilité logistique, cadre légal, sécurisation des bureaux : où en sont réellement les discussions sur la participation de la diaspora haïtienne au scrutin du 30 août 2026 ?</description>
-  </item>
-  <item>
-    <title>Fin annoncée du mandat du Conseil présidentiel de transition : quelles suites institutionnelles ?</title>
-    <link>https://port-au-princetime.com/articles/fin-mandat-conseil-presidentiel-transition.html</link>
-    <guid isPermaLink="true">https://port-au-princetime.com/articles/fin-mandat-conseil-presidentiel-transition.html</guid>
-    <pubDate>Sun, 09 Aug 2026 08:00:00 +0000</pubDate>
-    <category>Institutions</category>
-    <author>PORT-AU-PRINCE TIME</author>
-    <description>À quelques semaines du scrutin général, la fin annoncée du mandat du Conseil présidentiel de transition relance les débats sur la suite institutionnelle du processus de sortie de crise en Haïti.</description>
   </item>
 </channel>
 </rss>
