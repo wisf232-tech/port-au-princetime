@@ -6,7 +6,16 @@
   <atom:link href="https://port-au-princetime.com/feed.xml" rel="self" type="application/rss+xml" />
   <description>L'actualité politique, électorale, culturelle et communautaire d'Haïti, en temps réel.</description>
   <language>fr-ht</language>
-  <lastBuildDate>Wed, 02 Sep 2026 02:13:57 +0000</lastBuildDate>
+  <lastBuildDate>Fri, 04 Sep 2026 13:21:41 +0000</lastBuildDate>
+  <item>
+    <title>Haïti et République dominicaine réaffirment leur volonté de dialogue lors d'une rencontre bilatérale à Dajabón</title>
+    <link>https://port-au-princetime.com/articles/haiti-rd-reunion-bilaterale-codevi-dajabon.html</link>
+    <guid isPermaLink="true">https://port-au-princetime.com/articles/haiti-rd-reunion-bilaterale-codevi-dajabon.html</guid>
+    <pubDate>Thu, 03 Sep 2026 08:00:00 +0000</pubDate>
+    <category>Diplomatie</category>
+    <author>PORT-AU-PRINCE TIME</author>
+    <description>Les chefs de la diplomatie haïtienne et dominicaine, Raina Forbin et Víctor « Ito » Bisonó, se sont rencontrés le 3 septembre 2026 au parc industriel Codevi de Dajabón pour relancer le dialogue bilatéral sur la sécurité frontalière, la migration et le commerce.</description>
+  </item>
   <item>
     <title>Merci, Leo : Lionel Messi tire sa révérence avec l'Argentine, celui qui a tout gagné laisse un vide immense</title>
     <link>https://port-au-princetime.com/articles/leo-messi-retraite-internationale-argentine-hommage.html</link>
@@ -177,15 +186,6 @@
     <category>Politique</category>
     <author>PORT-AU-PRINCE TIME</author>
     <description>Retour sur les principales dispositions du décret électoral encadrant l'organisation du scrutin général du 30 août 2026, entre encadrement des candidatures et modalités de financement des campagnes.</description>
-  </item>
-  <item>
-    <title>Dans les zones affectées par l'insécurité, l'inscription des électeurs reste un défi</title>
-    <link>https://port-au-princetime.com/articles/insecurite-inscription-electeurs-defi.html</link>
-    <guid isPermaLink="true">https://port-au-princetime.com/articles/insecurite-inscription-electeurs-defi.html</guid>
-    <pubDate>Mon, 10 Aug 2026 08:00:00 +0000</pubDate>
-    <category>Société</category>
-    <author>PORT-AU-PRINCE TIME</author>
-    <description>À quelques semaines du vote, plusieurs centres d'inscription peinent encore à fonctionner normalement dans certaines communes de l'aire métropolitaine touchées par l'insécurité.</description>
   </item>
 </channel>
 </rss>
