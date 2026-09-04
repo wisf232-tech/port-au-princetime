@@ -6,7 +6,16 @@
   <atom:link href="https://port-au-princetime.com/feed.xml" rel="self" type="application/rss+xml" />
   <description>L'actualité politique, électorale, culturelle et communautaire d'Haïti, en temps réel.</description>
   <language>fr-ht</language>
-  <lastBuildDate>Fri, 04 Sep 2026 13:21:41 +0000</lastBuildDate>
+  <lastBuildDate>Fri, 04 Sep 2026 20:24:23 +0000</lastBuildDate>
+  <item>
+    <title>Kyiv frappée en plein jour : la Russie vise le siège du renseignement ukrainien, la spirale d'escalade s'accélère</title>
+    <link>https://port-au-princetime.com/articles/russie-frappe-siege-sbu-kyiv-escalade-ukraine.html</link>
+    <guid isPermaLink="true">https://port-au-princetime.com/articles/russie-frappe-siege-sbu-kyiv-escalade-ukraine.html</guid>
+    <pubDate>Fri, 04 Sep 2026 08:00:00 +0000</pubDate>
+    <category>International</category>
+    <author>PORT-AU-PRINCE TIME</author>
+    <description>Un drone russe a frappé le 4 septembre 2026 le siège du Service de sécurité d'Ukraine (SBU) en plein centre de Kyiv, visant directement le bureau de son chef par intérim. Cette attaque, en réponse à une série de frappes ukrainiennes en profondeur sur le territoire russe, illustre une spirale d'escalade que des analystes jugent de plus en plus incontrôlable.</description>
+  </item>
   <item>
     <title>Haïti et République dominicaine réaffirment leur volonté de dialogue lors d'une rencontre bilatérale à Dajabón</title>
     <link>https://port-au-princetime.com/articles/haiti-rd-reunion-bilaterale-codevi-dajabon.html</link>
@@ -177,15 +186,6 @@
     <category>Institutions</category>
     <author>PORT-AU-PRINCE TIME</author>
     <description>À quelques semaines du scrutin général, la fin annoncée du mandat du Conseil présidentiel de transition relance les débats sur la suite institutionnelle du processus de sortie de crise en Haïti.</description>
-  </item>
-  <item>
-    <title>Décret électoral : ce que prévoit le texte adopté par le gouvernement de transition</title>
-    <link>https://port-au-princetime.com/articles/decret-electoral-texte-gouvernement-transition.html</link>
-    <guid isPermaLink="true">https://port-au-princetime.com/articles/decret-electoral-texte-gouvernement-transition.html</guid>
-    <pubDate>Tue, 11 Aug 2026 08:00:00 +0000</pubDate>
-    <category>Politique</category>
-    <author>PORT-AU-PRINCE TIME</author>
-    <description>Retour sur les principales dispositions du décret électoral encadrant l'organisation du scrutin général du 30 août 2026, entre encadrement des candidatures et modalités de financement des campagnes.</description>
   </item>
 </channel>
 </rss>

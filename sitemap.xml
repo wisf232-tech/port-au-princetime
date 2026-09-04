@@ -23,6 +23,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://port-au-princetime.com/articles/russie-frappe-siege-sbu-kyiv-escalade-ukraine.html</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://port-au-princetime.com/articles/haiti-rd-reunion-bilaterale-codevi-dajabon.html</loc>
     <lastmod>2026-09-03</lastmod>
     <changefreq>daily</changefreq>
@@ -55,8 +61,8 @@
   <url>
     <loc>https://port-au-princetime.com/articles/mise-au-point-scrutin-reporte-13-decembre.html</loc>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://port-au-princetime.com/articles/economie-rentree-classes-deplaces-mesures.html</loc>
