@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://port-au-princetime.com/</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-05</lastmod>
     <changefreq>hourly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://port-au-princetime.com/actualites.html</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-05</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -21,6 +21,12 @@
     <loc>https://port-au-princetime.com/a-propos.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://port-au-princetime.com/articles/france-abandonne-mercator-eckert-iv-correct-the-map.html</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://port-au-princetime.com/articles/haiti-oea-forbin-renouvellement-force-suppression-gangs.html</loc>
@@ -55,8 +61,8 @@
   <url>
     <loc>https://port-au-princetime.com/articles/pierre-damas-bel-mort-springfield-bracelet-ice.html</loc>
     <lastmod>2026-09-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://port-au-princetime.com/articles/oni-mise-en-garde-employes-fraude-listes-partis.html</loc>

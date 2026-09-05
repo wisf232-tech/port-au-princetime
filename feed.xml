@@ -6,7 +6,16 @@
   <atom:link href="https://port-au-princetime.com/feed.xml" rel="self" type="application/rss+xml" />
   <description>L'actualité politique, électorale, culturelle et communautaire d'Haïti, en temps réel.</description>
   <language>fr-ht</language>
-  <lastBuildDate>Fri, 04 Sep 2026 21:32:59 +0000</lastBuildDate>
+  <lastBuildDate>Sat, 05 Sep 2026 11:40:26 +0000</lastBuildDate>
+  <item>
+    <title>La France abandonne la projection Mercator : vers des cartes du monde plus fidèles aux superficies réelles</title>
+    <link>https://port-au-princetime.com/articles/france-abandonne-mercator-eckert-iv-correct-the-map.html</link>
+    <guid isPermaLink="true">https://port-au-princetime.com/articles/france-abandonne-mercator-eckert-iv-correct-the-map.html</guid>
+    <pubDate>Sat, 05 Sep 2026 08:00:00 +0000</pubDate>
+    <category>International</category>
+    <author>PORT-AU-PRINCE TIME</author>
+    <description>Le 4 septembre 2026, la France a annoncé l'abandon de la projection Mercator au profit de la projection Eckert IV pour ses cartes officielles du monde, au moment même où le Togo soumettait à l'ONU, au nom de l'Union africaine, l'initiative « Correct the Map ». Objectif : des représentations plus fidèles aux superficies réelles de l'Afrique, de l'Amérique latine et de l'Asie du Sud, longtemps rapetissées par une projection vieille de cinq siècles.</description>
+  </item>
   <item>
     <title>À l'OEA, Haïti réclame l'aide promise : le temps des pirouettes diplomatiques est-il révolu ?</title>
     <link>https://port-au-princetime.com/articles/haiti-oea-forbin-renouvellement-force-suppression-gangs.html</link>
@@ -177,15 +186,6 @@
     <category>Sécurité</category>
     <author>PORT-AU-PRINCE TIME</author>
     <description>À l'approche du 30 août, les autorités renforcent le dispositif sécuritaire dans l'aire métropolitaine de Port-au-Prince. Tour d'horizon des mesures annoncées et de leurs limites sur le terrain.</description>
-  </item>
-  <item>
-    <title>Vote de la diaspora : où en sont les discussions sur la participation des Haïtiens de l'étranger</title>
-    <link>https://port-au-princetime.com/articles/vote-diaspora-participation-haitiens-etranger.html</link>
-    <guid isPermaLink="true">https://port-au-princetime.com/articles/vote-diaspora-participation-haitiens-etranger.html</guid>
-    <pubDate>Mon, 10 Aug 2026 08:00:00 +0000</pubDate>
-    <category>Diaspora</category>
-    <author>PORT-AU-PRINCE TIME</author>
-    <description>Faisabilité logistique, cadre légal, sécurisation des bureaux : où en sont réellement les discussions sur la participation de la diaspora haïtienne au scrutin du 30 août 2026 ?</description>
   </item>
 </channel>
 </rss>
