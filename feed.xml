@@ -6,7 +6,16 @@
   <atom:link href="https://port-au-princetime.com/feed.xml" rel="self" type="application/rss+xml" />
   <description>L'actualité politique, électorale, culturelle et communautaire d'Haïti, en temps réel.</description>
   <language>fr-ht</language>
-  <lastBuildDate>Sun, 06 Sep 2026 13:16:28 +0000</lastBuildDate>
+  <lastBuildDate>Sun, 06 Sep 2026 14:42:23 +0000</lastBuildDate>
+  <item>
+    <title>Jerry Tardieu en croisade pour que le vote de la diaspora haïtienne compte enfin</title>
+    <link>https://port-au-princetime.com/articles/jerry-tardieu-combat-vote-diaspora-elections-2026.html</link>
+    <guid isPermaLink="true">https://port-au-princetime.com/articles/jerry-tardieu-combat-vote-diaspora-elections-2026.html</guid>
+    <pubDate>Sun, 06 Sep 2026 08:00:00 +0000</pubDate>
+    <category>Élections</category>
+    <author>PORT-AU-PRINCE TIME</author>
+    <description>Avec la campagne « Vòt Diaspora a Dwe Konte », diffusée le 6 septembre 2026, Jerry Tardieu relance son combat de longue date pour que le vote de la diaspora haïtienne compte réellement dans les prochaines élections. PORT-AU-PRINCE TIME revient sur cette démarche et sur ce qui, à moins de six semaines de la clôture des inscriptions, reste encore à accomplir.</description>
+  </item>
   <item>
     <title>Une jeune femme tuée à la machette, filmée et diffusée : « Èske nou pa moun ankò ? »</title>
     <link>https://port-au-princetime.com/articles/video-jeune-femme-400-mawozo-eske-nou-pa-moun-anko.html</link>
@@ -177,15 +186,6 @@
     <category>Politique</category>
     <author>PORT-AU-PRINCE TIME</author>
     <description>Le CEP confirme le calendrier électoral et détaille les dernières étapes avant l'ouverture des bureaux de vote, malgré les défis logistiques et sécuritaires soulevés par plusieurs regroupements politiques.</description>
-  </item>
-  <item>
-    <title>Plus de 119 partis et regroupements enregistrés : comment s'y retrouver avant le vote</title>
-    <link>https://port-au-princetime.com/articles/119-partis-enregistres-elections-2026.html</link>
-    <guid isPermaLink="true">https://port-au-princetime.com/articles/119-partis-enregistres-elections-2026.html</guid>
-    <pubDate>Wed, 12 Aug 2026 08:00:00 +0000</pubDate>
-    <category>Élections</category>
-    <author>PORT-AU-PRINCE TIME</author>
-    <description>Avec plus de 119 partis et regroupements enregistrés auprès du Conseil électoral provisoire, PORT-AU-PRINCE TIME propose des repères pour comprendre un paysage politique particulièrement fragmenté avant le scrutin du 30 août.</description>
   </item>
 </channel>
 </rss>
