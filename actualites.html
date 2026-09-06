@@ -1342,6 +1342,13 @@ FERMETURE : X Pixel -->
 
     <div class="wire-list">
       <div class="wire-item">
+        <div class="wire-thumb" aria-hidden="true">🕯️</div>
+        <div class="wire-body">
+          <span class="cat">Sécurité • Cri de conscience</span>
+          <h5><a href="articles/video-jeune-femme-400-mawozo-eske-nou-pa-moun-anko.html">Une jeune femme tuée à la machette, filmée et diffusée : « Èske nou pa moun ankò ? »</a></h5>
+        </div>
+      </div>
+      <div class="wire-item">
         <div class="wire-thumb" aria-hidden="true">🗺️</div>
         <div class="wire-body">
           <span class="cat">International • Cartographie</span>
@@ -1525,6 +1532,20 @@ FERMETURE : X Pixel -->
       <a href="#" class="section-link">Voir plus →</a>
     </div>
     <div class="news-grid">
+      <div class="card">
+        <div class="card-media small illus">
+          <span class="tag navy">Sécurité</span>
+          <div class="scene" aria-hidden="true"><img src="articles/images/richard-cave-nou-pa-moun-anko-scene.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+          <span class="illus-label">Nou Pa Moun Ankò</span>
+          <div class="flag-accent"></div>
+        </div>
+        <div class="card-body">
+          <div class="meta"><span>Sécurité</span> • <span>6 septembre 2026</span></div>
+          <h4><a href="articles/video-jeune-femme-400-mawozo-eske-nou-pa-moun-anko.html">Une jeune femme tuée à la machette, filmée et diffusée : « Èske nou pa moun ankò ? »</a></h4>
+          <p>Une vidéo insoutenable a circulé ce week-end, montrant des hommes se présentant comme membres de 400 Mawozo s'en prendre à une jeune femme. Face au choc et à la colère, un retour sur la chanson de Richard Cavé qui semble, chaque jour, se confirmer.</p>
+          <a class="read-more" href="articles/video-jeune-femme-400-mawozo-eske-nou-pa-moun-anko.html">Lire la suite →</a>
+        </div>
+      </div>
       <div class="card">
         <div class="card-media small illus">
           <span class="tag navy">International</span>
@@ -1849,11 +1870,15 @@ FERMETURE : X Pixel -->
       <h3>Restez informé, à l'heure de Port-au-Prince</h3>
       <p>Recevez chaque matin l'essentiel de l'actualité politique et électorale d'Haïti, directement dans votre boîte mail.</p>
     </div>
-    <form class="newsletter-form" id="newsletter-form" onsubmit="return false;">
+    <form class="newsletter-form" id="newsletter-form" action="https://formsubmit.co/redaction@port-au-princetime.com" method="POST">
       <label for="newsletter-email" class="sr-only">Votre adresse e-mail</label>
       <input id="newsletter-email" name="email" type="email" placeholder="Votre adresse e-mail" required>
-      <button type="submit" class="btn btn-gold">S'abonner</button>
-      <p class="newsletter-note" style="width:100%;margin:10px 0 0;font-size:12.5px;color:var(--ink-400);">L'inscription par e-mail sera activée très prochainement — merci de votre patience.</p>
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" value="Nouvel abonné — newsletter PORT-AU-PRINCE TIME">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <button type="submit" class="btn btn-gold" id="newsletter-submit">S'abonner</button>
+      <p class="newsletter-note" id="newsletter-note" style="width:100%;margin:10px 0 0;font-size:12.5px;color:var(--ink-400);">En vous inscrivant, vous acceptez de recevoir nos e-mails d'actualité. Désabonnement possible à tout moment.</p>
     </form>
   </div>
 </section>
@@ -2007,7 +2032,7 @@ FERMETURE : X Pixel -->
   /* ---------- Site search ---------- */
   (function(){
     var SEARCH_PREFIX = "articles/";
-    var SEARCH_INDEX = [{"t": "La France abandonne la projection Mercator : vers des cartes du monde plus fidèles aux superficies réelles", "s": "france-abandonne-mercator-eckert-iv-correct-the-map", "c": "International", "d": "5 septembre 2026"}, {"t": "À l'OEA, Haïti réclame l'aide promise : le temps des pirouettes diplomatiques est-il révolu ?", "s": "haiti-oea-forbin-renouvellement-force-suppression-gangs", "c": "Diplomatie", "d": "4 septembre 2026"}, {"t": "Kyiv frappée en plein jour : la Russie vise le siège du renseignement ukrainien, la spirale d'escalade s'accélère", "s": "russie-frappe-siege-sbu-kyiv-escalade-ukraine", "c": "International", "d": "4 septembre 2026"}, {"t": "Haïti et République dominicaine réaffirment leur volonté de dialogue lors d'une rencontre bilatérale à Dajabón", "s": "haiti-rd-reunion-bilaterale-codevi-dajabon", "c": "Diplomatie", "d": "3 septembre 2026"}, {"t": "Merci, Leo : Lionel Messi tire sa révérence avec l'Argentine, celui qui a tout gagné laisse un vide immense", "s": "leo-messi-retraite-internationale-argentine-hommage", "c": "Sport", "d": "2 septembre 2026"}, {"t": "Élections du 13 décembre : à peine 250 000 électeurs inscrits, Michel Martelly s'enregistre sur la liste électorale", "s": "cep-avancement-inscription-martelly-liste-electorale", "c": "Élections", "d": "2 septembre 2026"}, {"t": "Pierre Damas Bel, 20 ans : la mort d'un espoir haïtien de Springfield bouleverse la diaspora aux États-Unis", "s": "pierre-damas-bel-mort-springfield-bracelet-ice", "c": "Diaspora", "d": "2 septembre 2026"}, {"t": "Fraude aux listes de 30 000 membres : l'ONI met en garde ses employés et durcit ses règles de protection des données", "s": "oni-mise-en-garde-employes-fraude-listes-partis", "c": "Élections", "d": "1er septembre 2026"}, {"t": "Mise au point : le scrutin n'a pas eu lieu le 30 août, le calendrier électoral a été révisé au 13 décembre", "s": "mise-au-point-scrutin-reporte-13-decembre", "c": "Élections", "d": "30 août 2026"}, {"t": "Croissance en trompe-l'œil, rentrée sous tension : ce que l'économie haïtienne doit encore aux familles déplacées", "s": "economie-rentree-classes-deplaces-mesures", "c": "Économie", "d": "30 août 2026"}, {"t": "Forum sur l'armée, silence sur Kenscoff et sur James Boyard : le double langage sécuritaire de l'État", "s": "forum-armee-silence-kenscoff-boyard-etat", "c": "Sécurité", "d": "30 août 2026"}, {"t": "René Depestre, cent ans : l'itinéraire d'un géant de la littérature haïtienne", "s": "rene-depestre-centenaire-portrait", "c": "Culture", "d": "29 août 2026"}, {"t": "Listes de 30 000 membres : une publication virale accuse plusieurs formations politiques de fraude", "s": "controverse-30000-membres-partis-politiques-oni", "c": "Élections", "d": "29 août 2026"}, {"t": "Dimitri Vorbe libéré mais sommé de quitter les États-Unis : le point sur sa situation", "s": "dimitri-vorbe-liberation-incertitude-etats-unis", "c": "Économie", "d": "29 août 2026"}, {"t": "Wisner Laguerre : au service de son pays, sans contrepartie", "s": "wisner-laguerre-portrait", "c": "Portrait", "d": "29 août 2026"}, {"t": "À la veille du scrutin, l'incertitude domine plus que la certitude", "s": "veille-scrutin-incertitude-securite-30-aout", "c": "Élections", "d": "29 août 2026"}, {"t": "Massacre de Kenscoff : ce que révèle l'inaction de l'État face à Viv Ansanm", "s": "massacre-kenscoff-inaction-gouvernement", "c": "Sécurité", "d": "28 août 2026"}, {"t": "À dix-huit jours du scrutin, le Conseil électoral provisoire maintient le cap sur le 30 août", "s": "cep-maintient-cap-30-aout-scrutin", "c": "Politique", "d": "12 août 2026"}, {"t": "Plus de 119 partis et regroupements enregistrés : comment s'y retrouver avant le vote", "s": "119-partis-enregistres-elections-2026", "c": "Élections", "d": "12 août 2026"}, {"t": "Aire métropolitaine : ce que change le renforcement du dispositif sécuritaire avant le scrutin", "s": "securite-aire-metropolitaine-dispositif-electoral", "c": "Sécurité", "d": "11 août 2026"}, {"t": "Vote de la diaspora : où en sont les discussions sur la participation des Haïtiens de l'étranger", "s": "vote-diaspora-participation-haitiens-etranger", "c": "Diaspora", "d": "10 août 2026"}, {"t": "Fin annoncée du mandat du Conseil présidentiel de transition : quelles suites institutionnelles ?", "s": "fin-mandat-conseil-presidentiel-transition", "c": "Institutions", "d": "9 août 2026"}, {"t": "Décret électoral : ce que prévoit le texte adopté par le gouvernement de transition", "s": "decret-electoral-texte-gouvernement-transition", "c": "Politique", "d": "11 août 2026"}, {"t": "Dans les zones affectées par l'insécurité, l'inscription des électeurs reste un défi", "s": "insecurite-inscription-electeurs-defi", "c": "Société", "d": "10 août 2026"}, {"t": "Les partenaires internationaux réitèrent leur soutien au processus électoral haïtien", "s": "partenaires-internationaux-soutien-processus-electoral", "c": "Diplomatie", "d": "9 août 2026"}, {"t": "Le coût de la vie, premier enjeu des campagnes électorales selon les électeurs interrogés", "s": "cout-vie-enjeu-campagnes-electorales", "c": "Économie", "d": "8 août 2026"}, {"t": "Contentieux électoral : le cadre juridique mis en place avant le scrutin", "s": "contentieux-electoral-cadre-juridique", "c": "Justice", "d": "7 août 2026"}, {"t": "Vote à l'étranger : les grandes questions qui restent en suspens", "s": "vote-etranger-questions-suspens", "c": "Diaspora", "d": "6 août 2026"}, {"t": "La nouvelle génération de kompa réinvente la scène port-au-princienne", "s": "nouvelle-generation-kompa-scene-port-au-princienne", "c": "Musique", "d": "5 août 2026"}, {"t": "Sauvegarder le centre historique : un chantier culturel autant que politique", "s": "sauvegarder-centre-historique-chantier-culturel", "c": "Patrimoine", "d": "4 août 2026"}, {"t": "Une exposition collective met à l'honneur les artistes de la relève", "s": "exposition-collective-artistes-releve", "c": "Art", "d": "3 août 2026"}, {"t": "Marchés de quartier : la résilience de l'économie informelle en période électorale", "s": "marches-quartier-resilience-economie-informelle", "c": "Économie", "d": "2 août 2026"}];
+    var SEARCH_INDEX = [{"t": "Une jeune femme tuée à la machette, filmée et diffusée : « Èske nou pa moun ankò ? »", "s": "video-jeune-femme-400-mawozo-eske-nou-pa-moun-anko", "c": "Sécurité", "d": "6 septembre 2026"}, {"t": "La France abandonne la projection Mercator : vers des cartes du monde plus fidèles aux superficies réelles", "s": "france-abandonne-mercator-eckert-iv-correct-the-map", "c": "International", "d": "5 septembre 2026"}, {"t": "À l'OEA, Haïti réclame l'aide promise : le temps des pirouettes diplomatiques est-il révolu ?", "s": "haiti-oea-forbin-renouvellement-force-suppression-gangs", "c": "Diplomatie", "d": "4 septembre 2026"}, {"t": "Kyiv frappée en plein jour : la Russie vise le siège du renseignement ukrainien, la spirale d'escalade s'accélère", "s": "russie-frappe-siege-sbu-kyiv-escalade-ukraine", "c": "International", "d": "4 septembre 2026"}, {"t": "Haïti et République dominicaine réaffirment leur volonté de dialogue lors d'une rencontre bilatérale à Dajabón", "s": "haiti-rd-reunion-bilaterale-codevi-dajabon", "c": "Diplomatie", "d": "3 septembre 2026"}, {"t": "Merci, Leo : Lionel Messi tire sa révérence avec l'Argentine, celui qui a tout gagné laisse un vide immense", "s": "leo-messi-retraite-internationale-argentine-hommage", "c": "Sport", "d": "2 septembre 2026"}, {"t": "Élections du 13 décembre : à peine 250 000 électeurs inscrits, Michel Martelly s'enregistre sur la liste électorale", "s": "cep-avancement-inscription-martelly-liste-electorale", "c": "Élections", "d": "2 septembre 2026"}, {"t": "Pierre Damas Bel, 20 ans : la mort d'un espoir haïtien de Springfield bouleverse la diaspora aux États-Unis", "s": "pierre-damas-bel-mort-springfield-bracelet-ice", "c": "Diaspora", "d": "2 septembre 2026"}, {"t": "Fraude aux listes de 30 000 membres : l'ONI met en garde ses employés et durcit ses règles de protection des données", "s": "oni-mise-en-garde-employes-fraude-listes-partis", "c": "Élections", "d": "1er septembre 2026"}, {"t": "Mise au point : le scrutin n'a pas eu lieu le 30 août, le calendrier électoral a été révisé au 13 décembre", "s": "mise-au-point-scrutin-reporte-13-decembre", "c": "Élections", "d": "30 août 2026"}, {"t": "Croissance en trompe-l'œil, rentrée sous tension : ce que l'économie haïtienne doit encore aux familles déplacées", "s": "economie-rentree-classes-deplaces-mesures", "c": "Économie", "d": "30 août 2026"}, {"t": "Forum sur l'armée, silence sur Kenscoff et sur James Boyard : le double langage sécuritaire de l'État", "s": "forum-armee-silence-kenscoff-boyard-etat", "c": "Sécurité", "d": "30 août 2026"}, {"t": "René Depestre, cent ans : l'itinéraire d'un géant de la littérature haïtienne", "s": "rene-depestre-centenaire-portrait", "c": "Culture", "d": "29 août 2026"}, {"t": "Listes de 30 000 membres : une publication virale accuse plusieurs formations politiques de fraude", "s": "controverse-30000-membres-partis-politiques-oni", "c": "Élections", "d": "29 août 2026"}, {"t": "Dimitri Vorbe libéré mais sommé de quitter les États-Unis : le point sur sa situation", "s": "dimitri-vorbe-liberation-incertitude-etats-unis", "c": "Économie", "d": "29 août 2026"}, {"t": "Wisner Laguerre : au service de son pays, sans contrepartie", "s": "wisner-laguerre-portrait", "c": "Portrait", "d": "29 août 2026"}, {"t": "À la veille du scrutin, l'incertitude domine plus que la certitude", "s": "veille-scrutin-incertitude-securite-30-aout", "c": "Élections", "d": "29 août 2026"}, {"t": "Massacre de Kenscoff : ce que révèle l'inaction de l'État face à Viv Ansanm", "s": "massacre-kenscoff-inaction-gouvernement", "c": "Sécurité", "d": "28 août 2026"}, {"t": "À dix-huit jours du scrutin, le Conseil électoral provisoire maintient le cap sur le 30 août", "s": "cep-maintient-cap-30-aout-scrutin", "c": "Politique", "d": "12 août 2026"}, {"t": "Plus de 119 partis et regroupements enregistrés : comment s'y retrouver avant le vote", "s": "119-partis-enregistres-elections-2026", "c": "Élections", "d": "12 août 2026"}, {"t": "Aire métropolitaine : ce que change le renforcement du dispositif sécuritaire avant le scrutin", "s": "securite-aire-metropolitaine-dispositif-electoral", "c": "Sécurité", "d": "11 août 2026"}, {"t": "Vote de la diaspora : où en sont les discussions sur la participation des Haïtiens de l'étranger", "s": "vote-diaspora-participation-haitiens-etranger", "c": "Diaspora", "d": "10 août 2026"}, {"t": "Fin annoncée du mandat du Conseil présidentiel de transition : quelles suites institutionnelles ?", "s": "fin-mandat-conseil-presidentiel-transition", "c": "Institutions", "d": "9 août 2026"}, {"t": "Décret électoral : ce que prévoit le texte adopté par le gouvernement de transition", "s": "decret-electoral-texte-gouvernement-transition", "c": "Politique", "d": "11 août 2026"}, {"t": "Dans les zones affectées par l'insécurité, l'inscription des électeurs reste un défi", "s": "insecurite-inscription-electeurs-defi", "c": "Société", "d": "10 août 2026"}, {"t": "Les partenaires internationaux réitèrent leur soutien au processus électoral haïtien", "s": "partenaires-internationaux-soutien-processus-electoral", "c": "Diplomatie", "d": "9 août 2026"}, {"t": "Le coût de la vie, premier enjeu des campagnes électorales selon les électeurs interrogés", "s": "cout-vie-enjeu-campagnes-electorales", "c": "Économie", "d": "8 août 2026"}, {"t": "Contentieux électoral : le cadre juridique mis en place avant le scrutin", "s": "contentieux-electoral-cadre-juridique", "c": "Justice", "d": "7 août 2026"}, {"t": "Vote à l'étranger : les grandes questions qui restent en suspens", "s": "vote-etranger-questions-suspens", "c": "Diaspora", "d": "6 août 2026"}, {"t": "La nouvelle génération de kompa réinvente la scène port-au-princienne", "s": "nouvelle-generation-kompa-scene-port-au-princienne", "c": "Musique", "d": "5 août 2026"}, {"t": "Sauvegarder le centre historique : un chantier culturel autant que politique", "s": "sauvegarder-centre-historique-chantier-culturel", "c": "Patrimoine", "d": "4 août 2026"}, {"t": "Une exposition collective met à l'honneur les artistes de la relève", "s": "exposition-collective-artistes-releve", "c": "Art", "d": "3 août 2026"}, {"t": "Marchés de quartier : la résilience de l'économie informelle en période électorale", "s": "marches-quartier-resilience-economie-informelle", "c": "Économie", "d": "2 août 2026"}];
     var toggleBtn = document.getElementById('search-toggle-btn');
     var panel = document.getElementById('search-panel');
     var input = document.getElementById('search-input');
@@ -2087,6 +2112,61 @@ FERMETURE : X Pixel -->
       btn.classList.toggle('is-on', !vid.muted);
       btn.setAttribute('aria-label', vid.muted ? 'Activer le son' : 'Couper le son');
       btn.textContent = vid.muted ? '🔇' : '🔊';
+    });
+  })();
+
+  /* ---------- Newsletter : inscription via FormSubmit (sans backend) ---------- */
+  (function(){
+    var form = document.getElementById('newsletter-form');
+    if(!form) return;
+    var note = document.getElementById('newsletter-note');
+    var submitBtn = document.getElementById('newsletter-submit');
+    var emailInput = document.getElementById('newsletter-email');
+    var defaultNote = note ? note.textContent : '';
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(form.querySelector('[name="_honey"]').value){ return; } // piège à robots
+      var email = emailInput.value.trim();
+      if(!email){ return; }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Envoi…';
+      if(note){ note.style.color = 'var(--ink-400)'; note.textContent = 'Envoi en cours…'; }
+
+      var action = form.getAttribute('action').replace('https://formsubmit.co/', 'https://formsubmit.co/ajax/');
+      var payload = {
+        email: email,
+        _subject: form.querySelector('[name="_subject"]').value,
+        _template: form.querySelector('[name="_template"]').value,
+        _captcha: 'false'
+      };
+
+      fetch(action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function(res){ return res.json().then(function(data){ return {ok: res.ok, data: data}; }); })
+        .then(function(result){
+          if(result.ok){
+            emailInput.value = '';
+            submitBtn.textContent = 'Inscrit ✓';
+            if(note){
+              note.style.color = 'var(--navy-900)';
+              note.textContent = 'Merci ! Votre inscription est enregistrée.';
+            }
+          } else {
+            throw new Error('formsubmit_error');
+          }
+        })
+        .catch(function(){
+          submitBtn.disabled = false;
+          submitBtn.textContent = "S'abonner";
+          if(note){
+            note.style.color = '#b3261e';
+            note.textContent = "Un problème est survenu — réessayez, ou écrivez-nous à redaction@port-au-princetime.com.";
+          }
+        });
     });
   })();
 </script>

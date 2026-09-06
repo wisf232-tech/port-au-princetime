@@ -6,7 +6,16 @@
   <atom:link href="https://port-au-princetime.com/feed.xml" rel="self" type="application/rss+xml" />
   <description>L'actualité politique, électorale, culturelle et communautaire d'Haïti, en temps réel.</description>
   <language>fr-ht</language>
-  <lastBuildDate>Sat, 05 Sep 2026 11:40:26 +0000</lastBuildDate>
+  <lastBuildDate>Sun, 06 Sep 2026 13:16:28 +0000</lastBuildDate>
+  <item>
+    <title>Une jeune femme tuée à la machette, filmée et diffusée : « Èske nou pa moun ankò ? »</title>
+    <link>https://port-au-princetime.com/articles/video-jeune-femme-400-mawozo-eske-nou-pa-moun-anko.html</link>
+    <guid isPermaLink="true">https://port-au-princetime.com/articles/video-jeune-femme-400-mawozo-eske-nou-pa-moun-anko.html</guid>
+    <pubDate>Sun, 06 Sep 2026 08:00:00 +0000</pubDate>
+    <category>Sécurité</category>
+    <author>PORT-AU-PRINCE TIME</author>
+    <description>Le samedi 5 septembre 2026 au soir, une vidéo insoutenable a circulé sur les réseaux sociaux : plusieurs hommes se présentant comme membres du gang 400 Mawozo s'acharnant à la machette sur une jeune femme jusqu'à la tuer. Face à ce choc, PORT-AU-PRINCE TIME s'arrête sur la chanson « Nou Pa Moun Ankò » de Richard Cavé — et sur la question qu'elle nous pose à tous, en Haïti comme dans la diaspora.</description>
+  </item>
   <item>
     <title>La France abandonne la projection Mercator : vers des cartes du monde plus fidèles aux superficies réelles</title>
     <link>https://port-au-princetime.com/articles/france-abandonne-mercator-eckert-iv-correct-the-map.html</link>
@@ -177,15 +186,6 @@
     <category>Élections</category>
     <author>PORT-AU-PRINCE TIME</author>
     <description>Avec plus de 119 partis et regroupements enregistrés auprès du Conseil électoral provisoire, PORT-AU-PRINCE TIME propose des repères pour comprendre un paysage politique particulièrement fragmenté avant le scrutin du 30 août.</description>
-  </item>
-  <item>
-    <title>Aire métropolitaine : ce que change le renforcement du dispositif sécuritaire avant le scrutin</title>
-    <link>https://port-au-princetime.com/articles/securite-aire-metropolitaine-dispositif-electoral.html</link>
-    <guid isPermaLink="true">https://port-au-princetime.com/articles/securite-aire-metropolitaine-dispositif-electoral.html</guid>
-    <pubDate>Tue, 11 Aug 2026 08:00:00 +0000</pubDate>
-    <category>Sécurité</category>
-    <author>PORT-AU-PRINCE TIME</author>
-    <description>À l'approche du 30 août, les autorités renforcent le dispositif sécuritaire dans l'aire métropolitaine de Port-au-Prince. Tour d'horizon des mesures annoncées et de leurs limites sur le terrain.</description>
   </item>
 </channel>
 </rss>
