@@ -111,6 +111,8 @@ FERMETURE : X Pixel -->
     --sunset-peach:#f3dfc0;
     --sky-blue:#dce6ee;
     --red-600:#a3172c;
+    --red-live:#e0122a;
+    --red-live-dark:#b80e21;
     --ink-900:#161a22;
     --ink-600:#4a4f5c;
     --ink-400:#7a8091;
@@ -267,6 +269,31 @@ FERMETURE : X Pixel -->
     color:var(--gold-400);
     border-color:var(--gold-500);
   }
+  /* ---------- Pastille EN DIRECT (nav) ---------- */
+  .nav-live-pill{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--red-live);color:#fff !important;
+    font-weight:800;font-size:12.5px;letter-spacing:.04em;
+    padding:6px 13px;border-radius:999px;
+    box-shadow:0 2px 8px rgba(224,18,42,0.35);
+    border-bottom:none !important;
+  }
+  .nav-live-pill .dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:navlivepulse 1.3s infinite;}
+  @keyframes navlivepulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+  @media (prefers-reduced-motion:reduce){.nav-live-pill .dot{animation:none;}}
+
+  /* ---------- Bandeau ALERTE INFO ---------- */
+  .breaking-bar{background:var(--red-live);border-bottom:2px solid var(--red-live-dark);}
+  .breaking-bar-inner{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:10px 24px;}
+  .breaking-tag{display:inline-flex;align-items:center;gap:7px;flex-shrink:0;background:var(--red-live-dark);color:#fff;font-weight:800;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:4px;}
+  .breaking-dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:navlivepulse 1.3s infinite;}
+  .breaking-link{color:#fff;font-weight:700;font-size:14.5px;line-height:1.35;text-decoration:none;}
+  .breaking-link:hover{text-decoration:underline;}
+  @media (max-width:640px){
+    .breaking-bar-inner{padding:9px 16px;gap:10px;}
+    .breaking-link{font-size:13.5px;}
+  }
+  .rel-time{white-space:nowrap;}
   .header-cta{
     display:flex;
     align-items:center;
@@ -672,6 +699,7 @@ FERMETURE : X Pixel -->
     padding:16px;
   }
   .card-media.small{font-size:12.5px;}
+  .card-media .scene{position:absolute;inset:0;} /* la vignette occupe tout le cadre 16/9 réservé par .card-media, même avant le chargement (lazy) de l'image, pour éviter tout décalage de mise en page */
   .tag{
     position:absolute;
     top:14px;left:14px;
@@ -1118,10 +1146,19 @@ FERMETURE : X Pixel -->
   .article-sources a{color:var(--navy-700);text-decoration:underline;text-underline-offset:2px;word-break:break-word;}
   .article-sources a:hover{color:var(--gold-600);}
 
+  /* ---------- À LA UNE (accueil) ----------
+     (.nav-live-pill, .breaking-bar* et .rel-time sont désormais définis
+     dans le CSS partagé /tmp/site_style_block.css, commun à toutes les
+     pages du site — plus besoin de les dupliquer ici.) */
+  .side-item{text-decoration:none;color:inherit;}
+  .side-item:hover{border-color:var(--gold-500);}
+  .side-item .side-body h5{transition:color .15s ease;}
+  .side-item:hover .side-body h5{color:var(--navy-700);}
+
   /* ---------- Hero (homepage) : wordmark plein cadre, sans illustration ---------- */
   .video-hero{
     position:relative;
-    min-height:60vh;
+    min-height:30vh;
     display:flex;
     align-items:center;
     overflow:hidden;
@@ -1133,27 +1170,39 @@ FERMETURE : X Pixel -->
       radial-gradient(ellipse 900px 680px at 82% 12%, rgba(130,178,255,0.38), transparent 60%),
       radial-gradient(ellipse 640px 560px at 10% 92%, rgba(201,160,78,0.16), transparent 65%);
   }
-  /* Défilement horizontal continu du nom du journal, bandeau en bas du hero */
+  /* Bandeau des derniers titres, défilement horizontal continu, bas du hero */
   .hero-ticker{
     position:absolute; left:0; right:0; bottom:0; z-index:2; height:46px;
     overflow:hidden;
-    background:rgba(5,13,34,0.4);
-    border-top:1px solid rgba(255,255,255,0.18);
+    background:rgba(5,13,34,0.55);
+    border-top:2px solid var(--red-live);
+    display:flex; align-items:center;
   }
+  .hero-ticker-label{
+    flex-shrink:0; display:flex; align-items:center; gap:7px;
+    height:100%; padding:0 16px;
+    background:var(--red-live);
+    font-family:'Source Sans 3',Arial,sans-serif;
+    font-weight:800; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase;
+    color:#fff; white-space:nowrap;
+  }
+  .hero-ticker-label .dot{width:6px;height:6px;border-radius:50%;background:#fff;animation:navlivepulse 1.3s infinite;}
+  .hero-ticker-scroll-area{flex:1; overflow:hidden; height:100%;}
   .hero-ticker-track{
     display:flex; align-items:center; height:100%; width:max-content;
-    animation:hero-ticker-scroll 32s linear infinite;
+    animation:hero-ticker-scroll 42s linear infinite;
     will-change:transform;
   }
-  .hero-ticker-track span{
+  .hero-ticker-track a{
     display:inline-flex; align-items:center; white-space:nowrap;
     font-family:'Source Sans 3',Arial,sans-serif;
-    font-weight:700; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
-    color:rgba(247,242,229,0.55);
-    padding:0 14px;
+    font-weight:700; font-size:13px;
+    color:rgba(247,242,229,0.88);
+    text-decoration:none;
+    padding:0 8px;
   }
-  .hero-ticker-track span em{color:var(--gold-400); font-style:normal; margin-left:.35em;}
-  .hero-ticker-dot{color:rgba(201,160,78,0.55); padding:0 14px;}
+  .hero-ticker-track a:hover{color:#fff; text-decoration:underline;}
+  .hero-ticker-dot{color:var(--gold-400); padding:0 12px; font-size:8px;}
   @keyframes hero-ticker-scroll{
     0%{transform:translateX(0);}
     100%{transform:translateX(-50%);}
@@ -1161,22 +1210,22 @@ FERMETURE : X Pixel -->
   @media (prefers-reduced-motion:reduce){
     .hero-ticker-track{animation:none;}
   }
-  .video-hero-content{position:relative;z-index:2;padding:52px 24px 36px;color:#fff;max-width:840px;}
+  .video-hero-content{position:relative;z-index:2;padding:22px 24px 50px;color:#fff;max-width:840px;}
   .video-hero-clock{
     display:inline-flex;align-items:center;gap:6px;
     background:rgba(8,16,41,0.4);
     border:1px solid rgba(255,255,255,0.25);
-    padding:7px 14px;border-radius:999px;
-    font-size:12.5px;font-weight:700;letter-spacing:.03em;
-    margin-bottom:28px;
+    padding:6px 13px;border-radius:999px;
+    font-size:12px;font-weight:700;letter-spacing:.03em;
+    margin-bottom:10px;
     backdrop-filter:blur(4px);
     color:#fff;
   }
-  .hero-wordmark{margin:0 0 6px;}
+  .hero-wordmark{margin:0 0 2px;}
   .hero-wordmark-line1{
     font-family:'Source Sans 3',Arial,sans-serif;
     font-weight:900;
-    font-size:clamp(46px,9vw,110px);
+    font-size:clamp(30px,6vw,68px);
     line-height:0.96;
     letter-spacing:-0.01em;
     color:#fff;
@@ -1186,7 +1235,7 @@ FERMETURE : X Pixel -->
     font-family:'Playfair Display',Georgia,serif;
     font-style:italic;
     font-weight:800;
-    font-size:clamp(36px,7.2vw,82px);
+    font-size:clamp(23px,4.4vw,50px);
     line-height:1;
     color:var(--gold-400);
     margin-top:-2px;
@@ -1196,16 +1245,16 @@ FERMETURE : X Pixel -->
     font-family:'Playfair Display',Georgia,serif;
     font-style:italic;
     font-weight:600;
-    font-size:clamp(17px,2.1vw,22px);
+    font-size:clamp(14px,1.8vw,18px);
     color:var(--gold-300);
-    margin:14px 0 14px;
-    padding-top:14px;
+    margin:5px 0 5px;
+    padding-top:5px;
     border-top:1px solid rgba(255,255,255,0.22);
     max-width:440px;
   }
   .video-hero-tagline{
-    font-size:clamp(15px,1.7vw,17.5px);line-height:1.6;
-    color:rgba(247,242,229,0.85);max-width:560px;margin:0 0 22px;
+    font-size:clamp(13px,1.4vw,15px);line-height:1.45;
+    color:rgba(247,242,229,0.85);max-width:560px;margin:0 0 12px;
   }
   .video-hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
   .btn-outline-light{
@@ -1231,10 +1280,11 @@ FERMETURE : X Pixel -->
   }
   @media (max-width:768px){
     .video-hero{min-height:auto;}
-    .video-hero-content{padding:84px 20px 64px;}
+    .video-hero-content{padding:40px 20px 50px;}
   }
 
   /* ---------- PAPTIME TV ---------- */
+  #paptimetv{scroll-margin-top:88px;} /* évite que le menu (sticky) ne cache le haut de la section quand "EN DIRECT" y redirige */
   .paptime-tv{background:linear-gradient(165deg,var(--navy-900),var(--navy-800));}
   .paptime-tv .section-header{border-bottom-color:rgba(255,255,255,0.15);}
   .paptime-tv .section-header h3{color:#fff;}
@@ -1378,6 +1428,7 @@ FERMETURE : X Pixel -->
       <a href="actualites.html#culture">Culture</a>
       <a href="actualites.html#evenements">Événements</a>
       <a href="a-propos.html">À propos</a>
+      <a href="#paptimetv" class="nav-live-pill"><span class="dot" aria-hidden="true"></span>EN DIRECT</a>
     </nav>
 
     <div class="header-cta">
@@ -1405,8 +1456,16 @@ FERMETURE : X Pixel -->
     <a href="actualites.html#culture">Culture</a>
     <a href="actualites.html#evenements">Événements</a>
     <a href="a-propos.html">À propos</a>
+    <a href="#paptimetv" class="nav-live-pill"><span class="dot" aria-hidden="true"></span>EN DIRECT</a>
   </div>
 </header>
+
+<div class="breaking-bar" role="note" aria-label="Alerte info">
+  <div class="breaking-bar-inner container">
+    <span class="breaking-tag"><span class="breaking-dot" aria-hidden="true"></span>Alerte info</span>
+    <a href="articles/kushner-witkoff-moscou-kyiv-mission-paix-ukraine.html" class="breaking-link">Kushner et Witkoff entre Moscou et Kyiv : une mission de la dernière chance pour la paix en Ukraine ?</a>
+  </div>
+</div>
 
 <main id="main-content">
 <!-- ============ VIDEO-FORMAT HERO ============ -->
@@ -1425,27 +1484,263 @@ FERMETURE : X Pixel -->
       <a href="actualites.html#elections" class="btn btn-outline-light">Dossier spécial élections</a>
     </div>
   </div>
-  <div class="hero-ticker" aria-hidden="true">
-    <div class="hero-ticker-track">
-      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
-      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
-      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
-      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
-      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
-      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
-      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
-      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
-      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
-      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
-      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
-      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
-      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
-      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
-      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
-      <span>PORT-AU-PRINCE <em>TIME</em></span><span class="hero-ticker-dot">•</span>
+  <div class="hero-ticker">
+    <span class="hero-ticker-label"><span class="dot" aria-hidden="true"></span>Dernières infos</span>
+    <div class="hero-ticker-scroll-area" aria-hidden="true">
+      <div class="hero-ticker-track">
+        <a href="articles/kushner-witkoff-moscou-kyiv-mission-paix-ukraine.html">Kushner et Witkoff entre Moscou et Kyiv : une mission de la dernière chance pour la paix en Ukraine ?</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+        <a href="articles/jerry-tardieu-combat-vote-diaspora-elections-2026.html">Jerry Tardieu en croisade pour que le vote de la diaspora haïtienne compte enfin</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+        <a href="articles/video-jeune-femme-400-mawozo-eske-nou-pa-moun-anko.html">Une jeune femme tuée à la machette, filmée et diffusée : « Èske nou pa moun ankò ? »</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+        <a href="articles/france-abandonne-mercator-eckert-iv-correct-the-map.html">La France abandonne la projection Mercator : vers des cartes du monde plus fidèles aux superficies réelles</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+        <a href="articles/haiti-oea-forbin-renouvellement-force-suppression-gangs.html">À l'OEA, Haïti réclame l'aide promise : le temps des pirouettes diplomatiques est-il révolu ?</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+        <a href="articles/russie-frappe-siege-sbu-kyiv-escalade-ukraine.html">Kyiv frappée en plein jour : la Russie vise le siège du renseignement ukrainien, la spirale d'escalade s'accélère</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+        <a href="articles/haiti-rd-reunion-bilaterale-codevi-dajabon.html">Haïti et République dominicaine réaffirment leur volonté de dialogue lors d'une rencontre bilatérale à Dajabón</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+        <a href="articles/leo-messi-retraite-internationale-argentine-hommage.html">Merci, Leo : Lionel Messi tire sa révérence avec l'Argentine, celui qui a tout gagné laisse un vide immense</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+        <a href="articles/cep-avancement-inscription-martelly-liste-electorale.html">Élections du 13 décembre : à peine 250 000 électeurs inscrits, Michel Martelly s'enregistre sur la liste électorale</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+        <a href="articles/pierre-damas-bel-mort-springfield-bracelet-ice.html">Pierre Damas Bel, 20 ans : la mort d'un espoir haïtien de Springfield bouleverse la diaspora aux États-Unis</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+        <a href="articles/kushner-witkoff-moscou-kyiv-mission-paix-ukraine.html">Kushner et Witkoff entre Moscou et Kyiv : une mission de la dernière chance pour la paix en Ukraine ?</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+        <a href="articles/jerry-tardieu-combat-vote-diaspora-elections-2026.html">Jerry Tardieu en croisade pour que le vote de la diaspora haïtienne compte enfin</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+        <a href="articles/video-jeune-femme-400-mawozo-eske-nou-pa-moun-anko.html">Une jeune femme tuée à la machette, filmée et diffusée : « Èske nou pa moun ankò ? »</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+        <a href="articles/france-abandonne-mercator-eckert-iv-correct-the-map.html">La France abandonne la projection Mercator : vers des cartes du monde plus fidèles aux superficies réelles</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+        <a href="articles/haiti-oea-forbin-renouvellement-force-suppression-gangs.html">À l'OEA, Haïti réclame l'aide promise : le temps des pirouettes diplomatiques est-il révolu ?</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+        <a href="articles/russie-frappe-siege-sbu-kyiv-escalade-ukraine.html">Kyiv frappée en plein jour : la Russie vise le siège du renseignement ukrainien, la spirale d'escalade s'accélère</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+        <a href="articles/haiti-rd-reunion-bilaterale-codevi-dajabon.html">Haïti et République dominicaine réaffirment leur volonté de dialogue lors d'une rencontre bilatérale à Dajabón</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+        <a href="articles/leo-messi-retraite-internationale-argentine-hommage.html">Merci, Leo : Lionel Messi tire sa révérence avec l'Argentine, celui qui a tout gagné laisse un vide immense</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+        <a href="articles/cep-avancement-inscription-martelly-liste-electorale.html">Élections du 13 décembre : à peine 250 000 électeurs inscrits, Michel Martelly s'enregistre sur la liste électorale</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+        <a href="articles/pierre-damas-bel-mort-springfield-bracelet-ice.html">Pierre Damas Bel, 20 ans : la mort d'un espoir haïtien de Springfield bouleverse la diaspora aux États-Unis</a><span class="hero-ticker-dot" aria-hidden="true">●</span>
+      </div>
     </div>
   </div>
   <a href="actualites.html" class="video-hero-scrolldown" aria-label="Voir les actualités">↓</a>
+</section>
+
+<!-- ============ À LA UNE ============ -->
+<section class="section" id="alaune">
+  <div class="container">
+    <div class="section-header">
+      <h3>À la Une</h3>
+      <a href="actualites.html" class="section-link">Toute l'actualité →</a>
+    </div>
+    <div class="featured-grid">
+      <div class="card">
+        <div class="card-media small illus">
+          <span class="tag navy">International</span>
+          <div class="scene" aria-hidden="true"><img src="articles/images/kushner-witkoff-poutine-kremlin-poignee-de-main.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="eager"></div>
+        </div>
+        <div class="card-body">
+          <div class="meta"><span>International</span> • <span class="rel-time" data-iso="2026-09-06">6 septembre 2026</span></div>
+          <h4><a href="articles/kushner-witkoff-moscou-kyiv-mission-paix-ukraine.html">Kushner et Witkoff entre Moscou et Kyiv : une mission de la dernière chance pour la paix en Ukraine ?</a></h4>
+          <p>Trois heures d'entretien avec Vladimir Poutine à Moscou le 5 septembre 2026, puis, dès le lendemain, un premier déplacement à Kyiv pour rencontrer Volodymyr Zelensky…</p>
+          <a class="read-more" href="articles/kushner-witkoff-moscou-kyiv-mission-paix-ukraine.html">Lire la suite →</a>
+        </div>
+      </div>
+      <div class="side-list">
+        <a class="side-item" href="articles/jerry-tardieu-combat-vote-diaspora-elections-2026.html">
+          <div class="side-media" aria-hidden="true">🗳️</div>
+          <div class="side-body">
+            <div class="meta">Élections • <span class="rel-time" data-iso="2026-09-06">6 septembre 2026</span></div>
+            <h5>Jerry Tardieu en croisade pour que le vote de la diaspora haïtienne compte enfin</h5>
+          </div>
+        </a>
+        <a class="side-item" href="articles/video-jeune-femme-400-mawozo-eske-nou-pa-moun-anko.html">
+          <div class="side-media" aria-hidden="true">🚨</div>
+          <div class="side-body">
+            <div class="meta">Sécurité • <span class="rel-time" data-iso="2026-09-06">6 septembre 2026</span></div>
+            <h5>Une jeune femme tuée à la machette, filmée et diffusée : « Èske nou pa moun ankò ? »</h5>
+          </div>
+        </a>
+        <a class="side-item" href="articles/france-abandonne-mercator-eckert-iv-correct-the-map.html">
+          <div class="side-media" aria-hidden="true">🌍</div>
+          <div class="side-body">
+            <div class="meta">International • <span class="rel-time" data-iso="2026-09-05">5 septembre 2026</span></div>
+            <h5>La France abandonne la projection Mercator : vers des cartes du monde plus fidèles aux superficies réelles</h5>
+          </div>
+        </a>
+        <a class="side-item" href="articles/haiti-oea-forbin-renouvellement-force-suppression-gangs.html">
+          <div class="side-media" aria-hidden="true">🤝</div>
+          <div class="side-body">
+            <div class="meta">Diplomatie • <span class="rel-time" data-iso="2026-09-04">4 septembre 2026</span></div>
+            <h5>À l'OEA, Haïti réclame l'aide promise : le temps des pirouettes diplomatiques est-il révolu ?</h5>
+          </div>
+        </a>
+        <a class="side-item" href="articles/russie-frappe-siege-sbu-kyiv-escalade-ukraine.html">
+          <div class="side-media" aria-hidden="true">🌍</div>
+          <div class="side-body">
+            <div class="meta">International • <span class="rel-time" data-iso="2026-09-04">4 septembre 2026</span></div>
+            <h5>Kyiv frappée en plein jour : la Russie vise le siège du renseignement ukrainien, la spirale d'escalade s'accélère</h5>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DERNIÈRES ACTUALITÉS (grille dense) ============ -->
+<section class="section alt">
+  <div class="container">
+    <div class="section-header">
+      <h3>Dernières actualités</h3>
+      <a href="actualites.html#actualites" class="section-link">Voir plus →</a>
+    </div>
+    <div class="news-grid">
+      <div class="card">
+        <div class="card-media small illus">
+          <span class="tag navy">Diplomatie</span>
+          <div class="scene" aria-hidden="true"><img src="articles/images/haiti-rd-reunion-bilaterale-codevi-dajabon.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        </div>
+        <div class="card-body">
+          <div class="meta"><span>Diplomatie</span> • <span class="rel-time" data-iso="2026-09-03">3 septembre 2026</span></div>
+          <h4><a href="articles/haiti-rd-reunion-bilaterale-codevi-dajabon.html">Haïti et République dominicaine réaffirment leur volonté de dialogue lors d'une rencontre bilatérale à Dajabón</a></h4>
+          <p>Les chefs de la diplomatie haïtienne et dominicaine se sont retrouvés mercredi 3 septembre 2026 au parc industriel Codevi, à Dajabón, à la frontière entre les deux pays…</p>
+          <a class="read-more" href="articles/haiti-rd-reunion-bilaterale-codevi-dajabon.html">Lire la suite →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-media small illus">
+          <span class="tag navy">Sport</span>
+          <div class="scene" aria-hidden="true"><img src="articles/images/messi-retraite-trophee-baiser.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        </div>
+        <div class="card-body">
+          <div class="meta"><span>Sport</span> • <span class="rel-time" data-iso="2026-09-02">2 septembre 2026</span></div>
+          <h4><a href="articles/leo-messi-retraite-internationale-argentine-hommage.html">Merci, Leo : Lionel Messi tire sa révérence avec l'Argentine, celui qui a tout gagné laisse un vide immense</a></h4>
+          <p>Il aura fallu vingt ans, huit Ballons d'Or, une Coupe du monde, deux Copa América, une médaille d'or olympique et plus de cent-vingt buts sous le maillot de…</p>
+          <a class="read-more" href="articles/leo-messi-retraite-internationale-argentine-hommage.html">Lire la suite →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-media small illus">
+          <span class="tag navy">Diaspora</span>
+          <div class="scene" aria-hidden="true"><img src="articles/images/pierre-damas-bel-diplome-springfield.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        </div>
+        <div class="card-body">
+          <div class="meta"><span>Diaspora</span> • <span class="rel-time" data-iso="2026-09-02">2 septembre 2026</span></div>
+          <h4><a href="articles/pierre-damas-bel-mort-springfield-bracelet-ice.html">Pierre Damas Bel, 20 ans : la mort d'un espoir haïtien de Springfield bouleverse la diaspora aux États-Unis</a></h4>
+          <p>Pierre Damas Bel voulait devenir médecin. À 20 ans, il venait tout juste d'entamer sa première année de neurosciences et de physiologie à l'université Wright State, dans…</p>
+          <a class="read-more" href="articles/pierre-damas-bel-mort-springfield-bracelet-ice.html">Lire la suite →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-media small illus">
+          <span class="tag navy">Économie</span>
+          <div class="scene" aria-hidden="true"><img src="articles/images/serge-gabriel-collin-ministre-economie-finances.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        </div>
+        <div class="card-body">
+          <div class="meta"><span>Économie</span> • <span class="rel-time" data-iso="2026-08-30">30 août 2026</span></div>
+          <h4><a href="articles/economie-rentree-classes-deplaces-mesures.html">Croissance en trompe-l'œil, rentrée sous tension : ce que l'économie haïtienne doit encore aux familles déplacées</a></h4>
+          <p>Le 7 septembre 2026, plusieurs centaines de milliers d'écoliers haïtiens doivent reprendre le chemin de l'école. Cette rentrée, fixée par le ministère de l'Éducation…</p>
+          <a class="read-more" href="articles/economie-rentree-classes-deplaces-mesures.html">Lire la suite →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-media small illus">
+          <span class="tag navy">Sécurité</span>
+          <div class="scene" aria-hidden="true"><img src="articles/images/publication-boyard-andresol-critique.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        </div>
+        <div class="card-body">
+          <div class="meta"><span>Sécurité</span> • <span class="rel-time" data-iso="2026-08-30">30 août 2026</span></div>
+          <h4><a href="articles/forum-armee-silence-kenscoff-boyard-etat.html">Forum sur l'armée, silence sur Kenscoff et sur James Boyard : le double langage sécuritaire de l'État</a></h4>
+          <p>Trois jours durant, du 21 au 23 août, le ministère de la Défense a réuni à l'hôtel Karibe des dizaines d'officiels, de militaires et d'universitaires autour d'assises…</p>
+          <a class="read-more" href="articles/forum-armee-silence-kenscoff-boyard-etat.html">Lire la suite →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-media small illus">
+          <span class="tag navy">Culture</span>
+          <div class="scene" aria-hidden="true"><img src="articles/images/rene-depestre.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        </div>
+        <div class="card-body">
+          <div class="meta"><span>Culture</span> • <span class="rel-time" data-iso="2026-08-29">29 août 2026</span></div>
+          <h4><a href="articles/rene-depestre-centenaire-portrait.html">René Depestre, cent ans : l'itinéraire d'un géant de la littérature haïtienne</a></h4>
+          <p>Il naît à Jacmel le 29 août 1926. Cent ans jour pour jour, René Depestre reste l'une des voix les plus singulières qu'Haïti ait données à la littérature de langue…</p>
+          <a class="read-more" href="articles/rene-depestre-centenaire-portrait.html">Lire la suite →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ÉLECTIONS 2026 (grille dense) ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h3>Élections 2026</h3>
+      <a href="actualites.html#elections" class="section-link">Dossier complet →</a>
+    </div>
+    <div class="news-grid">
+      <div class="card">
+        <div class="card-media small illus">
+          <span class="tag navy">Élections</span>
+          <div class="scene" aria-hidden="true"><img src="articles/images/michel-martelly-passeports.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        </div>
+        <div class="card-body">
+          <div class="meta"><span>Élections</span> • <span class="rel-time" data-iso="2026-09-02">2 septembre 2026</span></div>
+          <h4><a href="articles/cep-avancement-inscription-martelly-liste-electorale.html">Élections du 13 décembre : à peine 250 000 électeurs inscrits, Michel Martelly s'enregistre sur la liste électorale</a></h4>
+          <p>À un peu plus de trois mois du premier tour du scrutin général, désormais fixé au 13 décembre 2026, le Conseil électoral provisoire (CEP) avance sur plusieurs fronts à…</p>
+          <a class="read-more" href="articles/cep-avancement-inscription-martelly-liste-electorale.html">Lire la suite →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-media small illus">
+          <span class="tag navy">Élections</span>
+          <div class="scene" aria-hidden="true"><img src="articles/images/oni-cep-logos-mise-en-garde.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        </div>
+        <div class="card-body">
+          <div class="meta"><span>Élections</span> • <span class="rel-time" data-iso="2026-09-01">1er septembre 2026</span></div>
+          <h4><a href="articles/oni-mise-en-garde-employes-fraude-listes-partis.html">Fraude aux listes de 30 000 membres : l'ONI met en garde ses employés et durcit ses règles de protection des données</a></h4>
+          <p>L'Office national d'identification (ONI) a adressé, dans la nuit du 31 août au 1er septembre, une note circulaire à l'ensemble de son personnel, lui interdisant…</p>
+          <a class="read-more" href="articles/oni-mise-en-garde-employes-fraude-listes-partis.html">Lire la suite →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-media small illus">
+          <span class="tag navy">Élections</span>
+          <div class="scene" aria-hidden="true"><img src="hero-cover.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        </div>
+        <div class="card-body">
+          <div class="meta"><span>Élections</span> • <span class="rel-time" data-iso="2026-08-30">30 août 2026</span></div>
+          <h4><a href="articles/mise-au-point-scrutin-reporte-13-decembre.html">Mise au point : le scrutin n'a pas eu lieu le 30 août, le calendrier électoral a été révisé au 13 décembre</a></h4>
+          <p>PORT-AU-PRINCE TIME doit une mise au point à ses lecteurs. Plusieurs de nos articles publiés au cours des dernières semaines — sur la préparation du scrutin, la veille…</p>
+          <a class="read-more" href="articles/mise-au-point-scrutin-reporte-13-decembre.html">Lire la suite →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-media small illus">
+          <span class="tag navy">Élections</span>
+          <div class="scene" aria-hidden="true"><img src="articles/images/oni-30000-membres-controverse.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        </div>
+        <div class="card-body">
+          <div class="meta"><span>Élections</span> • <span class="rel-time" data-iso="2026-08-29">29 août 2026</span></div>
+          <h4><a href="articles/controverse-30000-membres-partis-politiques-oni.html">Listes de 30 000 membres : une publication virale accuse plusieurs formations politiques de fraude</a></h4>
+          <p>Une publication partagée sur Facebook, attribuée à un compte se présentant sous le nom « Wendy Phele résistance » et se réclamant du journalisme, accuse plusieurs…</p>
+          <a class="read-more" href="articles/controverse-30000-membres-partis-politiques-oni.html">Lire la suite →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-media small illus">
+          <span class="tag navy">Élections</span>
+          <div class="scene" aria-hidden="true"><img src="articles/images/uder-antoine-cep.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        </div>
+        <div class="card-body">
+          <div class="meta"><span>Élections</span> • <span class="rel-time" data-iso="2026-08-29">29 août 2026</span></div>
+          <h4><a href="articles/veille-scrutin-incertitude-securite-30-aout.html">À la veille du scrutin, l'incertitude domine plus que la certitude</a></h4>
+          <p>À la veille du scrutin général du 30 août, fixé de longue date par le Conseil électoral provisoire, l'incertitude domine davantage que la certitude. Cinq jours seulement…</p>
+          <a class="read-more" href="articles/veille-scrutin-incertitude-securite-30-aout.html">Lire la suite →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-media small illus">
+          <span class="tag navy">Élections</span>
+          <div class="scene" aria-hidden="true"><img src="hero-cover.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        </div>
+        <div class="card-body">
+          <div class="meta"><span>Élections</span> • <span class="rel-time" data-iso="2026-08-12">12 août 2026</span></div>
+          <h4><a href="articles/119-partis-enregistres-elections-2026.html">Plus de 119 partis et regroupements enregistrés : comment s'y retrouver avant le vote</a></h4>
+          <p>Le registre du Conseil électoral provisoire (CEP) recense désormais plus de 119 partis et regroupements politiques habilités à présenter des candidats pour le scrutin…</p>
+          <a class="read-more" href="articles/119-partis-enregistres-elections-2026.html">Lire la suite →</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ============ PAPTIME TV ============ -->
@@ -1458,8 +1753,9 @@ FERMETURE : X Pixel -->
 
     <div class="tv-channels" role="tablist" aria-label="Chaînes PAPTIME TV">
       <button type="button" class="tv-channel-btn active" data-channel="paptime">PAPTIME TV — Fil d'actualité</button>
-      <button type="button" class="tv-channel-btn" data-channel="konpa">Konpa Non-Stop</button>
+      <button type="button" class="tv-channel-btn" data-channel="franceinfo">franceinfo — Actualités en continu</button>
       <button type="button" class="tv-channel-btn" data-channel="france24">France 24 — Actualités internationales</button>
+      <button type="button" class="tv-channel-btn" data-channel="konpa">Konpa Non-Stop</button>
     </div>
 
     <div class="tv-layout">
@@ -1573,7 +1869,7 @@ FERMETURE : X Pixel -->
     const offair = document.getElementById('tv-offair');
     const iframeWrap = document.getElementById('tv-iframe-wrap');
     if(!buttons.length || !offair || !iframeWrap) return;
-    const CHANNEL_EMBEDS = {"paptime": "", "konpa": "https://www.youtube.com/embed/videoseries?list=PLa2YT0pfLpkIyXOC0jWniyxEtpUHInK9x&autoplay=1&mute=1&loop=1", "france24": "https://www.youtube.com/embed/a47ckXKZjxI?autoplay=1&mute=1"};
+    const CHANNEL_EMBEDS = {"paptime": "", "franceinfo": "https://www.youtube.com/embed/NG7ZX42nZKc?autoplay=1&mute=1", "france24": "https://www.youtube.com/embed/a47ckXKZjxI?autoplay=1&mute=1", "konpa": "https://www.youtube.com/embed/videoseries?list=PLa2YT0pfLpkIyXOC0jWniyxEtpUHInK9x&autoplay=1&mute=1&loop=1"};
     buttons.forEach(function(btn){
       btn.addEventListener('click', function(){
         buttons.forEach(function(b){ b.classList.remove('active'); });
@@ -1591,6 +1887,29 @@ FERMETURE : X Pixel -->
         }
       });
     });
+
+    /* ---------- Pastille "EN DIRECT" du menu : redirige vers PAPTIME TV
+       et allume automatiquement la première chaîne réellement en direct
+       (au lieu de laisser l'état "hors antenne" par défaut). Fonctionne
+       aussi bien pour un clic sur cette page que pour une arrivée depuis
+       une autre page du site via index.html#paptimetv. ---------- */
+    const liveIds = Object.keys(CHANNEL_EMBEDS).filter(function(id){ return !!CHANNEL_EMBEDS[id]; });
+    const firstLiveId = liveIds.length ? liveIds[0] : null;
+    function activateFirstLiveChannel(){
+      if(!firstLiveId) return;
+      const targetBtn = document.querySelector('.tv-channel-btn[data-channel="' + firstLiveId + '"]');
+      if(targetBtn && !targetBtn.classList.contains('active')){
+        targetBtn.click();
+      }
+    }
+    if(firstLiveId){
+      document.querySelectorAll('.nav-live-pill').forEach(function(link){
+        link.addEventListener('click', activateFirstLiveChannel);
+      });
+      if(window.location.hash === '#paptimetv'){
+        activateFirstLiveChannel();
+      }
+    }
   })();
 
   const menuToggleBtn = document.getElementById('menu-toggle-btn');
@@ -1650,6 +1969,33 @@ FERMETURE : X Pixel -->
     }
     window.addEventListener('scroll', onScroll, {passive:true});
     update();
+  })();
+
+  /* ---------- Dates relatives (jour près) : "Aujourd'hui" / "Hier" / "Il y a N jours" ----------
+     Les dates de articles_data.py sont au jour près (pas d'heure précise) :
+     on ne calcule donc que des libellés au jour près, jamais de fausses
+     minutes/heures. Au-delà de 6 jours, on garde la date fixe déjà affichée. */
+  (function(){
+    var relEls = document.querySelectorAll('.rel-time[data-iso]');
+    if(!relEls.length) return;
+    function haitiToday(){
+      var now = new Date();
+      var utc = now.getTime() + (now.getTimezoneOffset()*60000);
+      var h = new Date(utc - 5*3600000);
+      return new Date(h.getFullYear(), h.getMonth(), h.getDate());
+    }
+    var today = haitiToday();
+    relEls.forEach(function(el){
+      var iso = el.getAttribute('data-iso');
+      if(!iso) return;
+      var bits = iso.split('-').map(Number);
+      if(bits.length !== 3 || bits.some(isNaN)) return;
+      var d = new Date(bits[0], bits[1]-1, bits[2]);
+      var diffDays = Math.round((today - d) / 86400000);
+      if(diffDays === 0){ el.textContent = "Aujourd'hui"; }
+      else if(diffDays === 1){ el.textContent = "Hier"; }
+      else if(diffDays >= 2 && diffDays <= 6){ el.textContent = "Il y a " + diffDays + " jours"; }
+    });
   })();
 
   /* ---------- Site search ---------- */

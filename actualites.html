@@ -110,6 +110,8 @@ FERMETURE : X Pixel -->
     --sunset-peach:#f3dfc0;
     --sky-blue:#dce6ee;
     --red-600:#a3172c;
+    --red-live:#e0122a;
+    --red-live-dark:#b80e21;
     --ink-900:#161a22;
     --ink-600:#4a4f5c;
     --ink-400:#7a8091;
@@ -266,6 +268,31 @@ FERMETURE : X Pixel -->
     color:var(--gold-400);
     border-color:var(--gold-500);
   }
+  /* ---------- Pastille EN DIRECT (nav) ---------- */
+  .nav-live-pill{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--red-live);color:#fff !important;
+    font-weight:800;font-size:12.5px;letter-spacing:.04em;
+    padding:6px 13px;border-radius:999px;
+    box-shadow:0 2px 8px rgba(224,18,42,0.35);
+    border-bottom:none !important;
+  }
+  .nav-live-pill .dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:navlivepulse 1.3s infinite;}
+  @keyframes navlivepulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+  @media (prefers-reduced-motion:reduce){.nav-live-pill .dot{animation:none;}}
+
+  /* ---------- Bandeau ALERTE INFO ---------- */
+  .breaking-bar{background:var(--red-live);border-bottom:2px solid var(--red-live-dark);}
+  .breaking-bar-inner{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:10px 24px;}
+  .breaking-tag{display:inline-flex;align-items:center;gap:7px;flex-shrink:0;background:var(--red-live-dark);color:#fff;font-weight:800;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:4px;}
+  .breaking-dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:navlivepulse 1.3s infinite;}
+  .breaking-link{color:#fff;font-weight:700;font-size:14.5px;line-height:1.35;text-decoration:none;}
+  .breaking-link:hover{text-decoration:underline;}
+  @media (max-width:640px){
+    .breaking-bar-inner{padding:9px 16px;gap:10px;}
+    .breaking-link{font-size:13.5px;}
+  }
+  .rel-time{white-space:nowrap;}
   .header-cta{
     display:flex;
     align-items:center;
@@ -1236,6 +1263,7 @@ FERMETURE : X Pixel -->
       <a href="#culture">Culture</a>
       <a href="#evenements">Événements</a>
       <a href="a-propos.html">À propos</a>
+      <a href="index.html#paptimetv" class="nav-live-pill"><span class="dot" aria-hidden="true"></span>EN DIRECT</a>
     </nav>
 
     <div class="header-cta">
@@ -1263,8 +1291,18 @@ FERMETURE : X Pixel -->
     <a href="#culture">Culture</a>
     <a href="#evenements">Événements</a>
     <a href="a-propos.html">À propos</a>
+    <a href="index.html#paptimetv" class="nav-live-pill"><span class="dot" aria-hidden="true"></span>EN DIRECT</a>
   </div>
 </header>
+
+<!-- Bandeau "Alerte info" : à mettre à jour manuellement (lien + titre) à chaque
+     nouvel article mis en avant — reprend ici le même article que index.html. -->
+<div class="breaking-bar" role="note" aria-label="Alerte info">
+  <div class="breaking-bar-inner container">
+    <span class="breaking-tag"><span class="breaking-dot" aria-hidden="true"></span>Alerte info</span>
+    <a href="articles/kushner-witkoff-moscou-kyiv-mission-paix-ukraine.html" class="breaking-link">Kushner et Witkoff entre Moscou et Kyiv : une mission de la dernière chance pour la paix en Ukraine ?</a>
+  </div>
+</div>
 
 <!-- ============ CATEGORY STRIP ============ -->
 <nav class="category-nav" aria-label="Rubriques">
@@ -1554,7 +1592,7 @@ FERMETURE : X Pixel -->
           <div class="flag-accent"></div>
         </div>
         <div class="card-body">
-          <div class="meta"><span>International</span> • <span>6 septembre 2026</span></div>
+          <div class="meta"><span>International</span> • <span class="rel-time" data-iso="2026-09-06">6 septembre 2026</span></div>
           <h4><a href="articles/kushner-witkoff-moscou-kyiv-mission-paix-ukraine.html">Kushner et Witkoff entre Moscou et Kyiv : une mission de la dernière chance pour la paix en Ukraine ?</a></h4>
           <p>Après trois heures d'entretien avec Poutine à Moscou, les envoyés américains sont arrivés à Kyiv pour rencontrer Zelensky — une relance diplomatique après plus de quatre ans et demi d'une guerre qui a déjà coûté des centaines de milliers de vies.</p>
           <a class="read-more" href="articles/kushner-witkoff-moscou-kyiv-mission-paix-ukraine.html">Lire la suite →</a>
@@ -1568,7 +1606,7 @@ FERMETURE : X Pixel -->
           <div class="flag-accent"></div>
         </div>
         <div class="card-body">
-          <div class="meta"><span>Élections</span> • <span>6 septembre 2026</span></div>
+          <div class="meta"><span>Élections</span> • <span class="rel-time" data-iso="2026-09-06">6 septembre 2026</span></div>
           <h4><a href="articles/jerry-tardieu-combat-vote-diaspora-elections-2026.html">Jerry Tardieu en croisade pour que le vote de la diaspora haïtienne compte enfin</a></h4>
           <p>Dans un message diffusé le 6 septembre, Jerry Tardieu relance son combat de longue date pour que le vote de la diaspora compte réellement — alors qu'à moins de six semaines de la clôture des inscriptions, aucun mécanisme concret n'est encore en place.</p>
           <a class="read-more" href="articles/jerry-tardieu-combat-vote-diaspora-elections-2026.html">Lire la suite →</a>
@@ -1582,7 +1620,7 @@ FERMETURE : X Pixel -->
           <div class="flag-accent"></div>
         </div>
         <div class="card-body">
-          <div class="meta"><span>Sécurité</span> • <span>6 septembre 2026</span></div>
+          <div class="meta"><span>Sécurité</span> • <span class="rel-time" data-iso="2026-09-06">6 septembre 2026</span></div>
           <h4><a href="articles/video-jeune-femme-400-mawozo-eske-nou-pa-moun-anko.html">Une jeune femme tuée à la machette, filmée et diffusée : « Èske nou pa moun ankò ? »</a></h4>
           <p>Une vidéo insoutenable a circulé ce week-end, montrant des hommes se présentant comme membres de 400 Mawozo s'en prendre à une jeune femme. Face au choc et à la colère, un retour sur la chanson de Richard Cavé qui semble, chaque jour, se confirmer.</p>
           <a class="read-more" href="articles/video-jeune-femme-400-mawozo-eske-nou-pa-moun-anko.html">Lire la suite →</a>
@@ -1596,7 +1634,7 @@ FERMETURE : X Pixel -->
           <div class="flag-accent"></div>
         </div>
         <div class="card-body">
-          <div class="meta"><span>International</span> • <span>5 septembre 2026</span></div>
+          <div class="meta"><span>International</span> • <span class="rel-time" data-iso="2026-09-05">5 septembre 2026</span></div>
           <h4><a href="articles/france-abandonne-mercator-eckert-iv-correct-the-map.html">La France abandonne la projection Mercator : vers des cartes du monde plus fidèles aux superficies réelles</a></h4>
           <p>La France adopte la projection Eckert IV, le jour même où le Togo soumettait à l'ONU, au nom de l'Union africaine, l'initiative « Correct the Map ». En jeu : des cartes qui ne rapetissent plus l'Afrique, l'Amérique latine et l'Asie du Sud.</p>
           <a class="read-more" href="articles/france-abandonne-mercator-eckert-iv-correct-the-map.html">Lire la suite →</a>
@@ -1610,7 +1648,7 @@ FERMETURE : X Pixel -->
           <div class="flag-accent"></div>
         </div>
         <div class="card-body">
-          <div class="meta"><span>Diplomatie</span> • <span>4 septembre 2026</span></div>
+          <div class="meta"><span>Diplomatie</span> • <span class="rel-time" data-iso="2026-09-04">4 septembre 2026</span></div>
           <h4><a href="articles/haiti-oea-forbin-renouvellement-force-suppression-gangs.html">À l'OEA, Haïti réclame l'aide promise : le temps des pirouettes diplomatiques est-il révolu ?</a></h4>
           <p>Devant l'OEA, la ministre Raina Forbin a plaidé pour le renouvellement de la Force de suppression des gangs avant son expiration le 30 septembre. Entre promesses répétées et résultats insuffisants, PAPTIME interroge le temps venu d'une diplomatie haïtienne plus offensive et plus souveraine.</p>
           <a class="read-more" href="articles/haiti-oea-forbin-renouvellement-force-suppression-gangs.html">Lire la suite →</a>
@@ -1624,7 +1662,7 @@ FERMETURE : X Pixel -->
           <div class="flag-accent"></div>
         </div>
         <div class="card-body">
-          <div class="meta"><span>International</span> • <span>4 septembre 2026</span></div>
+          <div class="meta"><span>International</span> • <span class="rel-time" data-iso="2026-09-04">4 septembre 2026</span></div>
           <h4><a href="articles/russie-frappe-siege-sbu-kyiv-escalade-ukraine.html">Kyiv frappée en plein jour : la Russie vise le siège du renseignement ukrainien, la spirale d'escalade s'accélère</a></h4>
           <p>Un drone russe a visé le 4 septembre le siège du SBU en plein Kyiv, en réponse à une série de frappes ukrainiennes en profondeur sur le territoire russe. Des analystes redoutent une escalade de plus en plus incontrôlable.</p>
           <a class="read-more" href="articles/russie-frappe-siege-sbu-kyiv-escalade-ukraine.html">Lire la suite →</a>
@@ -1638,7 +1676,7 @@ FERMETURE : X Pixel -->
           <div class="flag-accent"></div>
         </div>
         <div class="card-body">
-          <div class="meta"><span>Diplomatie</span> • <span>3 septembre 2026</span></div>
+          <div class="meta"><span>Diplomatie</span> • <span class="rel-time" data-iso="2026-09-03">3 septembre 2026</span></div>
           <h4><a href="articles/haiti-rd-reunion-bilaterale-codevi-dajabon.html">Haïti et République dominicaine réaffirment leur volonté de dialogue lors d'une rencontre bilatérale à Dajabón</a></h4>
           <p>Les chancelleries haïtienne et dominicaine se sont retrouvées au parc industriel Codevi pour relancer le dialogue sur la sécurité frontalière, la migration et le commerce — un geste d'ouverture prudent, entre espoir et obstacles persistants.</p>
           <a class="read-more" href="articles/haiti-rd-reunion-bilaterale-codevi-dajabon.html">Lire la suite →</a>
@@ -1652,7 +1690,7 @@ FERMETURE : X Pixel -->
           <div class="flag-accent"></div>
         </div>
         <div class="card-body">
-          <div class="meta"><span>Sport</span> • <span>2 septembre 2026</span></div>
+          <div class="meta"><span>Sport</span> • <span class="rel-time" data-iso="2026-09-02">2 septembre 2026</span></div>
           <h4><a href="articles/leo-messi-retraite-internationale-argentine-hommage.html">Merci, Leo : Lionel Messi tire sa révérence avec l'Argentine, celui qui a tout gagné laisse un vide immense</a></h4>
           <p>Un mois après la finale perdue du Mondial 2026 et la mort de son père, Lionel Messi a annoncé la fin de sa carrière internationale avec l'Argentine. Retour sur celui que beaucoup considèrent comme le plus grand joueur de tous les temps.</p>
           <a class="read-more" href="articles/leo-messi-retraite-internationale-argentine-hommage.html">Lire la suite →</a>
@@ -1666,7 +1704,7 @@ FERMETURE : X Pixel -->
           <div class="flag-accent"></div>
         </div>
         <div class="card-body">
-          <div class="meta"><span>Élections</span> • <span>2 septembre 2026</span></div>
+          <div class="meta"><span>Élections</span> • <span class="rel-time" data-iso="2026-09-02">2 septembre 2026</span></div>
           <h4><a href="articles/cep-avancement-inscription-martelly-liste-electorale.html">Élections du 13 décembre : à peine 250 000 électeurs inscrits, Michel Martelly s'enregistre sur la liste électorale</a></h4>
           <p>Le CEP ne recense qu'environ 250 000 électeurs inscrits après un mois de registre. Dans ce contexte, l'ancien président s'est inscrit comme électeur — sans annoncer de candidature, et toujours sous sanctions américaines et canadiennes.</p>
           <a class="read-more" href="articles/cep-avancement-inscription-martelly-liste-electorale.html">Lire la suite →</a>
@@ -1680,7 +1718,7 @@ FERMETURE : X Pixel -->
           <div class="flag-accent"></div>
         </div>
         <div class="card-body">
-          <div class="meta"><span>Diaspora</span> • <span>2 septembre 2026</span></div>
+          <div class="meta"><span>Diaspora</span> • <span class="rel-time" data-iso="2026-09-02">2 septembre 2026</span></div>
           <h4><a href="articles/pierre-damas-bel-mort-springfield-bracelet-ice.html">Pierre Damas Bel, 20 ans : la mort d'un espoir haïtien de Springfield bouleverse la diaspora aux États-Unis</a></h4>
           <p>Il voulait devenir médecin. Diplômé avec mention, tout juste admis à l'université, il est mort quelques semaines après avoir reçu un bracelet électronique de l'ICE — entre l'échec d'un État haïtien incapable de retenir sa jeunesse et l'hostilité d'une Amérique qui n'a pas su la protéger.</p>
           <a class="read-more" href="articles/pierre-damas-bel-mort-springfield-bracelet-ice.html">Lire la suite →</a>
@@ -1694,7 +1732,7 @@ FERMETURE : X Pixel -->
           <div class="flag-accent"></div>
         </div>
         <div class="card-body">
-          <div class="meta"><span>Élections</span> • <span>1er septembre 2026</span></div>
+          <div class="meta"><span>Élections</span> • <span class="rel-time" data-iso="2026-09-01">1er septembre 2026</span></div>
           <h4><a href="articles/oni-mise-en-garde-employes-fraude-listes-partis.html">Fraude aux listes de 30 000 membres : l'ONI met en garde ses employés et durcit ses règles de protection des données</a></h4>
           <p>Une note circulaire interdit à son personnel toute utilisation irrégulière des données, après le signalement d'anomalies dans les NINU utilisés pour constituer les listes de membres des partis.</p>
           <a class="read-more" href="articles/oni-mise-en-garde-employes-fraude-listes-partis.html">Lire la suite →</a>
@@ -1708,7 +1746,7 @@ FERMETURE : X Pixel -->
           <div class="flag-accent"></div>
         </div>
         <div class="card-body">
-          <div class="meta"><span>Politique</span> • <span>11 août 2026</span></div>
+          <div class="meta"><span>Politique</span> • <span class="rel-time" data-iso="2026-08-11">11 août 2026</span></div>
           <h4><a href="articles/decret-electoral-texte-gouvernement-transition.html">Décret électoral : ce que prévoit le texte adopté par le gouvernement de transition</a></h4>
           <p>Retour sur les principales dispositions du décret encadrant l'organisation du scrutin général, entre encadrement des candidatures et modalités de financement des campagnes.</p>
           <a class="read-more" href="articles/decret-electoral-texte-gouvernement-transition.html">Lire la suite →</a>
@@ -1722,7 +1760,7 @@ FERMETURE : X Pixel -->
           <div class="flag-accent"></div>
         </div>
         <div class="card-body">
-          <div class="meta"><span>Société</span> • <span>10 août 2026</span></div>
+          <div class="meta"><span>Société</span> • <span class="rel-time" data-iso="2026-08-10">10 août 2026</span></div>
           <h4><a href="articles/insecurite-inscription-electeurs-defi.html">Dans les zones affectées par l'insécurité, l'inscription des électeurs reste un défi</a></h4>
           <p>À quelques semaines du vote, plusieurs centres d'inscription peinent encore à fonctionner normalement dans certaines communes de l'aire métropolitaine.</p>
           <a class="read-more" href="articles/insecurite-inscription-electeurs-defi.html">Lire la suite →</a>
@@ -1736,7 +1774,7 @@ FERMETURE : X Pixel -->
           <div class="flag-accent"></div>
         </div>
         <div class="card-body">
-          <div class="meta"><span>Diplomatie</span> • <span>9 août 2026</span></div>
+          <div class="meta"><span>Diplomatie</span> • <span class="rel-time" data-iso="2026-08-09">9 août 2026</span></div>
           <h4><a href="articles/partenaires-internationaux-soutien-processus-electoral.html">Les partenaires internationaux réitèrent leur soutien au processus électoral haïtien</a></h4>
           <p>Plusieurs missions diplomatiques et organisations régionales ont exprimé leur appui à la tenue du scrutin dans un climat sécurisé et transparent.</p>
           <a class="read-more" href="articles/partenaires-internationaux-soutien-processus-electoral.html">Lire la suite →</a>
@@ -1750,7 +1788,7 @@ FERMETURE : X Pixel -->
           <div class="flag-accent"></div>
         </div>
         <div class="card-body">
-          <div class="meta"><span>Économie</span> • <span>8 août 2026</span></div>
+          <div class="meta"><span>Économie</span> • <span class="rel-time" data-iso="2026-08-08">8 août 2026</span></div>
           <h4><a href="articles/cout-vie-enjeu-campagnes-electorales.html">Le coût de la vie, premier enjeu des campagnes électorales selon les électeurs interrogés</a></h4>
           <p>Inflation, accès aux produits de première nécessité et relance des activités commerciales figurent parmi les préoccupations exprimées par les Port-au-Princiens.</p>
           <a class="read-more" href="articles/cout-vie-enjeu-campagnes-electorales.html">Lire la suite →</a>
@@ -1765,7 +1803,7 @@ FERMETURE : X Pixel -->
           <div class="flag-accent"></div>
         </div>
         <div class="card-body">
-          <div class="meta"><span>Justice</span> • <span>7 août 2026</span></div>
+          <div class="meta"><span>Justice</span> • <span class="rel-time" data-iso="2026-08-07">7 août 2026</span></div>
           <h4><a href="articles/contentieux-electoral-cadre-juridique.html">Contentieux électoral : le cadre juridique mis en place avant le scrutin</a></h4>
           <p>Présentation des mécanismes prévus pour traiter les recours et contestations liés à l'enregistrement des candidatures.</p>
           <a class="read-more" href="articles/contentieux-electoral-cadre-juridique.html">Lire la suite →</a>
@@ -1779,7 +1817,7 @@ FERMETURE : X Pixel -->
           <div class="flag-accent"></div>
         </div>
         <div class="card-body">
-          <div class="meta"><span>Diaspora</span> • <span>6 août 2026</span></div>
+          <div class="meta"><span>Diaspora</span> • <span class="rel-time" data-iso="2026-08-06">6 août 2026</span></div>
           <h4><a href="articles/vote-etranger-questions-suspens.html">Vote à l'étranger : les grandes questions qui restent en suspens</a></h4>
           <p>Faisabilité logistique, sécurisation des bureaux et calendrier : le point sur les discussions concernant la participation de la diaspora.</p>
           <a class="read-more" href="articles/vote-etranger-questions-suspens.html">Lire la suite →</a>
@@ -2047,6 +2085,33 @@ FERMETURE : X Pixel -->
     }
     window.addEventListener('scroll', onScroll, {passive:true});
     update();
+  })();
+
+  /* ---------- Dates relatives (jour près) : "Aujourd'hui" / "Hier" / "Il y a N jours" ----------
+     Les dates de articles_data.py sont au jour près (pas d'heure précise) :
+     on ne calcule donc que des libellés au jour près, jamais de fausses
+     minutes/heures. Au-delà de 6 jours, on garde la date fixe déjà affichée. */
+  (function(){
+    var relEls = document.querySelectorAll('.rel-time[data-iso]');
+    if(!relEls.length) return;
+    function haitiToday(){
+      var now = new Date();
+      var utc = now.getTime() + (now.getTimezoneOffset()*60000);
+      var h = new Date(utc - 5*3600000);
+      return new Date(h.getFullYear(), h.getMonth(), h.getDate());
+    }
+    var today = haitiToday();
+    relEls.forEach(function(el){
+      var iso = el.getAttribute('data-iso');
+      if(!iso) return;
+      var bits = iso.split('-').map(Number);
+      if(bits.length !== 3 || bits.some(isNaN)) return;
+      var d = new Date(bits[0], bits[1]-1, bits[2]);
+      var diffDays = Math.round((today - d) / 86400000);
+      if(diffDays === 0){ el.textContent = "Aujourd'hui"; }
+      else if(diffDays === 1){ el.textContent = "Hier"; }
+      else if(diffDays >= 2 && diffDays <= 6){ el.textContent = "Il y a " + diffDays + " jours"; }
+    });
   })();
 
   /* ---------- Micro-interactions: scroll reveal ---------- */

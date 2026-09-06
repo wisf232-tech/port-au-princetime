@@ -114,6 +114,8 @@ FERMETURE : X Pixel -->
     --sunset-peach:#f3dfc0;
     --sky-blue:#dce6ee;
     --red-600:#a3172c;
+    --red-live:#e0122a;
+    --red-live-dark:#b80e21;
     --ink-900:#161a22;
     --ink-600:#4a4f5c;
     --ink-400:#7a8091;
@@ -270,6 +272,31 @@ FERMETURE : X Pixel -->
     color:var(--gold-400);
     border-color:var(--gold-500);
   }
+  /* ---------- Pastille EN DIRECT (nav) ---------- */
+  .nav-live-pill{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--red-live);color:#fff !important;
+    font-weight:800;font-size:12.5px;letter-spacing:.04em;
+    padding:6px 13px;border-radius:999px;
+    box-shadow:0 2px 8px rgba(224,18,42,0.35);
+    border-bottom:none !important;
+  }
+  .nav-live-pill .dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:navlivepulse 1.3s infinite;}
+  @keyframes navlivepulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+  @media (prefers-reduced-motion:reduce){.nav-live-pill .dot{animation:none;}}
+
+  /* ---------- Bandeau ALERTE INFO ---------- */
+  .breaking-bar{background:var(--red-live);border-bottom:2px solid var(--red-live-dark);}
+  .breaking-bar-inner{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:10px 24px;}
+  .breaking-tag{display:inline-flex;align-items:center;gap:7px;flex-shrink:0;background:var(--red-live-dark);color:#fff;font-weight:800;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:4px;}
+  .breaking-dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:navlivepulse 1.3s infinite;}
+  .breaking-link{color:#fff;font-weight:700;font-size:14.5px;line-height:1.35;text-decoration:none;}
+  .breaking-link:hover{text-decoration:underline;}
+  @media (max-width:640px){
+    .breaking-bar-inner{padding:9px 16px;gap:10px;}
+    .breaking-link{font-size:13.5px;}
+  }
+  .rel-time{white-space:nowrap;}
   .header-cta{
     display:flex;
     align-items:center;
@@ -675,6 +702,7 @@ FERMETURE : X Pixel -->
     padding:16px;
   }
   .card-media.small{font-size:12.5px;}
+  .card-media .scene{position:absolute;inset:0;} /* la vignette occupe tout le cadre 16/9 réservé par .card-media, même avant le chargement (lazy) de l'image, pour éviter tout décalage de mise en page */
   .tag{
     position:absolute;
     top:14px;left:14px;
@@ -1358,6 +1386,7 @@ FERMETURE : X Pixel -->
       <a href="../actualites.html#culture">Culture</a>
       <a href="../actualites.html#evenements">Événements</a>
       <a href="../a-propos.html">À propos</a>
+      <a href="../index.html#paptimetv" class="nav-live-pill"><span class="dot" aria-hidden="true"></span>EN DIRECT</a>
     </nav>
 
     <div class="header-cta">
@@ -1385,8 +1414,18 @@ FERMETURE : X Pixel -->
     <a href="../actualites.html#culture">Culture</a>
     <a href="../actualites.html#evenements">Événements</a>
     <a href="../a-propos.html">À propos</a>
+    <a href="../index.html#paptimetv" class="nav-live-pill"><span class="dot" aria-hidden="true"></span>EN DIRECT</a>
   </div>
 </header>
+
+<!-- Bandeau "Alerte info" : reprend systématiquement l'article le plus
+     récent (all_articles[0]), comme sur la page d'accueil. -->
+<div class="breaking-bar" role="note" aria-label="Alerte info">
+  <div class="breaking-bar-inner container">
+    <span class="breaking-tag"><span class="breaking-dot" aria-hidden="true"></span>Alerte info</span>
+    <a href="kushner-witkoff-moscou-kyiv-mission-paix-ukraine.html" class="breaking-link">Kushner et Witkoff entre Moscou et Kyiv : une mission de la dernière chance pour la paix en Ukraine ?</a>
+  </div>
+</div>
 
 <!-- ============ CATEGORY STRIP ============ -->
 <nav class="category-nav" aria-label="Rubriques">
