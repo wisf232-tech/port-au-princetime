@@ -6,7 +6,16 @@
   <atom:link href="https://port-au-princetime.com/feed.xml" rel="self" type="application/rss+xml" />
   <description>L'actualité politique, électorale, culturelle et communautaire d'Haïti, en temps réel.</description>
   <language>fr-ht</language>
-  <lastBuildDate>Sun, 06 Sep 2026 14:42:23 +0000</lastBuildDate>
+  <lastBuildDate>Sun, 06 Sep 2026 15:16:13 +0000</lastBuildDate>
+  <item>
+    <title>Kushner et Witkoff entre Moscou et Kyiv : une mission de la dernière chance pour la paix en Ukraine ?</title>
+    <link>https://port-au-princetime.com/articles/kushner-witkoff-moscou-kyiv-mission-paix-ukraine.html</link>
+    <guid isPermaLink="true">https://port-au-princetime.com/articles/kushner-witkoff-moscou-kyiv-mission-paix-ukraine.html</guid>
+    <pubDate>Sun, 06 Sep 2026 08:00:00 +0000</pubDate>
+    <category>International</category>
+    <author>PORT-AU-PRINCE TIME</author>
+    <description>Après trois heures d'entretien avec Vladimir Poutine à Moscou, les envoyés américains Jared Kushner et Steve Witkoff sont arrivés à Kyiv le 6 septembre 2026 pour rencontrer Volodymyr Zelensky. PORT-AU-PRINCE TIME revient sur cette relance diplomatique, après plus de quatre ans et demi d'une guerre qui a déjà coûté des centaines de milliers de vies.</description>
+  </item>
   <item>
     <title>Jerry Tardieu en croisade pour que le vote de la diaspora haïtienne compte enfin</title>
     <link>https://port-au-princetime.com/articles/jerry-tardieu-combat-vote-diaspora-elections-2026.html</link>
@@ -177,15 +186,6 @@
     <category>Sécurité</category>
     <author>PORT-AU-PRINCE TIME</author>
     <description>Dans la nuit du 23 au 24 août, une attaque de la coalition Viv Ansanm à Kenscoff a fait au moins 47 morts. Analyse d'une tragédie annoncée et de la réponse tardive des autorités haïtiennes.</description>
-  </item>
-  <item>
-    <title>À dix-huit jours du scrutin, le Conseil électoral provisoire maintient le cap sur le 30 août</title>
-    <link>https://port-au-princetime.com/articles/cep-maintient-cap-30-aout-scrutin.html</link>
-    <guid isPermaLink="true">https://port-au-princetime.com/articles/cep-maintient-cap-30-aout-scrutin.html</guid>
-    <pubDate>Wed, 12 Aug 2026 08:00:00 +0000</pubDate>
-    <category>Politique</category>
-    <author>PORT-AU-PRINCE TIME</author>
-    <description>Le CEP confirme le calendrier électoral et détaille les dernières étapes avant l'ouverture des bureaux de vote, malgré les défis logistiques et sécuritaires soulevés par plusieurs regroupements politiques.</description>
   </item>
 </channel>
 </rss>
