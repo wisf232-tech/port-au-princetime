@@ -6,7 +6,16 @@
   <atom:link href="https://port-au-princetime.com/feed.xml" rel="self" type="application/rss+xml" />
   <description>L'actualité politique, électorale, culturelle et communautaire d'Haïti, en temps réel.</description>
   <language>fr-ht</language>
-  <lastBuildDate>Sun, 06 Sep 2026 15:16:13 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 09 Sep 2026 07:18:37 +0000</lastBuildDate>
+  <item>
+    <title>Enlèvements en hausse en Haïti : la directrice de l'ONAPE et Me Caleb Jean-Baptiste enlevés dans le département de l'Artibonite</title>
+    <link>https://port-au-princetime.com/articles/haiti-hausse-kidnappings-impunite-gangs-paultre-jean-baptiste.html</link>
+    <guid isPermaLink="true">https://port-au-princetime.com/articles/haiti-hausse-kidnappings-impunite-gangs-paultre-jean-baptiste.html</guid>
+    <pubDate>Wed, 09 Sep 2026 08:00:00 +0000</pubDate>
+    <category>Sécurité</category>
+    <author>PORT-AU-PRINCE TIME</author>
+    <description>Stéphanie Paultre (ONAPE) et Me Caleb Jean-Baptiste enlevés en Artibonite le 8 septembre 2026, aux côtés de deux policiers : PORT-AU-PRINCE TIME revient sur la hausse des enlèvements en Haïti et interroge la réelle volonté de l'État à combattre des chefs de gang qui, eux, circulent en toute impunité.</description>
+  </item>
   <item>
     <title>Kushner et Witkoff entre Moscou et Kyiv : une mission de la dernière chance pour la paix en Ukraine ?</title>
     <link>https://port-au-princetime.com/articles/kushner-witkoff-moscou-kyiv-mission-paix-ukraine.html</link>
@@ -177,15 +186,6 @@
     <category>Élections</category>
     <author>PORT-AU-PRINCE TIME</author>
     <description>À la veille du scrutin du 30 août, l'incertitude domine : cinq jours après le massacre de Kenscoff, le CEP maintient le cap tandis que l'insécurité et l'inaction de l'État interrogent la tenue réelle du vote.</description>
-  </item>
-  <item>
-    <title>Massacre de Kenscoff : ce que révèle l'inaction de l'État face à Viv Ansanm</title>
-    <link>https://port-au-princetime.com/articles/massacre-kenscoff-inaction-gouvernement.html</link>
-    <guid isPermaLink="true">https://port-au-princetime.com/articles/massacre-kenscoff-inaction-gouvernement.html</guid>
-    <pubDate>Fri, 28 Aug 2026 08:00:00 +0000</pubDate>
-    <category>Sécurité</category>
-    <author>PORT-AU-PRINCE TIME</author>
-    <description>Dans la nuit du 23 au 24 août, une attaque de la coalition Viv Ansanm à Kenscoff a fait au moins 47 morts. Analyse d'une tragédie annoncée et de la réponse tardive des autorités haïtiennes.</description>
   </item>
 </channel>
 </rss>
