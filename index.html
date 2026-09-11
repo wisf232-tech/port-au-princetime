@@ -1797,6 +1797,26 @@ FERMETURE : X Pixel -->
     </div>
   </div>
 </section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="newsletter" id="newsletter">
+  <div class="container">
+    <div>
+      <h3>Restez informé, à l'heure de Port-au-Prince</h3>
+      <p>Recevez chaque matin l'essentiel de l'actualité politique et électorale d'Haïti, directement dans votre boîte mail.</p>
+    </div>
+    <form class="newsletter-form" id="newsletter-form" action="https://formsubmit.co/redaction@port-au-princetime.com" method="POST">
+      <label for="newsletter-email" class="sr-only">Votre adresse e-mail</label>
+      <input id="newsletter-email" name="email" type="email" placeholder="Votre adresse e-mail" required>
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" value="Nouvel abonné — newsletter PORT-AU-PRINCE TIME">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <button type="submit" class="btn btn-gold" id="newsletter-submit">S'abonner</button>
+      <p class="newsletter-note" id="newsletter-note" style="width:100%;margin:10px 0 0;font-size:12.5px;color:var(--ink-400);">En vous inscrivant, vous acceptez de recevoir nos e-mails d'actualité. Désabonnement possible à tout moment.</p>
+    </form>
+  </div>
+</section>
 </main>
 
 <!-- ============ FOOTER ============ -->
@@ -1997,6 +2017,59 @@ FERMETURE : X Pixel -->
       if(diffDays === 0){ el.textContent = "Aujourd'hui"; }
       else if(diffDays === 1){ el.textContent = "Hier"; }
       else if(diffDays >= 2 && diffDays <= 6){ el.textContent = "Il y a " + diffDays + " jours"; }
+    });
+  })();
+  /* ---------- Newsletter : inscription via FormSubmit (Phase 1 — capture) ---------- */
+  (function(){
+    var form = document.getElementById('newsletter-form');
+    if(!form) return;
+    var note = document.getElementById('newsletter-note');
+    var submitBtn = document.getElementById('newsletter-submit');
+    var emailInput = document.getElementById('newsletter-email');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(form.querySelector('[name="_honey"]').value){ return; } // piège à robots
+      var email = emailInput.value.trim();
+      if(!email){ return; }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Envoi…';
+      if(note){ note.style.color = 'var(--ink-400)'; note.textContent = 'Envoi en cours…'; }
+
+      var action = form.getAttribute('action').replace('https://formsubmit.co/', 'https://formsubmit.co/ajax/');
+      var payload = {
+        email: email,
+        _subject: form.querySelector('[name="_subject"]').value,
+        _template: form.querySelector('[name="_template"]').value,
+        _captcha: 'false'
+      };
+
+      fetch(action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function(res){ return res.json().then(function(data){ return {ok: res.ok, data: data}; }); })
+        .then(function(result){
+          if(result.ok){
+            emailInput.value = '';
+            submitBtn.textContent = 'Inscrit ✓';
+            if(note){
+              note.style.color = 'var(--navy-900)';
+              note.textContent = 'Merci ! Votre inscription est enregistrée.';
+            }
+          } else {
+            throw new Error('formsubmit_error');
+          }
+        })
+        .catch(function(){
+          submitBtn.disabled = false;
+          submitBtn.textContent = "S'abonner";
+          if(note){
+            note.style.color = '#b3261e';
+            note.textContent = "Un problème est survenu — réessayez, ou écrivez-nous à redaction@port-au-princetime.com.";
+          }
+        });
     });
   })();
 
