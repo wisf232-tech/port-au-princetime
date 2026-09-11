@@ -6,7 +6,16 @@
   <atom:link href="https://port-au-princetime.com/feed.xml" rel="self" type="application/rss+xml" />
   <description>L'actualité politique, électorale, culturelle et communautaire d'Haïti, en temps réel.</description>
   <language>fr-ht</language>
-  <lastBuildDate>Fri, 11 Sep 2026 15:08:05 +0000</lastBuildDate>
+  <lastBuildDate>Fri, 11 Sep 2026 14:18:24 +0000</lastBuildDate>
+  <item>
+    <title>« Un massacre électoral en préparation » : à trois mois du scrutin, la vraie question est la volonté de l'État</title>
+    <link>https://port-au-princetime.com/articles/tribune-etat-gangs-volonte-reelle-elections-13-decembre.html</link>
+    <guid isPermaLink="true">https://port-au-princetime.com/articles/tribune-etat-gangs-volonte-reelle-elections-13-decembre.html</guid>
+    <pubDate>Fri, 11 Sep 2026 08:00:00 +0000</pubDate>
+    <category>Sécurité</category>
+    <author>PORT-AU-PRINCE TIME</author>
+    <description>À trois mois du premier tour du 13 décembre, les gangs étendent leur emprise, la Force de répression n'est déployée qu'à un cinquième de ses effectifs, et l'opposition évoque déjà un « massacre électoral ». Tribune de PORT-AU-PRINCE TIME sur la volonté réelle de l'État de sortir Haïti de l'impasse — par le dialogue ou par l'action, mais plus par le seul discours.</description>
+  </item>
   <item>
     <title>Haïti « annexée » sur une carte, expulsée dans les faits : le message contradictoire de Trump</title>
     <link>https://port-au-princetime.com/articles/haiti-carte-trump-annexion-symbolique-fin-tps.html</link>
@@ -177,15 +186,6 @@
     <category>Culture</category>
     <author>PORT-AU-PRINCE TIME</author>
     <description>Né à Jacmel le 29 août 1926, l'écrivain René Depestre fête aujourd'hui ses cent ans. Retour sur l'itinéraire d'exil, d'engagement et d'écriture d'un homme qui a porté Haïti sur la scène littéraire mondiale.</description>
-  </item>
-  <item>
-    <title>Listes de 30 000 membres : une publication virale accuse plusieurs formations politiques de fraude</title>
-    <link>https://port-au-princetime.com/articles/controverse-30000-membres-partis-politiques-oni.html</link>
-    <guid isPermaLink="true">https://port-au-princetime.com/articles/controverse-30000-membres-partis-politiques-oni.html</guid>
-    <pubDate>Sat, 29 Aug 2026 08:00:00 +0000</pubDate>
-    <category>Élections</category>
-    <author>PORT-AU-PRINCE TIME</author>
-    <description>Une publication Facebook attribuée à un dénommé Wendy Phele accuse plusieurs formations politiques d'avoir gonflé artificiellement leurs listes de 30 000 adhérents grâce à des données de l'ONI. Aucune preuve n'a été rendue publique à ce stade.</description>
   </item>
 </channel>
 </rss>
