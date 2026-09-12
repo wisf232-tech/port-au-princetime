@@ -238,14 +238,14 @@ FERMETURE : X Pixel -->
     position:relative;
   }
   .brand-badge svg{width:22px;height:22px;}
-  .brand-text h1{
+  .brand-text .brand-name{
     font-size:18px;
     color:var(--cream-50);
     letter-spacing:.02em;
     line-height:1.15;
     white-space:nowrap;
   }
-  .brand-text h1 span{color:var(--gold-400);}
+  .brand-text .brand-name span{color:var(--gold-400);}
   .brand-text .tagline{
     font-size:11px;
     color:rgba(247,242,229,0.6);
@@ -1010,7 +1010,7 @@ FERMETURE : X Pixel -->
     .menu-toggle{display:block;}
     .hero-headline{font-size:26px;}
     .brand-text .tagline{display:none;}
-    .brand-text h1{font-size:14px;white-space:normal;line-height:1.25;}
+    .brand-text .brand-name{font-size:14px;white-space:normal;line-height:1.25;}
     .header-inner{gap:8px;padding:10px 14px;}
     .brand{gap:8px;min-width:0;}
     .brand-badge{width:34px;height:34px;}
@@ -1051,13 +1051,13 @@ FERMETURE : X Pixel -->
   .header-inner{transition:padding .25s cubic-bezier(.4,0,.2,1);}
   .brand-badge{transition:width .25s cubic-bezier(.4,0,.2,1), height .25s cubic-bezier(.4,0,.2,1);}
   .brand-badge svg{transition:width .25s cubic-bezier(.4,0,.2,1), height .25s cubic-bezier(.4,0,.2,1);}
-  .brand-text h1{transition:font-size .25s cubic-bezier(.4,0,.2,1);}
+  .brand-text .brand-name{transition:font-size .25s cubic-bezier(.4,0,.2,1);}
   .brand-text .tagline{transition:opacity .2s ease, max-height .25s ease, margin-top .25s ease; max-height:20px; overflow:hidden;}
   header.site-header.is-scrolled{box-shadow:0 6px 20px rgba(0,25,80,0.3);}
   header.site-header.is-scrolled .header-inner{padding:7px 24px;}
   header.site-header.is-scrolled .brand-badge{width:32px;height:32px;}
   header.site-header.is-scrolled .brand-badge svg{width:18px;height:18px;}
-  header.site-header.is-scrolled .brand-text h1{font-size:15.5px;}
+  header.site-header.is-scrolled .brand-text .brand-name{font-size:15.5px;}
   header.site-header.is-scrolled .brand-text .tagline{opacity:0;max-height:0;margin-top:0;}
 
   /* Buttons: fluid hover / press feedback */
@@ -1124,7 +1124,7 @@ FERMETURE : X Pixel -->
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
     .reveal{opacity:1 !important;transform:none !important;transition:none !important;}
-    header.site-header, .header-inner, .brand-badge, .brand-badge svg, .brand-text h1, .brand-text .tagline,
+    header.site-header, .header-inner, .brand-badge, .brand-badge svg, .brand-text .brand-name, .brand-text .tagline,
     .btn, .btn-icon, .btn-outline, .event-cta, .read-more, .news-grid .card, .culture-card, .stat-card,
     .wire-item, .side-article-list a, .article-share a, .article-tags a, a{
       transition:none !important;
@@ -1372,7 +1372,7 @@ FERMETURE : X Pixel -->
         </svg>
       </div>
       <div class="brand-text">
-        <h1>PORT&#8209;AU&#8209;PRINCE <span>TIME</span></h1>
+        <p class="brand-name">PORT&#8209;AU&#8209;PRINCE <span>TIME</span></p>
         <div class="tagline">L'Actualité en Temps Réel, la Culture &amp; la Communauté</div>
       </div>
       </a>
