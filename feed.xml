@@ -6,7 +6,25 @@
   <atom:link href="https://port-au-princetime.com/feed.xml" rel="self" type="application/rss+xml" />
   <description>L'actualité politique, électorale, culturelle et communautaire d'Haïti, en temps réel.</description>
   <language>fr-ht</language>
-  <lastBuildDate>Sat, 12 Sep 2026 12:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Tue, 15 Sep 2026 15:00:00 +0000</lastBuildDate>
+  <item>
+    <title>Élections du 13 décembre, vraiment ? Pourquoi mon scepticisme grandit à mesure que l'insécurité s'aggrave</title>
+    <link>https://port-au-princetime.com/articles/editorial-scepticisme-elections-13-decembre-insecurite.html</link>
+    <guid isPermaLink="true">https://port-au-princetime.com/articles/editorial-scepticisme-elections-13-decembre-insecurite.html</guid>
+    <pubDate>Tue, 15 Sep 2026 15:00:00 +0000</pubDate>
+    <category>Éditorial</category>
+    <author>Wisner Laguerre</author>
+    <description>Département de l'Ouest exclu de l'inscription électorale, massacre de Kenscoff, 70 % de Port-au-Prince sous emprise des gangs : éditorial sur les raisons d'un scepticisme grandissant quant à la tenue réelle du scrutin du 13 décembre 2026.</description>
+  </item>
+  <item>
+    <title>« Un massacre électoral en préparation » : à trois mois du scrutin, la vraie question est la volonté de l'État</title>
+    <link>https://port-au-princetime.com/articles/tribune-etat-gangs-volonte-reelle-elections-13-decembre.html</link>
+    <guid isPermaLink="true">https://port-au-princetime.com/articles/tribune-etat-gangs-volonte-reelle-elections-13-decembre.html</guid>
+    <pubDate>Fri, 11 Sep 2026 10:00:00 +0000</pubDate>
+    <category>Sécurité</category>
+    <author>PORT-AU-PRINCE TIME</author>
+    <description>Tribune : à trois mois du scrutin du 13 décembre, la vraie question n'est pas technique mais politique — l'État a-t-il la volonté réelle d'organiser des élections sûres et crédibles ?</description>
+  </item>
   <item>
     <title>Gary Bodeau, candidat de REKONSILYE : profil, chances et poids politique d'un habitué du pouvoir</title>
     <link>https://port-au-princetime.com/articles/gary-bodeau-rekonsilye-candidature-presidentielle.html</link>
